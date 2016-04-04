@@ -14,7 +14,7 @@
             <div class="center wow fadeInDown">
                 <h2>Login</h2>
                 <div class="features">
-                    <form class="form-horizontal">
+                    <form id="login_form" class="form-horizontal">
                         <fieldset>
 
                             <!-- Text input-->
@@ -22,7 +22,7 @@
                                 <label class="col-md-4 control-label" for="username">Username</label>
                                 <div class="col-md-4">
                                     <input id="username" name="username" type="text" placeholder="username"
-                                           class="form-control input-md" required="">
+                                           class="form-control input-md" minlength="6" required>
 
                                 </div>
                             </div>
@@ -32,7 +32,7 @@
                                 <label class="col-md-4 control-label" for="password">Password</label>
                                 <div class="col-md-4">
                                     <input id="password" name="password" type="password" placeholder="password"
-                                           class="form-control input-md" required="">
+                                           class="form-control input-md" minlength="6" required>
 
                                 </div>
                             </div>
@@ -66,40 +66,40 @@
                 <hr>
                 <h2>Join us</h2>
                 <div class="features">
-                    <form class="form-horizontal">
+                    <form id="register_form" class="form-horizontal">
                         <fieldset>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">First name</label>
+                                <label class="col-md-4 control-label" for="fname">First name</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="First name"
-                                           class="form-control input-md" required="">
+                                    <input id="fname" name="fname" type="text" placeholder="First name"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Middle name</label>
+                                <label class="col-md-4 control-label" for="mname">Middle name</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="Middle name"
-                                           class="form-control input-md" required="">
+                                    <input id="mname" name="mname" type="text" placeholder="Middle name"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Last name</label>
+                                <label class="col-md-4 control-label" for="lname">Last name</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="Last name"
-                                           class="form-control input-md" required="">
+                                    <input id="lname" name="lname" type="text" placeholder="Last name"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Organization</label>
+                                <label class="col-md-4 control-label" for="company">Organization</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text"
+                                    <input id="company" name="company" type="text"
                                            placeholder="eg: ABC LTD, or keep blank"
                                            class="form-control input-md">
 
@@ -107,10 +107,10 @@
                             </div>
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Contact number</label>
+                                <label class="col-md-4 control-label" for="tel">Contact number</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="eg: 0712345678"
-                                           class="form-control input-md">
+                                    <input id="tel" name="tel" type="text" placeholder="eg: 0712345678"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
@@ -131,17 +131,17 @@
                                 <label class="col-md-4 control-label" for="password">Password</label>
                                 <div class="col-md-4">
                                     <input id="password" name="password" type="password" placeholder="password"
-                                           class="form-control input-md" required="">
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
 
                             <!-- Confirm password input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="password">Confirm password</label>
+                                <label class="col-md-4 control-label" for="cpassword">Confirm password</label>
                                 <div class="col-md-4">
-                                    <input id="password" name="password" type="password" placeholder="retype password"
-                                           class="form-control input-md" required="">
+                                    <input id="cpassword" name="cpassword" type="password" placeholder="retype password"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="singlebutton"></label>
                                 <div class="col-md-4">
-                                    <button id="" name="" class="btn btn-default">Sign-up
+                                    <button class="btn btn-default">Sign-up
                                     </button>
                                 </div>
                             </div>
@@ -162,4 +162,36 @@
             </div>
         </div>
     </section>
+    <script>
+        $(document).ready(function(){
+            $("#login_form").validate();
+            $("#register_form").validate({
+                rules:{
+                    cpassword:{
+                        equalTo: $('#register_form').find("#password"),
+                        minlength:6
+                    },
+                    username:{
+                        minlength:6
+                    },
+                    password:{
+                        minlength:6
+                    },
+                    tel:{
+                        digits:true,
+                        minlength:10,
+                        maxlength:10
+                    }
+                },
+                messages:{
+                    cpassword:{
+                        equalTo: 'Passwords do not match'
+                    },
+                    tel:{
+                        minlength:'Please enter a valid telephone number'
+                    }
+                }
+            });
+        });
+    </script>
 @endsection

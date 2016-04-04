@@ -9,6 +9,7 @@
 
 @extends('layouts.master')
 @section('title','Welcome to HackOverflow')
+@section('homepage','homepage')
 
 @section('body_content')
     <section id="main-slider" class="no-margin">

@@ -31,6 +31,10 @@ Route::get('/others', function () {
     return view('otherevents');
 });
 
+Route::get('/hackathons/view/{id}', function ($id) {
+    return view('viewHack', ['hackID' => $id]);
+});
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

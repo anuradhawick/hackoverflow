@@ -17,7 +17,7 @@
                         @for($i=0;$i<5;$i++)
                             <div class="blog-item">
                                 <div class="row">
-                                    <div class="col-xs-12 col-sm-4 text-center">
+                                    <div class="col-sm-4 text-center">
                                         <div class="entry-meta">
                                             <span id="publish_date">07/03/2016</span>
                                             <span><i class="fa fa-user"></i> <a href="#">WSO2</a></span>
@@ -26,11 +26,14 @@
                                         </div>
                                     </div>
 
-                                    <div class="col-xs-12 col-sm-8 blog-content">
+                                    <div class="col-sm-8 blog-content">
                                         {{--<a href="#"><img class="img-responsive img-blog" src="images/blog/blog1.jpg"--}}
                                         {{--width="100%" alt=""/></a>--}}
                                         <h2 class="text-left"><a href=""> Hackathon Name {{$i+1}}</a></h2>
                                         <h3 class="text-left">Hackathon details are as like this.Hackathon details are as like thisHackathon details are as like thisHackathon details are as like thisHackathon details are as like thisHackathon details are as like thisHackathon details are as like this</h3>
+
+                                    </div>
+                                    <div class="col-sm-2 col-sm-offset-10">
                                         <a class="btn btn-primary readmore" href="blog-item.html">Read More <i
                                                     class="fa fa-angle-right"></i></a>
                                     </div>

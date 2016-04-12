@@ -13,11 +13,12 @@ class CreateCommondataTable extends Migration
      */
     public function up()
     {
-        Schema::create('commons',function(Blueprint $table){
+        Schema::create('commons', function (Blueprint $table) {
             $table->integer('com_id')->unsigned();
             $table->string('flier_url');
             $table->string('comment_id');
             $table->text('tags');
+            $table->string('comment_uuid');
             $table->foreign('com_id')->references('event_id')->on('events');
         });
     }

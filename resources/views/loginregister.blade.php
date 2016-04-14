@@ -53,8 +53,8 @@
                             <!-- Button -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="singlebutton"></label>
-                                <div class="col-md-4">
-                                    <button id="" name="" class="btn btn-default">Login
+                                <div class="col-md-1 col-sm-offset-3">
+                                    <button id="" name="" class="btn btn-default btn-block">Login
                                     </button>
                                 </div>
                             </div>
@@ -149,8 +149,8 @@
                             <!-- Button -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="singlebutton"></label>
-                                <div class="col-md-4">
-                                    <button class="btn btn-default">Sign-up
+                                <div class="col-md-1 col-sm-offset-3">
+                                    <button class="btn btn-default btn-block">Sign-up
                                     </button>
                                 </div>
                             </div>

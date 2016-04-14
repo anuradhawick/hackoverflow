@@ -31,8 +31,16 @@ Route::get('/others', function () {
     return view('otherevents');
 });
 
-Route::get('/hackathons/view/{id}', function ($id) {
-    return view('viewHack', ['hackID' => $id]);
+Route::get('/{type}/view/{id}', function ($type, $id) {
+    return view('viewEvent', ['hackID' => $id, 'type' => $type]);
+});
+
+Route::get('/forum/post', function () {
+    return view('postForum');
+});
+
+Route::get('/forum/post/{id}', function ($id) {
+    return view('forumArticles', ['id' => $id]);
 });
 
 /*

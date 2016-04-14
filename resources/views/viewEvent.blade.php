@@ -6,7 +6,7 @@
  * Time: 4:05 PM
  */ ?>
 @extends('layouts.master')
-@section('title','Upcoming Hackathons')
+@section('title','Upcoming ' . $type)
 @section('hackathon','active')
 @section('body_content')
     <br>

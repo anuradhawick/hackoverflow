@@ -88,9 +88,23 @@
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="@yield('hackathon')"><a href="/hackathons">Hackathons</a></li>
-                    <li class="@yield('meet')"><a href="/meetups">Meet-Up Events</a></li>
-                    <li class="@yield('other')"><a href="/others">Other Events</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i
+                                    class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="@yield('hackathon')"><a href="/hackathons">Hackathon</a></li>
+                            <li class="@yield('meet')"><a href="/meetups">Meet-Up</a></li>
+                            <li class="@yield('other')"><a href="/others">Other</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <i
+                                    class="fa fa-angle-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li class="@yield('forum')"><a href="/forum">View </a></li>
+                            <li class="@yield('forum_post')"><a href="/forum/post">New post</a></li>
+                        </ul>
+                    </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post Event <i
                                     class="fa fa-angle-down"></i></a>

@@ -13,6 +13,7 @@ class CreateHackeventsTable extends Migration
     public function up()
     {
         Schema::create('hackathons',function(Blueprint $table){
+            $table->increments('id');
             $table->integer('hack_id')->unsigned();
             $table->text('participant_info');
             $table->text('reward');
@@ -20,7 +21,7 @@ class CreateHackeventsTable extends Migration
             $table->integer('team_count');
             $table->integer('max_per_team_no');
             $table->integer('min_per_team_no');
-            $table->foreign('hack_id')->references('event_id')->on('events');
+            $table->foreign('hack_id')->references('id')->on('events');
         });
     }
 

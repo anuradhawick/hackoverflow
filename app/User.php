@@ -6,21 +6,22 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
+    protected $table = 'users';
+    public $timestamps = false;
 
     /**
-     * The attributes excluded from the model's JSON form.
-     *
-     * @var array
+     * @return Forum_post
      */
-    protected $hidden = [
-        'password', 'remember_token',
-    ];
+    public function forum_posts()
+    {
+        return $this->hasMany('App\Forum_post', 'user_id', 'id');
+    }
+
+    /**
+     * @return Event
+     */
+    public function events()
+    {
+        return $this->hasMany('App\Event', 'user_id', 'id');
+    }
 }

@@ -2,9 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Illuminate\Support\Facades\Schema;
 
-class CreateEventsTable extends Migration
+class CreateForumpostsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +12,12 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::create('forum_posts', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('name');
-            $table->string('type');
+            $table->string('title');
+            $table->string('post');
+            $table->string('uuid');
             $table->foreign('user_id')->references('id')->on('users');
         });
     }
@@ -29,6 +29,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('forum_posts');
     }
 }

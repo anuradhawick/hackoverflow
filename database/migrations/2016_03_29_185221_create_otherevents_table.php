@@ -14,11 +14,12 @@ class CreateOthereventsTable extends Migration
     public function up()
     {
         Schema::create('other_events', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('others_id')->unsigned();
             $table->text('participant_info');
             $table->text('duration');
             $table->integer('head_count');
-            $table->foreign('others_id')->references('event_id')->on('events');
+            $table->foreign('others_id')->references('id')->on('events');
         });
     }
 

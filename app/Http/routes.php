@@ -43,6 +43,8 @@ Route::get('/forum/post/{id}', function ($id) {
     return view('forumArticles', ['id' => $id]);
 });
 
+Route::get('/test/', ['uses' => 'test@test']);
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes

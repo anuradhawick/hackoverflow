@@ -19,7 +19,7 @@ class CreateCommondataTable extends Migration
             $table->string('comment_id');
             $table->text('tags');
             $table->string('comment_uuid');
-            $table->foreign('com_id')->references('event_id')->on('events');
+            $table->foreign('com_id')->references('id')->on('events');
         });
     }
 

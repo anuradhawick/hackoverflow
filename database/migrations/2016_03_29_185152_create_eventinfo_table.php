@@ -19,7 +19,7 @@ class CreateEventinfoTable extends Migration
             $table->date('reg_deadline');
             $table->date('event_date');
             $table->text('description');
-            $table->foreign('info_id')->references('event_id')->on('events');
+            $table->foreign('info_id')->references('id')->on('events');
         });
     }
 

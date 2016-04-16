@@ -13,6 +13,7 @@ class CreateEventinfoTable extends Migration
     public function up()
     {
         Schema::create('event_info', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('info_id')->unsigned();
             $table->string('organizer');
             $table->string('venue');

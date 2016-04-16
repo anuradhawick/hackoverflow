@@ -16,7 +16,7 @@
             <div class="col-md-12">
                 <h2>Create new forum post</h2>
                 <hr>
-                <form id="forum_form" class="form-horizontal">
+                <form id="forum_form" class="form-horizontal" method="post" action="">
                     <fieldset>
 
                         <!-- Text input-->
@@ -41,7 +41,7 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="btn"></label>
                             <div class="col-sm-1 col-sm-offset-6">
-                                <button class="btn btn-default btn-block">Post</button>
+                                <button type="submit" class="btn btn-default btn-block">Post</button>
                             </div>
                         </div>
                     </fieldset>

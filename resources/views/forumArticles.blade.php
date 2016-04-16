@@ -8,49 +8,43 @@
 
 @extends('layouts.master')
 @section('title','Post in forum')
-@section('forum_post','active')
+@section('forum','active')
 @section('body_content')
 
     <section class="container">
         <div class="center wow fadeInDown">
-            <div class="col-md-12">
-                <h2>Post name: {{ $id or 'Some name' }}</h2>
-                <hr>
-                <div>
-                    <h3 style="color: #000000">is simply dummy text of the printing and typesetting
-                        industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
-                        unknown printer took a galley of type and scrambled it to make a type specimen book. It has
-                        survived not only five centuries, but also the leap into electronic typesetting, remaining
-                        essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets
-                        containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus
-                        PageMaker including versions of Lorem Ipsum.</h3>
-                </div>
-                <hr>
-            </div>
-            <div class="col-xs-12 col-sm-12">
-                <div id="disqus_thread"></div>
-                <script>
-                    /**
-                     *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                     *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
-                     */
-                    /*
-                     var disqus_config = function () {
-                     this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                     this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                     };
-                     */
-                    (function () {  // DON'T EDIT BELOW THIS LINE
-                        var d = document, s = d.createElement('script');
+            <div class="blog">
+                <div class="row">
+                    <div class="col-md-12">
+                        @foreach($posts as $post)
+                            <div class="blog-item">
+                                <div class="row">
+                                    <div class="col-sm-10 blog-content">
+                                        <h2 class="text-left"><a href="{{ '/forum/' . $post->id }}">{{ $post->title }}</a>
+                                        </h2>
+                                        <h3 class="text-left">{{ substr($post->post, 0, 100).'...' }}</h3>
+                                    </div>
+                                </div>
+                            </div><!--/.blog-item-->
+                        @endforeach
+                        <div class="text-center">
+                            <ul class="pagination pagination-lg">
+                                <li><a href="#"><i class="fa fa-long-arrow-left"></i>Previous Page</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">Next Page<i class="fa fa-long-arrow-right"></i></a></li>
+                            </ul><!--/.pagination-->
+                        </div>
+                    </div><!--/.col-md-8-->
 
-                        s.src = '//binarymathematics.disqus.com/embed.js';
-
-                        s.setAttribute('data-timestamp', +new Date());
-                        (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-
+                </div><!--/.row-->
             </div>
         </div>
     </section>
+
 @endsection

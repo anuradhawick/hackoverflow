@@ -32,14 +32,16 @@
           href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
     <style>
-        body{
+        body {
             background: url("{{asset('images/pattern.jpg')}}") repeat;
         }
-        label.error{
+
+        label.error {
             margin: 3px;
             color: #e93c0e;
         }
-        .navbar{
+
+        .navbar {
             border-radius: 0px;
         }
     </style>
@@ -92,9 +94,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li class="@yield('hackathon')"><a href="/hackathons">Hackathon</a></li>
-                            <li class="@yield('meet')"><a href="/meetups">Meet-Up</a></li>
-                            <li class="@yield('other')"><a href="/others">Other</a></li>
+                            <li class="@yield('hackathon')"><a href="/events/hackathons">Hackathon</a></li>
+                            <li class="@yield('meet')"><a href="/events/meetups">Meet-Up</a></li>
+                            <li class="@yield('other')"><a href="/events/other">Other</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
@@ -109,9 +111,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post Event <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li><a href="blog-item.html">Hackathon</a></li>
-                            <li><a href="pricing.html">Meet-Up</a></li>
-                            <li><a href="404.html">Other</a></li>
+                            <li class="@yield('post_hack')"><a href="/post-event/hackathon">Hackathon</a></li>
+                            <li class="@yield('post_meet')"><a href="/post-event/meetup">Meet-Up</a></li>
+                            <li class="@yield('post_other')"><a href="/post-event/other">Other</a></li>
                         </ul>
                     </li>
                     {{--<li><a href="about-us.html">Join</a></li>--}}
@@ -128,6 +130,44 @@
 @section('body_content')
 
 @show
+<section id="feature">
+    <div class="container">
+        <div class="center wow fadeInDown">
+            <h2>Our Services</h2>
+            <p class="lead">Get registered today and publish your event<br>
+                Get registered to an event and show off your talents
+            </p>
+        </div>
+
+        <div class="row">
+            <div class="features">
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-bullhorn"></i>
+                        <h2>News for all</h2>
+                        <h3>Get the information as and when they are published</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-comments"></i>
+                        <h2>Express yourself</h2>
+                        <h3>Start your discussion on Disqus and tell how you feel about events</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+
+                <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
+                    <div class="feature-wrap">
+                        <i class="fa fa-mail-forward"></i>
+                        <h2>Subscribe to our mailing list</h2>
+                        <h3>Get emails notifications when events are available</h3>
+                    </div>
+                </div><!--/.col-md-4-->
+            </div><!--/.services-->
+        </div><!--/.row-->
+    </div><!--/.container-->
+</section><!--/#feature-->
 <footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">

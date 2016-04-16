@@ -6,8 +6,16 @@
  * Time: 4:05 PM
  */ ?>
 @extends('layouts.master')
-@section('title','Upcoming ' . $type)
+@if($type==1)
+    @section('title','Upcoming Hackathon')
 @section('hackathon','active')
+@elseif($type==2)
+    @section('title','Upcoming Meetup')
+@section('meet','active')
+@elseif($type==3)
+    @section('title','Other event')
+@section('other','active')
+@endif
 @section('body_content')
     <br>
     <br>
@@ -17,49 +25,78 @@
                 <div class="blog-item">
 
                     <div class="row">
-                        <div class="col-xs-12 col-sm-4 text-center">
-                            <div class="entry-meta">
-                                <span id="publish_date">07  NOV</span>
-                                <span><i class="fa fa-user"></i> <a href="#"> John Doe</a></span>
-                                <span><i class="fa fa-comment"></i> <a href="blog-item.html#comments">2
-                                        Comments</a></span>
-                                <span><i class="fa fa-heart"></i><a href="#">56 Likes</a></span>
+                        <div class="col-sx-12 col-sm-6">
+                            <table class="table table-responsive table-striped table-hover col-sm-12">
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Name</td>
+                                    <td class="col-sm-8" style="text-align: left">{{ $event->name }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Organizer</td>
+                                    <td class="col-sm-8"
+                                        style="text-align: left">{{ $event->event_info->organizer }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Venue</td>
+                                    <td class="col-sm-8" style="text-align: left">{{ $event->event_info->venue }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Registration deadline</td>
+                                    <td class="col-sm-8"
+                                        style="text-align: left">{{ $event->event_info->reg_deadline }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Event date</td>
+                                    <td class="col-sm-8"
+                                        style="text-align: left">{{ $event->event_info->event_date }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Description</td>
+                                    <td class="col-sm-8"
+                                        style="text-align: left">{{ $event->event_info->description }}</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Website</td>
+                                    <td class="col-sm-8" style="text-align: left"><a
+                                                href="{{ $event->commondata->url }}"
+                                                target="_blank">{{ $event->commondata->url }}</a></td>
+                                </tr>
+                                <tr>
+                                    <td class="col-sm-4" style="text-align: left">Registration form</td>
+                                    <td class="col-sm-8" style="text-align: left"><a
+                                                href="{{ $event->commondata->google_form }}"
+                                                target="_blank">{{ substr($event->commondata->google_form,0,35).'...' }}</a>
+                                    </td>
+                                </tr>
+
+                            </table>
+                            <div class="post-tags">
+                                <strong>Tags:</strong>
+                                @foreach(explode(',', $event->commondata->tags) as $tag )
+                                    <a href="javascript:void(0)"> &nbsp; {{ $tag }} &nbsp; &nbsp;</a>
+                                @endforeach
                             </div>
                         </div>
-                        <div class="col-xs-12 col-sm-8">
+                        <div class="col-xs-12 col-sm-6">
                             <img class="img-responsive img-blog"
-                                 src="http://www.itinterns.org/wp-content/uploads/2015/06/oneneck-end-to-end-it-solutions.jpg"
+                                 src="{{ $event->commondata->flier_url }}"
                                  alt="Flier" style="margin: 0 auto;"/>
                         </div>
                     </div>
                     <br>
                     <hr>
                     <div class="row">
-                        <div class="col-xs-12 col-sm-8 blog-content">
-                            <h2>Registrtion form for hackathon id = {{$hackID or 'Not mentioned'}}</h2>
-                            <div class="row">
-                                <div style="margin: 0 auto;">
-                                    <iframe src="https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true"
-                                            width="760" height="1000" frameborder="0" marginheight="0" marginwidth="0">
-                                        Loading...
-                                    </iframe>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-xs-12 col-sm-4">
+                        <div class="col-xs-12 col-sm-12">
                             <div id="disqus_thread"></div>
                             <script>
                                 /**
                                  *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
                                  *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
                                  */
-                                /*
-                                 var disqus_config = function () {
-                                 this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                                 this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                                 };
-                                 */
+                                var disqus_config = function () {
+                                    this.page.url = "";  // Replace PAGE_URL with your page's canonical URL variable
+                                    this.page.identifier = "{{ $event->commondata->comment_id }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+                                };
                                 (function () {  // DON'T EDIT BELOW THIS LINE
                                     var d = document, s = d.createElement('script');
 
@@ -69,10 +106,7 @@
                                     (d.head || d.body).appendChild(s);
                                 })();
                             </script>
-                            <div class="post-tags">
-                                <strong>Tag:</strong> <a href="#">Cool</a> / <a href="#">Creative</a> / <a
-                                        href="#">Dubttstep</a>
-                            </div>
+
 
                         </div>
 

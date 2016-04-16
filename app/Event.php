@@ -7,7 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     protected $table = 'events';
-    public $timestamps = false;
 
     /**
      * @return User
@@ -39,5 +38,21 @@ class Event extends Model
     public function otherevent()
     {
         return $this->hasOne('App\Otherevent', 'others_id', 'id');
+    }
+
+    /**
+     * @return Commondata
+     */
+    public function commondata()
+    {
+        return $this->hasOne('App\Commondata', 'com_id', 'id');
+    }
+
+    /**
+     * @return Eventinfo
+     */
+    public function event_info()
+    {
+        return $this->hasOne('App\Eventinfo', 'info_id', 'id');
     }
 }

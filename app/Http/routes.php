@@ -32,18 +32,50 @@ Route::get('/others', function () {
 });
 
 Route::get('/{type}/view/{id}', function ($type, $id) {
-    return view('viewEvent', ['hackID' => $id, 'type' => $type]);
+    return view('viewEvent', ['eventID' => $id, 'type' => $type]);
 });
+
+
+
+/*
+ * Routes related to events
+ * */
+
+Route::get('/events/{type}', 'EventController@view');
+
+Route::get('/events/{type}/{id}', 'EventController@viewEvent');
+
+Route::get('/temp', function () {
+    return view('viewEvent', ['eventID' => 1, 'type' => 1]);
+});
+
+Route::get('/post-event/{type}', function ($type) {
+    return view('postEvent', ['type' => $type]);
+});
+
+/*
+ * Routes related to forum posts
+ * */
 
 Route::get('/forum/post', function () {
     return view('postForum');
 });
 
-Route::get('/forum/post/{id}', function ($id) {
-    return view('forumArticles', ['id' => $id]);
-});
+Route::get('/forum/{id}', 'ForumController@view');
 
+Route::get('/forum/', 'ForumController@viewPosts');
+
+
+// Route for accessing test controller
 Route::get('/test/', ['uses' => 'test@test']);
+
+
+/*
+ * DB inserts and DB operations are performed using the below routing functions
+ * Middleware associated are defined in these routes
+ * */
+
+Route::post('/forum/post', 'ForumController@post');
 
 /*
 |--------------------------------------------------------------------------

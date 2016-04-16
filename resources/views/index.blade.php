@@ -75,54 +75,10 @@
         </a>
     </section><!--/#main-slider-->
 
-    <section id="feature">
-        <div class="container">
-            <div class="center wow fadeInDown">
-                <h2>Our Services</h2>
-                <p class="lead">Get registered today and publish your event<br>
-                Get registered to an event and show off your talents
-                </p>
-            </div>
-
-            <div class="row">
-                <div class="features">
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-bullhorn"></i>
-                            <h2>News for all</h2>
-                            <h3>Get the information as and when they are published</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-comments"></i>
-                            <h2>Express yourself</h2>
-                            <h3>Start your discussion on Disqus and tell how you feel about events</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-
-                    <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
-                        <div class="feature-wrap">
-                            <i class="fa fa-mail-forward"></i>
-                            <h2>Subscribe to our mailing list</h2>
-                            <h3>Get emails notifications when events are available</h3>
-                        </div>
-                    </div><!--/.col-md-4-->
-                </div><!--/.services-->
-            </div><!--/.row-->
-        </div><!--/.container-->
-    </section><!--/#feature-->
-
-
-
-
-
-
     <section id="conatcat-info">
-        <div class="container">
+        <div class="container center">
             <div class="row">
-                <div class="col-sm-8">
+                <div class="col-sm-8 col-sm-offset-2">
                     <div class="media contact-info wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                         <div class="pull-left">
                             <i class="fa fa-info"></i>

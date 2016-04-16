@@ -18,6 +18,7 @@ class CreateForumpostsTable extends Migration
             $table->string('title');
             $table->string('post');
             $table->string('uuid');
+            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');
         });
     }

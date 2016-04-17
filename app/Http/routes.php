@@ -45,13 +45,7 @@ Route::get('/events/{type}', 'EventController@view');
 
 Route::get('/events/{type}/{id}', 'EventController@viewEvent');
 
-Route::get('/temp', function () {
-    return view('viewEvent', ['eventID' => 1, 'type' => 1]);
-});
-
-Route::get('/post-event/{type}', function ($type) {
-    return view('postEvent', ['type' => $type]);
-});
+Route::get('/post-event/{type}', 'EventController@postForm');
 
 /*
  * Routes related to forum posts

@@ -41,6 +41,7 @@ class EventController extends Controller
                 return $this->viewMeet($id);
                 break;
             case 'other':
+                return $this->viewOtherEvent($id);
                 break;
         }
     }
@@ -73,5 +74,11 @@ class EventController extends Controller
     {
         $hack = Event::with('meetup', 'commondata', 'event_info')->find($id);
         return view('viewEvent', ['event' => $hack, 'type' => 2]);
+    }
+
+    public function viewOtherEvent($id)
+    {
+        $others = Event::with('otherevent', 'commondata', 'event_info')->find($id);
+        return view('viewEvent', ['event' => $others, 'type' => 3]);
     }
 }

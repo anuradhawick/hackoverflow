@@ -15,44 +15,139 @@
 @endif
 @section('title','Post '.$type. ' event')
 @section('body_content')
-    <section id="post_event">
-        <div class="container">
-            <div class="center wow fadeInDown">
-                <h2>Post {{$type or 'Error'}} event</h2>
+    <section class="container">
+        <div class="center wow fadeInDown">
+            <div class="col-md-12">
+                <h2>Create new forum post</h2>
                 <hr>
-                <div class="features">
-                    <form id="login_form" class="form-horizontal">
-                        <fieldset>
+                <form id="event_form" class="form-horizontal" method="post" action="">
+                    <fieldset>
 
-                            <!-- Text input-->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Username</label>
-                                <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="username"
-                                           class="form-control input-md" minlength="6" required>
-
-                                </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
                             </div>
-
-
-
-
-
-                            <!-- Button -->
-                            <div class="form-group">
-                                <label class="col-md-4 control-label" for="singlebutton"></label>
-                                <div class="col-md-1 col-sm-offset-3">
-                                    <button id="" name="" class="btn btn-default btn-block">Login
-                                    </button>
-                                </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
                             </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
+                        <!-- Text input-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="name">Forum name</label>
+                            <div class="col-sm-8">
+                                <input id="name" name="name" type="text"
+                                       placeholder="eg: JAVA competitions"
+                                       class="form-control input-md" required>
+                            </div>
+                        </div>
 
-                        </fieldset>
-                    </form>
+                        <!-- Textarea -->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" for="post">Post</label>
+                            <div class="col-sm-8">
+                                                    <textarea class="form-control" id="post" name="post"
+                                                              rows="15"></textarea>
+                            </div>
+                        </div>
 
-                </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label" for="btn"></label>
+                            <div class="col-sm-1 col-sm-offset-6">
+                                <button type="submit" class="btn btn-default btn-block">Post</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
                 <hr>
-            </div>
+            </div><!--/.row-->
+
         </div>
-    </section>
+    </section><!--/#blog-->
+    <script>
+        $(document).ready(function(){
+            $("#event_form").validate();
+        });
+    </script>
 @endsection

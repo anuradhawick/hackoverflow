@@ -28,6 +28,9 @@
                         <div class="col-sx-12 col-sm-6">
                             <table class="table table-responsive table-striped table-hover col-sm-12">
                                 <tr>
+                                    <td colspan="2"><strong>General Information</strong></td>
+                                </tr>
+                                <tr>
                                     <td class="col-sm-4" style="text-align: left">Name</td>
                                     <td class="col-sm-8" style="text-align: left">{{ $event->name }}</td>
                                 </tr>
@@ -54,6 +57,86 @@
                                     <td class="col-sm-4" style="text-align: left">Description</td>
                                     <td class="col-sm-8"
                                         style="text-align: left">{{ $event->event_info->description }}</td>
+                                </tr>
+                                @if($type == 1)
+                                    <tr>
+                                        <td colspan="2"><strong>Hackathon Information</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Participant info</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->participant_info }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Reward</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->reward }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Duration</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">No of teams selected</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->team_count }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Maximum number of members per
+                                            team
+                                        </td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->max_per_team_no }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Minimum number of members per
+                                            team
+                                        </td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->hackathon->min_per_team_no }}</td>
+                                    </tr>
+                                @elseif($type==2)
+                                    <tr>
+                                        <td colspan="2"><strong>Meetup Information</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Participant info</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->meetup->participant_info }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Duration</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->meetup->duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Headcount</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->meetup->head_count }}</td>
+                                    </tr>
+                                @elseif($type==3)
+                                    <tr>
+                                        <td colspan="2"><strong>Event Information</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Participant info</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->otherevent->participant_info }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Duration</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->otherevent->duration }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="col-sm-4" style="text-align: left">Headcount</td>
+                                        <td class="col-sm-8"
+                                            style="text-align: left">{{ $event->otherevent->head_count }}</td>
+                                    </tr>
+                                @endif
+                                <tr>
+                                    <td colspan="2"><strong>Additional Information</strong></td>
                                 </tr>
                                 <tr>
                                     <td class="col-sm-4" style="text-align: left">Website</td>

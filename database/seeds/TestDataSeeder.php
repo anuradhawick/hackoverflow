@@ -82,6 +82,34 @@ class TestDataSeeder extends Seeder
         $eventinfo->description = 'Annual JAVA meetup';
         $event->event_info()->save($eventinfo);
 
+        // Adding a Other event
+        $event = new \App\Event();
+        $event->name = 'Test other 1';
+        $event->type = 'other';
+        $user->events()->save($event);
+        // settting specific info
+        $other = new \App\Otherevent();
+        $other->participant_info = 'Info other type of event';
+        $other->duration = 'Info';
+        $other->head_count = 50;
+        $event->otherevent()->save($other);
+        // set common data
+        $com = new \App\Commondata();
+        $com->flier_url = 'http://www.andhowcreative.com/new/wp-content/uploads/2012/02/austin-tech-event-v4.jpg';
+        $com->url = 'http://www.yahoo.com';
+        $com->comment_id = \Faker\Provider\Uuid::uuid();
+        $com->tags = 'WSO2,JAVA';
+        $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
+        $event->commondata()->save($com);
+        // set event info
+        $eventinfo = new \App\Eventinfo();
+        $eventinfo->organizer = 'Microsoft';
+        $eventinfo->venue = 'Nawam mawatha colombo';
+        $eventinfo->reg_deadline = '2016-12-12';
+        $eventinfo->event_date = '2017-12-12';
+        $eventinfo->description = 'Annual Innovate program for developers';
+        $event->event_info()->save($eventinfo);
+
         // Adding a forum post
         $forum_post = new Forum_post();
         $forum_post->title = "First forum post";

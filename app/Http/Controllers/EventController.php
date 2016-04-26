@@ -48,19 +48,19 @@ class EventController extends Controller
 
     public function viewHacks()
     {
-        $hacks = Event::with('hackathon', 'event_info')->where('type', 'hackathons')->orderBy('created_at', 'desc')->get();
+        $hacks = Event::with('hackathon', 'event_info')->where('type', 'hackathons')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $hacks, 'type' => 1]);
     }
 
     public function viewMeets()
     {
-        $meets = Event::with('hackathon', 'event_info')->where('type', 'meetups')->orderBy('created_at', 'desc')->get();
+        $meets = Event::with('hackathon', 'event_info')->where('type', 'meetups')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $meets, 'type' => 2]);
     }
 
     public function viewOtherEvents()
     {
-        $others = Event::with('otherevent', 'event_info')->where('type', 'other')->orderBy('created_at', 'desc')->get();
+        $others = Event::with('otherevent', 'event_info')->where('type', 'other')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $others, 'type' => 3]);
     }
 

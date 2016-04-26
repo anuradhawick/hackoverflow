@@ -34,7 +34,7 @@ class ForumController extends Controller
 
     public function viewPosts()
     {
-        $posts = Forum_post::orderBy('created_at', 'desc')->get();
+        $posts = Forum_post::orderBy('created_at', 'desc')->paginate(5);
         return view('forumArticles', ['posts' => $posts]);
     }
 }

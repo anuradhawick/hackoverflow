@@ -10,9 +10,9 @@ use App\Http\Requests;
 
 class EventController extends Controller
 {
-    public function postEvent(Request $req)
+    public function postEvent($type)
     {
-
+        return view('postEvent',['type'=>$type]);
     }
 
     public function view($type)

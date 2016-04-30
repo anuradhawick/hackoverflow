@@ -18,8 +18,7 @@
                 <hr>
                 <form id="forum_form" class="form-horizontal" method="post" action="">
                     <fieldset>
-
-                        <!-- Text input-->
+                        {{ csrf_field() }}
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="name">Forum name</label>
                             <div class="col-sm-8">
@@ -28,16 +27,12 @@
                                        class="form-control input-md" required>
                             </div>
                         </div>
-
-                        <!-- Textarea -->
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="post">Post</label>
                             <div class="col-sm-8">
-                                                    <textarea class="form-control" id="post" name="post"
-                                                              rows="15"></textarea>
+                                <textarea class="form-control" id="post" name="post" rows="15"></textarea>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="btn"></label>
                             <div class="col-sm-1 col-sm-offset-6">
@@ -47,12 +42,12 @@
                     </fieldset>
                 </form>
                 <hr>
-            </div><!--/.row-->
+            </div>
 
         </div>
-    </section><!--/#blog-->
+    </section>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#forum_form").validate();
         });
     </script>

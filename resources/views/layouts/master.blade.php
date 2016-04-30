@@ -44,7 +44,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
-                    <div class="top-number"><p><i class="fa fa-user"></i> Hi, {{ Auth::check() }}</p></div>
+                    <div class="top-number"><p><i class="fa fa-user"></i>
+                            Hi, {!! Auth::check()? Auth::user()->name." (<a href='/logout'> Logout </a>)" : 'Guest' !!}</p></div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
@@ -106,10 +107,10 @@
                             <li class="@yield('post_other')"><a href="/post-event/other">Other</a></li>
                         </ul>
                     </li>
-                    {{--<li><a href="about-us.html">Join</a></li>--}}
-                    <li class="@yield('login')"><a href="/login">Login/ Register</a></li>
+                    @if(!Auth::check())
+                        <li class="@yield('login')"><a href="/login">Login/ Register</a></li>
+                    @endif
                     <li><a href="about-us.html">About Us</a></li>
-
 
                 </ul>
             </div>

@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Support\Facades\Auth;
+
 class AuthController extends Controller
 {
     /*
@@ -26,16 +27,21 @@ class AuthController extends Controller
     {
         $email = $req->input('email');
         $password = $req->input('password');
-//        return Auth::user();
-//        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-//            // Authentication passed...
-//            Auth::login(Auth::user());
-//            return redirect()->intended('/test');
-////            echo $user->name;
-////            return Auth::user();
-//        }else{
-//            $req->session()->put('error', 'Email address or password is/are invalid. Try again!');
-//            return redirect('/login')->with('error', 'Email address or password is/are invalid. Try again!');
-//        }
+        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+            Auth::login(Auth::user());
+            return redirect()->intended('/');
+        } else {
+            $req->session()->put('error', 'Email address or password is/are invalid. Try again!');
+            return redirect('/login')->with('error', 'Email address or password is/are invalid. Try again!');
+        }
+    }
+
+    public function logout()
+    {
+        if (Auth::check()) {
+            Auth::logout();
+        }
+//        return 'asdasd';
+        return redirect('/');
     }
 }

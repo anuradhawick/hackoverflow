@@ -23,7 +23,7 @@
                 <div class="features">
                     <form id="login_form" class="form-horizontal" method="post" action="">
                         <fieldset>
-
+                            {{ csrf_field() }}
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username">E-mail address</label>
@@ -75,6 +75,7 @@
                 <div class="features">
                     <form id="register_form" class="form-horizontal">
                         <fieldset>
+                            {{ csrf_field() }}
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="fname">First name</label>

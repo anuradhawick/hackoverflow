@@ -13,6 +13,7 @@
     <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -32,18 +33,7 @@
           href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
     <style>
-        body {
-            background: url("{{asset('images/pattern.jpg')}}") repeat;
-        }
 
-        label.error {
-            margin: 3px;
-            color: #e93c0e;
-        }
-
-        .navbar {
-            border-radius: 0px;
-        }
     </style>
 </head><!--/head-->
 

@@ -14,7 +14,7 @@
             <div class="center wow fadeInDown">
                 <h2>Login</h2>
                 <div class="features">
-                    <form id="login_form" class="form-horizontal">
+                    <form id="login_form" class="form-horizontal" method="post" action="">
                         <fieldset>
 
                             <!-- Text input-->

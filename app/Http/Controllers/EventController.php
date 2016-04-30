@@ -10,11 +10,25 @@ use App\Http\Requests;
 
 class EventController extends Controller
 {
+    // rendering the publish form
     public function postEvent($type)
     {
-        return view('postEvent',['type'=>$type]);
+        switch ($type) {
+            case 'hackathons':
+                return view('postEvent', ['type' => 1]);
+                break;
+            case 'meetups':
+                return view('postEvent', ['type' => 2]);
+                break;
+            case 'other':
+                return view('postEvent',['type'=>3]);
+                break;
+            default:
+                return redirect('/');
+        }
     }
 
+    // view all the events given the type, a string
     public function view($type)
     {
         switch ($type) {
@@ -27,10 +41,12 @@ class EventController extends Controller
             case 'other':
                 return $this->viewOtherEvents();
                 break;
+            default:
+                return redirect('/events/hackathons');
         }
     }
 
-    // This is the event id of the Event table
+    // View a particular event, given a string type and id of the Event table
     public function viewEvent($type, $id)
     {
         switch ($type) {
@@ -43,6 +59,8 @@ class EventController extends Controller
             case 'other':
                 return $this->viewOtherEvent($id);
                 break;
+            default:
+                return redirect('/events/hackathons');
         }
     }
 

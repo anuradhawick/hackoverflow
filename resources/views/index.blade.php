@@ -26,8 +26,10 @@
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Spread the news to unleash the coding talents around the country</h1>
-                                    <h2 class="animation animated-item-2">The only single place to know about all the IT related events and competitions in Sri Lanka.</h2>
+                                    <h1 class="animation animated-item-1">Spread the news to unleash the coding talents
+                                        around the country</h1>
+                                    <h2 class="animation animated-item-2">The only single place to know about all the IT
+                                        related events and competitions in Sri Lanka.</h2>
                                     {{--<a class="btn-slide animation animated-item-3" href="#">Read More</a>--}}
                                 </div>
                             </div>
@@ -42,7 +44,8 @@
                             <div class="col-sm-6">
                                 <div class="carousel-content">
                                     <h1 class="animation animated-item-1">Unite the nation's IT professionals</h1>
-                                    <h2 class="animation animated-item-2">Effective communication of ongoing IT related events to all the stakeholders.</h2>
+                                    <h2 class="animation animated-item-2">Effective communication of ongoing IT related
+                                        events to all the stakeholders.</h2>
                                     {{--<a class="btn-slide animation animated-item-3" href="#">Read More</a>--}}
                                 </div>
                             </div>
@@ -56,8 +59,11 @@
                         <div class="row slide-margin">
                             <div class="col-sm-6">
                                 <div class="carousel-content">
-                                    <h1 class="animation animated-item-1">Improving the innovation through infotainment</h1>
-                                    <h2 class="animation animated-item-2">Improve the innovation through the increased user base and participation on meet-ups and hackathons, thus inreasing the innovation among Sri Lankan IT youth.</h2>
+                                    <h1 class="animation animated-item-1">Improving the innovation through
+                                        infotainment</h1>
+                                    <h2 class="animation animated-item-2">Improve the innovation through the increased
+                                        user base and participation on meet-ups and hackathons, thus inreasing the
+                                        innovation among Sri Lankan IT youth.</h2>
                                     {{--<a class="btn-slide animation animated-item-3" href="#">Read More</a>--}}
                                 </div>
                             </div>
@@ -86,12 +92,12 @@
                         <div class="media-body">
                             <h2>Want to get crowd for your hackathon, meet-up or event?</h2>
                             <p>Get registered in our site and post your event. Get more crowd and popularity.
-                             See what others think of your hackathon. :) </p>
+                                See what others think of your hackathon. :) </p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--/.container-->
-    </section><!--/#conatcat-info-->
+        </div>
+    </section>
 
 @endsection

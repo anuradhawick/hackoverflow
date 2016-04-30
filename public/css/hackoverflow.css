@@ -1,0 +1,16 @@
+.blog-item {
+    margin-bottom: 0px !important;
+}
+
+body {
+    background: url("/images/pattern.jpg") repeat;
+}
+
+label.error {
+    margin: 3px;
+    color: #e93c0e;
+}
+
+.navbar {
+    border-radius: 0px !important;
+}

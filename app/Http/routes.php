@@ -10,6 +10,16 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+/*
+ * Routes related to authentication of the users
+ * */
+
+Route::post('/login','Auth\AuthController@authenticate');
+
+
+/*
+ * Routes related to normal views
+ * */
 
 Route::get('/', function () {
     return view('index');

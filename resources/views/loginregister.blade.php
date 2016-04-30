@@ -13,15 +13,22 @@
         <div class="container">
             <div class="center wow fadeInDown">
                 <h2>Login</h2>
+                @if (session('error'))
+                    <div class="row">
+                        <div class="alert alert-danger col-sm-8 col-sm-offset-2">
+                            <strong>{{ session('error') }}</strong>
+                        </div>
+                    </div>
+                @endif
                 <div class="features">
                     <form id="login_form" class="form-horizontal" method="post" action="">
                         <fieldset>
 
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Username</label>
+                                <label class="col-md-4 control-label" for="username">E-mail address</label>
                                 <div class="col-md-4">
-                                    <input id="username" name="username" type="text" placeholder="username"
+                                    <input id="email" name="email" type="text" placeholder="email address"
                                            class="form-control input-md" minlength="6" required>
 
                                 </div>
@@ -163,32 +170,32 @@
         </div>
     </section>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#login_form").validate();
             $("#register_form").validate({
-                rules:{
-                    cpassword:{
+                rules: {
+                    cpassword: {
                         equalTo: $('#register_form').find("#password"),
-                        minlength:6
+                        minlength: 6
                     },
-                    username:{
-                        minlength:6
+                    username: {
+                        minlength: 6
                     },
-                    password:{
-                        minlength:6
+                    password: {
+                        minlength: 6
                     },
-                    tel:{
-                        digits:true,
-                        minlength:10,
-                        maxlength:10
+                    tel: {
+                        digits: true,
+                        minlength: 10,
+                        maxlength: 10
                     }
                 },
-                messages:{
-                    cpassword:{
+                messages: {
+                    cpassword: {
                         equalTo: 'Passwords do not match'
                     },
-                    tel:{
-                        minlength:'Please enter a valid telephone number'
+                    tel: {
+                        minlength: 'Please enter a valid telephone number'
                     }
                 }
             });

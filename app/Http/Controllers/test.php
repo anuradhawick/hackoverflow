@@ -8,12 +8,13 @@ use App\Hackevent;
 use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
 
 class test extends Controller
 {
-    public function test()
+    public function test(Request $request)
     {
 //        $post = new Forum_post();
 //        $post->user_id = 1;
@@ -47,13 +48,14 @@ class test extends Controller
 //        $hack->max_per_team_no = 50;
 //        $hack->min_per_team_no = 3;
 //        $hack->save();
-        $user = User::find(1);
-
-        $event = Event::find(1);
-        echo $event->hackathon . "<br>";
-
-        $hack = Hackevent::find(1);
-        echo $hack->event->user;
-        return '<br>done';
+//        $user = User::find(1);
+//
+//        $event = Event::find(1);
+//        echo $event->hackathon . "<br>";
+//
+//        $hack = Hackevent::find(1);
+//        echo $hack->event->user;
+//        return '<br>done';
+        echo Auth::check();
     }
 }

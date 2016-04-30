@@ -94,4 +94,7 @@ Route::post('/forum/post', 'ForumController@post');
 
 Route::group(['middleware' => ['web']], function () {
     //
+//    Route::get('/',function(){
+//        return 'asd';
+//    });
 });

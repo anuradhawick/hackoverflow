@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Http\Requests\Request;
+use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -22,14 +22,20 @@ class AuthController extends Controller
     |
     */
 
-    public function authenticate(Request $request)
+    public function authenticate(Request $req)
     {
-        $email = $request->input('email');
-        $password = $request->input('password');
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Authentication passed...
-//            return redirect()->intended('dashboard');
-            return 'asd';
-        }
+        $email = $req->input('email');
+        $password = $req->input('password');
+//        return Auth::user();
+//        if (Auth::attempt(['email' => $email, 'password' => $password])) {
+//            // Authentication passed...
+//            Auth::login(Auth::user());
+//            return redirect()->intended('/test');
+////            echo $user->name;
+////            return Auth::user();
+//        }else{
+//            $req->session()->put('error', 'Email address or password is/are invalid. Try again!');
+//            return redirect('/login')->with('error', 'Email address or password is/are invalid. Try again!');
+//        }
     }
 }

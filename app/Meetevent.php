@@ -10,6 +10,9 @@ class Meetevent extends Model
     public $timestamps = false;
 
 
+    /**
+     * @return Event
+     */
     public function event()
     {
         return $this->belongsTo('App\Event', 'meet_id', 'id');

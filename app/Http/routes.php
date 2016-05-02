@@ -23,7 +23,10 @@
 |
 */
 
-Route::group(['middleware' => ['web']], function () {
+Route::group(/**
+ *
+ */
+    ['middleware' => ['web']], function () {
 
     /*
      * Routes related to normal views
@@ -93,6 +96,7 @@ Route::group(['middleware' => ['web']], function () {
      * */
 
     Route::post('/login', 'Auth\AuthController@authenticate');
+    
     Route::get('/logout', 'Auth\AuthController@logout');
 
 });

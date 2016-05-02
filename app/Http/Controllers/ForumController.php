@@ -11,12 +11,17 @@ use App\Http\Requests;
 
 class ForumController extends Controller
 {
+    /**
+     * Creating a new Post in the forum
+     *
+     * @param Request $req
+     * @return mixed
+     */
     public function post(Request $req)
     {
         $post_name = $req->input('name');
         $post_article = $req->input('post');
         $user = User::all()->first();
-
         $forum_post = new Forum_post();
         $forum_post->title = $post_name;
         $forum_post->post = $post_article;
@@ -25,6 +30,12 @@ class ForumController extends Controller
         return redirect('/forum/' . $forum_post->id);
     }
 
+    /**
+     * View the post recognized by the primary key
+     *
+     * @param $id
+     * @return mixed
+     */
     public function view($id)
     {
         $post = Forum_post::find($id);
@@ -32,6 +43,11 @@ class ForumController extends Controller
         return view('forumArticle', ['post' => $post, 'user' => $user]);
     }
 
+    /**
+     * View all the posts paginated by a given number
+     *
+     * @return mixed
+     */
     public function viewPosts()
     {
         $posts = Forum_post::orderBy('created_at', 'desc')->paginate(5);

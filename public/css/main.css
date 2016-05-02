@@ -267,7 +267,7 @@ input.search-form:hover {
 }
 
 .navbar-nav {
-    margin-top: 12px;
+    margin-top: 12px !important;
 }
 
 .navbar-nav > li {
@@ -969,7 +969,6 @@ a.accordion-toggle i {
 }
 
 #conatcat-info {
-    background: #fff url(../images/contact.png) no-repeat 90% 0;
     padding: 30px 0;
 }
 

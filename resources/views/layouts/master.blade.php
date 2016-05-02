@@ -10,11 +10,11 @@
     <!-- core CSS -->
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
     <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
@@ -43,20 +43,20 @@
     <div class="top-bar">
         <div class="container">
             <div class="row">
-                <div class="col-sm-6 col-xs-4">
-                    <div class="top-number"><p><i class="fa fa-user"></i>
-                            Hi, {!! Auth::check()? Auth::user()->fname." (<a href='/logout'> Logout </a>)" : 'Guest' !!}
+                <div class="col-sm-6 col-xs-6">
+                    <div class="top-number"><p>
+                            Hi, {!! Auth::check()? Auth::user()->fname. " &nbsp;&nbsp;<a href='/logout' style='color: #fff; !important'><i class='fa fa-user'></i></a>&nbsp;&nbsp;&nbsp;" ." <a href='/logout' style='color: #fff; !important'><i class='fa fa-sign-out'></i></a>": 'Guest' !!}
                         </p></div>
                 </div>
-                <div class="col-sm-6 col-xs-8">
+                <div class="col-sm-6 col-xs-6">
                     <div class="social">
-                        {{--<ul class="social-share">--}}
-                        {{--<li><a href="#"><i class="fa fa-facebook"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-twitter"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-linkedin"></i></a></li>--}}
+                        <ul class="social-share">
+                        <li><a href="https://www.facebook.com/anuradha.sanjeewa" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                        <li><a href="https://www.twitter.com/anuradhawick" target="_blank"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/anuradhawick" target="_blank"><i class="fa fa-linkedin"></i></a></li>
                         {{--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>--}}
-                        {{--<li><a href="#"><i class="fa fa-skype"></i></a></li>--}}
-                        {{--</ul>--}}
+                        {{--<li><a href=""><i class="fa fa-skype"></i></a></li>--}}
+                        </ul>
                         <div class="search">
                             <form role="form">
                                 <input type="text" class="search-form" autocomplete="off" placeholder="Search event">
@@ -82,7 +82,7 @@
 
             <div class="collapse navbar-collapse navbar-right">
                 <ul class="nav navbar-nav">
-                    <li class="dropdown">
+                    <li class="dropdown @yield('hackathon') @yield('meet') @yield('other')">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
@@ -91,7 +91,7 @@
                             <li class="@yield('other')"><a href="/events/other">Other</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown @yield('forum') @yield('forum_post')">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Forum <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
@@ -99,7 +99,7 @@
                             <li class="@yield('forum_post')"><a href="/forum/post">New post</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown">
+                    <li class="dropdown @yield('post_hack') @yield('post_meet') @yield('post_other')">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post Event <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">

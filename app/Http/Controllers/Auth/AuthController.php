@@ -40,7 +40,6 @@ class AuthController extends Controller
             return redirect()->intended('/');
         } else {
             // Pass the error message to the front end
-            $req->session()->put('error', 'Email address or password is/are invalid. Try again!');
             return redirect('/login')->with('error', 'Email address or password is/are invalid. Try again!');
         }
     }

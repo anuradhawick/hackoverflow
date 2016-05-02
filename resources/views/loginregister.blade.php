@@ -16,7 +16,7 @@
                 @if (session('error'))
                     <div class="row">
                         <div class="alert alert-danger col-sm-8 col-sm-offset-2">
-                            <strong>{{ session('error') }}</strong>
+                            <strong>{{ session()->pull('error') }}</strong>
                         </div>
                     </div>
                 @endif

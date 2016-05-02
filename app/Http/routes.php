@@ -23,11 +23,26 @@
 |
 */
 
-Route::group(/**
- *
- */
-    ['middleware' => ['web']], function () {
+Route::group(['middleware' => ['web']], function () {
 
+    Route::group(['middleware' => 'auth'], function () {
+        /*
+         * Posting in the forum related routes
+         * */
+        Route::get('/forum/post', function () {
+            return view('postForum');
+        });
+        /*
+         * Posting and saving the data to the forum
+         * */
+        Route::post('/forum/post', 'ForumController@post');
+
+        /*
+         * Posting events
+         * */
+        Route::get('/post-event/{type}', 'EventController@postEvent');
+
+    });
     /*
      * Routes related to normal views
      * */
@@ -36,9 +51,6 @@ Route::group(/**
         return view('index');
     });
 
-    Route::get('/login', function () {
-        return view('loginregister');
-    });
 
     Route::get('/hackathons', function () {
         return view('hackathons');
@@ -65,15 +77,10 @@ Route::group(/**
 
     Route::get('/events/{type}/{id}', 'EventController@viewEvent');
 
-    Route::get('/post-event/{type}', 'EventController@postEvent');
-
     /*
      * Routes related to forum posts
      * */
 
-    Route::get('/forum/post', function () {
-        return view('postForum');
-    });
 
     Route::get('/forum/{id}', 'ForumController@view');
 
@@ -83,20 +90,19 @@ Route::group(/**
     // Route for accessing test controller
     Route::get('/test/', ['uses' => 'test@test']);
 
-
-    /*
-     * DB inserts and DB operations are performed using the below routing functions
-     * Middleware associated are defined in these routes
-     * */
-
-    Route::post('/forum/post', 'ForumController@post');
-
     /*
      * Routes related to authentication of the users
      * */
 
+    Route::get('/login', function () {
+        if (!\Illuminate\Support\Facades\Auth::check()) {
+            return view('loginregister');
+        } else {
+            return redirect('/');
+        }
+    });
     Route::post('/login', 'Auth\AuthController@authenticate');
-    
+
     Route::get('/logout', 'Auth\AuthController@logout');
 
 });

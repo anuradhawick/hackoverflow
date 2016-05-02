@@ -6,14 +6,16 @@
  * Time: 00:44
  */ ?>
 @extends('layouts.master')
-@if($type == 'hackathon')
+@if($type == 1)
     @section('post_hack','active')
-@elseif($type == 'meetup')
+@section('title','Post hackathon event')
+@elseif($type == 2)
     @section('post_meet','active')
-@elseif($type == 'other')
+@section('title','Post meetup event')
+@elseif($type == 3)
     @section('post_other','active')
+@section('title','Post other event')
 @endif
-@section('title','Post '.$type. ' event')
 @section('body_content')
     <section class="container">
         <div class="center wow fadeInDown">

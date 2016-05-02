@@ -16,7 +16,7 @@ class CreateForumpostsTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
-            $table->string('post');
+            $table->text('post');
             $table->string('uuid');
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users');

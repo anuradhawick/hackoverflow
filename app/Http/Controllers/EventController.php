@@ -18,10 +18,10 @@ class EventController extends Controller
     public function postEvent($type)
     {
         switch ($type) {
-            case 'hackathons':
+            case 'hackathon':
                 return view('postEvent', ['type' => 1]);
                 break;
-            case 'meetups':
+            case 'meetup':
                 return view('postEvent', ['type' => 2]);
                 break;
             case 'other':

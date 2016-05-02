@@ -45,7 +45,8 @@
             <div class="row">
                 <div class="col-sm-6 col-xs-4">
                     <div class="top-number"><p><i class="fa fa-user"></i>
-                            Hi, {!! Auth::check()? Auth::user()->name." (<a href='/logout'> Logout </a>)" : 'Guest' !!}</p></div>
+                            Hi, {!! Auth::check()? Auth::user()->fname." (<a href='/logout'> Logout </a>)" : 'Guest' !!}
+                        </p></div>
                 </div>
                 <div class="col-sm-6 col-xs-8">
                     <div class="social">
@@ -169,7 +170,7 @@
             </div>
             <div class="col-sm-6">
                 <ul class="pull-right">
-                    <li><a href="#">Home</a></li>
+                    <li><a href="/">Home</a></li>
                     <li><a href="#">About Us</a></li>
                     <li><a href="#">Faq</a></li>
                     <li><a href="#">Contact Us</a></li>
@@ -177,7 +178,7 @@
             </div>
         </div>
     </div>
-</footer><!--/#footer-->
+</footer>
 
 
 </body>

@@ -86,11 +86,9 @@
                                 @endif
                             </div>
                         @endif
-                    </div><!--/.col-md-8-->
-
-                </div><!--/.row-->
+                    </div>
+                </div>
             </div>
-
         </div>
-    </section><!--/#blog-->
+    </section>
 @endsection

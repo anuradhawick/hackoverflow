@@ -46,7 +46,8 @@ class TestDataSeeder extends Seeder
             $com->flier_url = 'https://d3n8a8pro7vhmx.cloudfront.net/adriel/pages/240/attachments/original/1323313229/CityCampSF_Hackathon_Flyer.jpg?1323313229';
             $com->url = 'http://www.google.com';
             $com->comment_id = \Faker\Provider\Uuid::uuid();
-            $com->tags = 'Google,gsoc,dialog,' . $i;
+            // Saving tags
+            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('ideamart,Takas.lk'));
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
             // set event info
@@ -74,9 +75,10 @@ class TestDataSeeder extends Seeder
             $com->flier_url = 'http://photos1.meetupstatic.com/photos/event/5/0/f/c/highres_260900732.jpeg';
             $com->url = 'http://www.yahoo.com';
             $com->comment_id = \Faker\Provider\Uuid::uuid();
-            $com->tags = 'WSO2,JAVA,' . $i;
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
+            // Saving tags
+            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('ideamart,Wso2'));
             // set event info
             $eventinfo = new \App\Eventinfo();
             $eventinfo->organizer = 'WSO2';
@@ -102,7 +104,8 @@ class TestDataSeeder extends Seeder
             $com->flier_url = 'http://www.andhowcreative.com/new/wp-content/uploads/2012/02/austin-tech-event-v4.jpg';
             $com->url = 'http://www.yahoo.com';
             $com->comment_id = \Faker\Provider\Uuid::uuid();
-            $com->tags = 'WSO2,JAVA,' . $i;
+            // Saving tags
+            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('pcjt,Wso2'));
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
             // set event info

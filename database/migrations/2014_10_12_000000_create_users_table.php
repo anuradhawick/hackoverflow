@@ -18,6 +18,7 @@ class CreateUsersTable extends Migration
             $table->string('mname');
             $table->string('lname');
             $table->string('tel');
+            $table->string('organization');
             $table->integer('admin')->default(0);
             $table->string('email')->unique();
             $table->string('password');

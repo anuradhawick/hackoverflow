@@ -82,7 +82,7 @@ class EventController extends Controller
      */
     public function viewHacks()
     {
-        $hacks = Event::with('hackathon', 'event_info')->where('type', 'hackathons')->orderBy('created_at', 'desc')->paginate(5);
+        $hacks = Event::with('hackathon', 'event_info','tags')->where('type', 'hackathons')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $hacks, 'type' => 1]);
     }
 
@@ -91,7 +91,7 @@ class EventController extends Controller
      */
     public function viewMeets()
     {
-        $meets = Event::with('hackathon', 'event_info')->where('type', 'meetups')->orderBy('created_at', 'desc')->paginate(5);
+        $meets = Event::with('hackathon', 'event_info','tags')->where('type', 'meetups')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $meets, 'type' => 2]);
     }
 
@@ -100,7 +100,7 @@ class EventController extends Controller
      */
     public function viewOtherEvents()
     {
-        $others = Event::with('otherevent', 'event_info')->where('type', 'other')->orderBy('created_at', 'desc')->paginate(5);
+        $others = Event::with('otherevent', 'event_info','tags')->where('type', 'other')->orderBy('created_at', 'desc')->paginate(5);
         return view('events', ['events' => $others, 'type' => 3]);
     }
 
@@ -110,7 +110,7 @@ class EventController extends Controller
      */
     public function viewHack($id)
     {
-        $hack = Event::with('hackathon', 'commondata', 'event_info')->find($id);
+        $hack = Event::with('hackathon', 'commondata', 'event_info','tags')->find($id);
         return view('viewEvent', ['event' => $hack, 'type' => 1]);
     }
 
@@ -120,7 +120,7 @@ class EventController extends Controller
      */
     public function viewMeet($id)
     {
-        $hack = Event::with('meetup', 'commondata', 'event_info')->find($id);
+        $hack = Event::with('meetup', 'commondata', 'event_info','tags')->find($id);
         return view('viewEvent', ['event' => $hack, 'type' => 2]);
     }
 
@@ -130,7 +130,7 @@ class EventController extends Controller
      */
     public function viewOtherEvent($id)
     {
-        $others = Event::with('otherevent', 'commondata', 'event_info')->find($id);
+        $others = Event::with('otherevent', 'commondata', 'event_info','tags')->find($id);
         return view('viewEvent', ['event' => $others, 'type' => 3]);
     }
 }

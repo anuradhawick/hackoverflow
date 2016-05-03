@@ -19,7 +19,6 @@ class CreateCommondataTable extends Migration
             $table->string('flier_url',1024);
             $table->string('url',1024);
             $table->string('comment_id');
-            $table->text('tags');
             $table->string('google_form',1024);
             $table->foreign('com_id')->references('id')->on('events');
         });

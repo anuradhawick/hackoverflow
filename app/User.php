@@ -8,7 +8,7 @@ class User extends Authenticatable
 {
     protected $table = 'users';
     public $timestamps = false;
-    protected $hidden = ['password'];
+    protected $hidden = ['password','remember_token'];
     /**
      * @return Forum_post
      */

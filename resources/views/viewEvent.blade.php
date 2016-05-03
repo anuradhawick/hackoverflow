@@ -154,8 +154,8 @@
                         </table>
                         <div class="post-tags">
                             <strong>Tags:</strong>
-                            @foreach(explode(',', $event->commondata->tags) as $tag )
-                                <a href="javascript:void(0)"> &nbsp; {{ $tag }} &nbsp; &nbsp;</a>
+                            @foreach($event->tags as $tag )
+                                <a href="javascript:void(0)"> &nbsp; {{ $tag->tag }} &nbsp; &nbsp;</a>
                             @endforeach
                         </div>
                     </div>

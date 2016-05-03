@@ -55,4 +55,12 @@ class Event extends Model
     {
         return $this->hasOne('App\Eventinfo', 'info_id', 'id');
     }
+
+    /**
+     * @return Tag
+     */
+    public function tags()
+    {
+        return $this->belongsToMany('App\Tag', 'tag_event', 'event_id', 'tag_id');
+    }
 }

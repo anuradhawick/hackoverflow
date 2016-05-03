@@ -24,13 +24,12 @@
                     <form id="login_form" class="form-horizontal" method="post" action="">
                         <fieldset>
                             {{ csrf_field() }}
-                            <!-- Text input-->
+                                    <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="username">E-mail address</label>
                                 <div class="col-md-4">
                                     <input id="email" name="email" type="text" placeholder="email address"
-                                           class="form-control input-md" minlength="6" required>
-
+                                           class="form-control input-md" required>
                                 </div>
                             </div>
 
@@ -73,10 +72,10 @@
                 <hr>
                 <h2>Join us</h2>
                 <div class="features">
-                    <form id="register_form" class="form-horizontal">
+                    <form id="register_form" class="form-horizontal" method="post" action="/register">
                         <fieldset>
                             {{ csrf_field() }}
-                            <!-- Text input-->
+                                    <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="fname">First name</label>
                                 <div class="col-md-4">
@@ -85,15 +84,17 @@
 
                                 </div>
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="mname">Middle name</label>
                                 <div class="col-md-4">
-                                    <input id="mname" name="mname" type="text" placeholder="Middle name"
-                                           class="form-control input-md" required>
+                                    <input id="mname" name="mname" type="text" placeholder="Middle name (Optional)"
+                                           class="form-control input-md">
 
                                 </div>
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="lname">Last name</label>
@@ -103,16 +104,17 @@
 
                                 </div>
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="company">Organization</label>
+                                <label class="col-md-4 control-label" for="regEmail">Email address</label>
                                 <div class="col-md-4">
-                                    <input id="company" name="company" type="text"
-                                           placeholder="eg: ABC LTD, or keep blank"
-                                           class="form-control input-md">
+                                    <input id="regEmail" name="regEmail" type="email" placeholder="Email"
+                                           class="form-control input-md" required>
 
                                 </div>
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="tel">Contact number</label>
@@ -122,14 +124,14 @@
 
                                 </div>
                             </div>
+
                             <!-- Text input-->
                             <div class="form-group">
-                                <label class="col-md-4 control-label" for="username">Username <i
-                                            class="fa fa-check-circle-o"></i></label>
+                                <label class="col-md-4 control-label" for="company">Organization</label>
                                 <div class="col-md-4">
-
-                                    <input id="username" name="username" type="text" placeholder="username"
-                                           class="form-control input-md" required="">
+                                    <input id="company" name="company" type="text"
+                                           placeholder="eg: ABC LTD, or keep blank"
+                                           class="form-control input-md">
 
                                 </div>
                             </div>
@@ -162,7 +164,6 @@
                                     </button>
                                 </div>
                             </div>
-
                         </fieldset>
                     </form>
 
@@ -179,8 +180,13 @@
                         equalTo: $('#register_form').find("#password"),
                         minlength: 6
                     },
-                    username: {
-                        minlength: 6
+                    regEmail: {
+                        required: true,
+                        email: true,
+                        remote: {
+                            url: "/check/",
+                            type: "get"
+                        }
                     },
                     password: {
                         minlength: 6
@@ -197,6 +203,9 @@
                     },
                     tel: {
                         minlength: 'Please enter a valid telephone number'
+                    },
+                    regEmail: {
+                        remote: 'The email address is already occupied, Please login!s'
                     }
                 }
             });

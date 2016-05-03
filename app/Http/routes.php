@@ -101,8 +101,24 @@ Route::group(['middleware' => ['web']], function () {
             return redirect('/');
         }
     });
+    Route::post('/register', 'Auth\RegistrationController@registerUser');
+
     Route::post('/login', 'Auth\AuthController@authenticate');
 
     Route::get('/logout', 'Auth\AuthController@logout');
+
+    Route::get('/check/','Auth\RegistrationController@checkAvailable');
+
+    /*
+     * Routes related to miscellaneous pages
+     * */
+
+    Route::get('/about-us',function(){
+        return view('aboutus');
+    });
+
+    Route::get('/contact-us',function(){
+        return view('contactus');
+    });
 
 });

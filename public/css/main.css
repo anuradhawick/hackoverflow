@@ -2102,7 +2102,7 @@ ul.faq li > div h3 {
 }
 
 .blog .blog-item .blog-content {
-    padding-bottom: 25px;
+    padding-bottom: 0px;
 }
 
 .blog .blog-item .blog-content h2 {

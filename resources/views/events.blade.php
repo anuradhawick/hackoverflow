@@ -34,14 +34,14 @@
                             </div>
                         @else
                             @foreach($events as $e)
-                                <div class="blog-item">
-                                    <div class="row">
+                                <div class="blog-item" style="margin: 5px;">
+                                    <div class="">
                                         <div class="col-sm-10 blog-content">
                                             <h2 class="text-left"><a
                                                         href="/events/{{ $e->type }}/{{ $e->id }}">{{ $e->name }}</a>
                                             </h2>
                                             <h3 class="text-left">
-                                                {{ substr($e->event_info->description ,0,100).'...' }}
+                                                {{ substr($e->event_info->description ,0,500).'...' }}
                                                 <br>
                                                 On: {{ $e->event_info->event_date }}
                                             </h3>
@@ -58,7 +58,8 @@
                                 @if ($paginator->lastPage() > 1)
                                     <ul class="pagination">
                                         <li class="{{ ($paginator->currentPage() == 1) ? ' disabled' : '' }}">
-                                            <a href="{{ ($paginator->currentPage() == 1) ? 'javascript:void(0)': $paginator->previousPageUrl() }}"><i class="fa fa-long-arrow-left"></i>Previous</a>
+                                            <a href="{{ ($paginator->currentPage() == 1) ? 'javascript:void(0)': $paginator->previousPageUrl() }}"><i
+                                                        class="fa fa-long-arrow-left"></i>Previous</a>
                                         </li>
                                         @for ($i = 1; $i <= $paginator->lastPage(); $i++)
                                             <?php

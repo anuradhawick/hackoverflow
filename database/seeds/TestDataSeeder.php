@@ -26,7 +26,7 @@ class TestDataSeeder extends Seeder
 
         /*Get the added user*/
         $user = \App\User::find(1);
-        for ($i = 1; $i < 20; $i++) {
+        for ($i = 1; $i < 1; $i++) {
             // Adding a hackathon
             $event = new \App\Event();
             $event->name = 'Test hack ' . $i;

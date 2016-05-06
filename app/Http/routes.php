@@ -38,9 +38,14 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('/forum/post', 'ForumController@post');
 
         /*
-         * Posting events
+         * Posting events form page
          * */
         Route::get('/post-event/{type}', 'EventController@postEvent');
+
+        /*
+         * Posting events and saving data
+         * */
+        Route::post('/post-event/{type}', 'EventController@postEventSave');
 
     });
     /*

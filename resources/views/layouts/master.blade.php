@@ -6,8 +6,36 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
+    <script src="{{asset('js/jquery.js')}}"></script>
+    <script>
+        $(window).load(function () {
+            // Animate loader off screen
+            $(".se-pre-con").fadeOut("slow");
+        });
+    </script>
+    <style>
+        .no-js #loader {
+            display: none;
+        }
 
-    <!-- core CSS -->
+        .js #loader {
+            display: block;
+            position: absolute;
+            left: 100px;
+            top: 0;
+        }
+        .se-pre-con {
+            position: fixed;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: url("{{ asset('/images/loader.gif') }}") center no-repeat #fff;
+        }
+    </style>
+
+    <div class="se-pre-con"></div>
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
@@ -15,7 +43,6 @@
     <link href="{{asset('css/main.css')}}" rel="stylesheet">
     <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
-    <script src="{{asset('js/jquery.js')}}"></script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
@@ -32,9 +59,12 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
-    <style>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover({html: true});
+        });
+    </script>
 
-    </style>
 </head><!--/head-->
 
 <body class="@yield('homepage')">
@@ -51,11 +81,14 @@
                 <div class="col-sm-6 col-xs-6">
                     <div class="social">
                         <ul class="social-share">
-                        <li><a href="https://www.facebook.com/anuradha.sanjeewa" target="_blank"><i class="fa fa-facebook"></i></a></li>
-                        <li><a href="https://www.twitter.com/anuradhawick" target="_blank"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://www.linkedin.com/in/anuradhawick" target="_blank"><i class="fa fa-linkedin"></i></a></li>
-                        {{--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>--}}
-                        {{--<li><a href=""><i class="fa fa-skype"></i></a></li>--}}
+                            <li><a href="https://www.facebook.com/anuradha.sanjeewa" target="_blank"><i
+                                            class="fa fa-facebook"></i></a></li>
+                            <li><a href="https://www.twitter.com/anuradhawick" target="_blank"><i
+                                            class="fa fa-twitter"></i></a></li>
+                            <li><a href="https://www.linkedin.com/in/anuradhawick" target="_blank"><i
+                                            class="fa fa-linkedin"></i></a></li>
+                            {{--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>--}}
+                            {{--<li><a href=""><i class="fa fa-skype"></i></a></li>--}}
                         </ul>
                         <div class="search">
                             <form role="form">
@@ -113,13 +146,12 @@
                     @endif
                     <li class="@yield('aboutus')"><a href="/about-us">About Us</a></li>
                     <li class="@yield('contactus')"><a href="/contact-us">Contact Us</a></li>
-
                 </ul>
             </div>
-        </div><!--/.container-->
-    </nav><!--/nav-->
+        </div>
+    </nav>
 
-</header><!--/header-->
+</header>
 @section('body_content')
 
 @show

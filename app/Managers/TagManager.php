@@ -6,7 +6,7 @@
  * Time: 22:58
  */
 
-namespace App\Http\Managers;
+namespace App\Managers;
 
 
 use App\Tag;

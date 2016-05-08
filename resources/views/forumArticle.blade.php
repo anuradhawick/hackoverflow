@@ -28,7 +28,8 @@
                     <tbody>
                     <tr>
                         <td class="pull-left">Author &nbsp;&nbsp;</td>
-                        <td style="text-align: left">-&nbsp;&nbsp;{{ $user->fname. ' '.$user->mname.' '.$user->lname  }}</td>
+                        <td style="text-align: left">
+                            -&nbsp;&nbsp;{{ $user->fname. ' '.$user->mname.' '.$user->lname  }}</td>
                     </tr>
                     <tr>
                         <td class="pull-left">E-mail &nbsp;&nbsp;</td>
@@ -36,8 +37,13 @@
                     </tr>
                     </tbody>
                 </table>
-                <hr>
+                <br>
+                <div class="pull-left">
+                    <button type="button" id="likeButton" class="btn btn-danger left">Like post</button><span>&nbsp; <span id="likeCount"></span> people liked this post</span>
+                </div>
+                <br>
             </div>
+            <hr>
             <div class="col-xs-12 col-sm-12">
                 <div id="disqus_thread"></div>
                 <script>
@@ -46,17 +52,37 @@
                      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
                      */
                     var disqus_config = function () {
-                        this.page.url = "";  // Replace PAGE_URL with your page's canonical URL variable
+//                        this.page.url = "hackoverflow/forum/";  // Replace PAGE_URL with your page's canonical URL variable
                         this.page.identifier = "{{ $post->uuid }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                     };
                     (function () {  // DON'T EDIT BELOW THIS LINE
                         var d = document, s = d.createElement('script');
 
-                        s.src = '//binarymathematics.disqus.com/embed.js';
+                        s.src = '//hackoverflow.disqus.com/embed.js';
 
                         s.setAttribute('data-timestamp', +new Date());
                         (d.head || d.body).appendChild(s);
                     })();
+                </script>
+                <script>
+                    $(document).ready(function () {
+                        $("#likeButton").click(function () {
+                            $(this).button('toggle');
+                            if ($(this).text() == 'Like post') {
+                                $(this).text('Unlike post');
+                            } else {
+                                $(this).text('Like post');
+                            }
+                        });
+                        {
+                            var i = 1;
+                            var v = setInterval(function(){
+                                i++;
+                                $('#likeCount').text(i);
+                            },1000);
+                        }
+
+                    });
                 </script>
 
             </div>

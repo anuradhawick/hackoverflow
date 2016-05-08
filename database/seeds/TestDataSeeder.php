@@ -26,7 +26,7 @@ class TestDataSeeder extends Seeder
 
         /*Get the added user*/
         $user = \App\User::find(1);
-        for ($i = 1; $i < 1; $i++) {
+        for ($i = 1; $i < 11; $i++) {
             // Adding a hackathon
             $event = new \App\Event();
             $event->name = 'Test hack ' . $i;
@@ -47,7 +47,7 @@ class TestDataSeeder extends Seeder
             $com->url = 'http://www.google.com';
             $com->comment_id = \Faker\Provider\Uuid::uuid();
             // Saving tags
-            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('ideamart,Takas.lk'));
+            $event->tags()->saveMany(\App\Managers\TagManager::getTagsArray('ideamart,Takas.lk'));
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
             // set event info
@@ -78,7 +78,7 @@ class TestDataSeeder extends Seeder
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
             // Saving tags
-            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('ideamart,Wso2'));
+            $event->tags()->saveMany(\App\Managers\TagManager::getTagsArray('ideamart,Wso2'));
             // set event info
             $eventinfo = new \App\Eventinfo();
             $eventinfo->organizer = 'WSO2';
@@ -105,7 +105,7 @@ class TestDataSeeder extends Seeder
             $com->url = 'http://www.yahoo.com';
             $com->comment_id = \Faker\Provider\Uuid::uuid();
             // Saving tags
-            $event->tags()->saveMany(\App\Http\Managers\TagManager::getTagsArray('pcjt,Wso2'));
+            $event->tags()->saveMany(\App\Managers\TagManager::getTagsArray('pcjt,Wso2'));
             $com->google_form = 'https://docs.google.com/forms/d/1dtYGZoKRNIhAxAsJdqQCf5z7uPtyXMaNcxBBFEqUGVk/viewform?embedded=true';
             $event->commondata()->save($com);
             // set event info

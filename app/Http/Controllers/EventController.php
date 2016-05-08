@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
-use App\Http\Managers\TagManager;
+use App\Managers\TagManager;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;

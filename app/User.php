@@ -24,4 +24,13 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Event', 'user_id', 'id');
     }
+
+
+    /**
+     * @return ForumFeedBack
+     */
+    public function forumFeedback()
+    {
+        return $this->hasMany('App\ForumFeedBack', 'user_id', 'id');
+    }
 }

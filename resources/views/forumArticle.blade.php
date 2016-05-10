@@ -39,7 +39,8 @@
                 </table>
                 <br>
                 <div class="pull-left">
-                    <button type="button" id="likeButton" class="btn btn-danger left">Like post</button><span>&nbsp; <span id="likeCount"></span> people liked this post</span>
+                    <button type="button" id="likeButton" class="btn btn-danger left">Like post</button>
+                    <span>&nbsp; <span id="likeCount"></span> people liked this post</span>
                 </div>
                 <br>
             </div>
@@ -67,22 +68,60 @@
                 <script>
                     $(document).ready(function () {
                         $("#likeButton").click(function () {
-                            $(this).button('toggle');
-                            if ($(this).text() == 'Like post') {
-                                $(this).text('Unlike post');
-                            } else {
-                                $(this).text('Like post');
+                            var likeBtn = $('#likeButton');
+                            $.ajax({
+                                type: "GET",
+                                url: "/forum/like/",
+                                async: true,
+                                cache: false,
+                                data: {like: (likeBtn.text() == 'Like post') ? 1 : 0, forumID: '{{ $post->id }}'},
+                                timeout: 50000,
+                                success: function (data) {
+//                                    /forum/like?forumID=1&like=
+                                },
+                                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                    if (errorThrown == 'Unauthorized') {
+                                        window.location.replace("/forum/like?forumID={{ $post->id }}&like=1");
+                                    }
+                                }
+                            });
+                        });
+                        waitForMsg();
+                    });
+
+                    function waitForMsg() {
+                        $.ajax({
+                            type: "GET",
+                            url: "/forum/likes",
+                            async: true,
+                            cache: false,
+                            data: {forumID: "{{ $post->id }}"},
+                            timeout: 50000,
+                            success: function (data) {
+                                $("#likeCount").text(data.likeCount);
+                                buttonControl($.parseJSON(data.userLiked));
+                                setTimeout(waitForMsg, 1000);
+                            },
+                            error: function (XMLHttpRequest, textStatus, errorThrown) {
+                                setTimeout(waitForMsg, 15000);
                             }
                         });
-                        {
-                            var i = 1;
-                            var v = setInterval(function(){
-                                i++;
-                                $('#likeCount').text(i);
-                            },1000);
-                        }
+                    }
 
-                    });
+                    function buttonControl(liked) {
+                        var btn = $('#likeButton');
+                        if (liked) {
+                            if (btn.text() == 'Like post') {
+                                btn.text('Unlike post');
+                                btn.button('toggle');
+                            }
+                        } else {
+                            if (btn.text() == 'Unlike post') {
+                                btn.text('Like post');
+                                btn.button('toggle');
+                            }
+                        }
+                    }
                 </script>
 
             </div>

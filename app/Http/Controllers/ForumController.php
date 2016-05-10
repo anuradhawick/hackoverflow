@@ -3,11 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Forum_post;
+use App\ForumFeedBack;
 use App\User;
 use Faker\Provider\Uuid;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use Psy\Util\Json;
 
 class ForumController extends Controller
 {
@@ -52,5 +55,52 @@ class ForumController extends Controller
     {
         $posts = Forum_post::orderBy('created_at', 'desc')->paginate(5);
         return view('forumArticles', ['posts' => $posts]);
+    }
+
+    /**
+     * Return the number of likes for a given post by the forum ID
+     *
+     * @return Json
+     */
+    public function likesData()
+    {
+        $id = request()->input('forumID');
+        $likeCount = ForumFeedBack::where('forum_id', $id)->where('action', 1)->count();
+        $userLiked = false;
+        if (Auth::check()) {
+            $user = Auth::user();
+            if ($feedback = ForumFeedBack::where('forum_id', $id)->where('user_id', $user->id)->first()) {
+                $feedback->action == 1 ? $userLiked = true : $userLiked = false;;
+            }
+        }
+        return response()->json(['likeCount' => $likeCount, 'userLiked' => $userLiked]);
+    }
+
+
+    /**
+     * Like the forum post identified by Like flag and forum id
+     * 1 - Like, 0- Unlike
+     *
+     * @return Json
+     */
+    public function likeForum()
+    {
+        $id = request()->input('forumID');
+        $like = request()->input('like');
+        $user = Auth::user();
+        $forum = Forum_post::find($id);
+        if ($feedback = ForumFeedBack::where('forum_id', $id)->where('user_id', $user->id)->first()) {
+            $feedback->action = $like;
+            $feedback->save();
+            $user->forumFeedback()->save($feedback);
+            $forum->forumFeedback()->save($feedback);
+        } else {
+            $feedback = new ForumFeedBack();
+            $feedback->action = $like;
+            $feedback->save();
+            $user->forumFeedback()->save($feedback);
+            $forum->forumFeedback()->save($feedback);
+        }
+        return redirect('/forum/' . $id);
     }
 }

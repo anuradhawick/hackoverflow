@@ -32,6 +32,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/forum/post', function () {
             return view('postForum');
         });
+        Route::get('/forum/like/','ForumController@likeForum');
         /*
          * Posting and saving the data to the forum
          * */
@@ -86,10 +87,12 @@ Route::group(['middleware' => ['web']], function () {
      * Routes related to forum posts
      * */
 
+    Route::get('/forum/likes/','ForumController@likesData');
 
     Route::get('/forum/{id}', 'ForumController@view');
 
     Route::get('/forum/', 'ForumController@viewPosts');
+
 
 
     // Route for accessing test controller

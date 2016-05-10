@@ -15,4 +15,12 @@ class Forum_post extends Model
     {
         return $this->belongsTo('App\User');
     }
+
+    /**
+     * @return ForumFeedBack
+     */
+    public function forumFeedback()
+    {
+        return $this->hasMany('App\ForumFeedBack', 'forum_id', 'id');
+    }
 }

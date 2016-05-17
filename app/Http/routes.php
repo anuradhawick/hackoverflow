@@ -32,7 +32,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/forum/post', function () {
             return view('postForum');
         });
-        Route::get('/forum/like/','ForumController@likeForum');
+        Route::get('/forum/like/', 'ForumController@likeForum');
         /*
          * Posting and saving the data to the forum
          * */
@@ -47,6 +47,13 @@ Route::group(['middleware' => ['web']], function () {
          * Posting events and saving data
          * */
         Route::post('/post-event/{type}', 'EventController@postEventSave');
+
+        /*
+         * Routes related to user profile
+         * */
+        Route::get('/profile', function () {
+            return view('profile');
+        });
 
     });
     /*
@@ -87,12 +94,11 @@ Route::group(['middleware' => ['web']], function () {
      * Routes related to forum posts
      * */
 
-    Route::get('/forum/likes/','ForumController@likesData');
+    Route::get('/forum/likes/', 'ForumController@likesData');
 
     Route::get('/forum/{id}', 'ForumController@view');
 
     Route::get('/forum/', 'ForumController@viewPosts');
-
 
 
     // Route for accessing test controller
@@ -115,17 +121,17 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/logout', 'Auth\AuthController@logout');
 
-    Route::get('/check/','Auth\RegistrationController@checkAvailable');
+    Route::get('/check/', 'Auth\RegistrationController@checkAvailable');
 
     /*
      * Routes related to miscellaneous pages
      * */
 
-    Route::get('/about-us',function(){
+    Route::get('/about-us', function () {
         return view('aboutus');
     });
 
-    Route::get('/contact-us',function(){
+    Route::get('/contact-us', function () {
         return view('contactus');
     });
 

@@ -24,6 +24,7 @@
             left: 100px;
             top: 0;
         }
+
         .se-pre-con {
             position: fixed;
             left: 0px;
@@ -59,6 +60,9 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-client_id"
+          content="732115526464-it7hknll4or0fmhore01ud96ufkd9u2d.apps.googleusercontent.com">
     <script>
         $(document).ready(function () {
             $('[data-toggle="popover"]').popover({html: true});
@@ -75,7 +79,7 @@
             <div class="row">
                 <div class="col-sm-6 col-xs-6">
                     <div class="top-number"><p>
-                            Hi, {!! Auth::check()? Auth::user()->fname. " &nbsp;&nbsp;<a href='/logout' style='color: #fff; !important'><i class='fa fa-user'></i></a>&nbsp;&nbsp;&nbsp;" ." <a href='/logout' style='color: #fff; !important'><i class='fa fa-sign-out'></i></a>": 'Guest' !!}
+                            Hi, {!! Auth::check()? Auth::user()->fname. " &nbsp;&nbsp;<a href='/profile' style='color: #fff; !important'><i class='fa fa-user'></i></a>&nbsp;&nbsp;&nbsp;" ." <a href='/logout' style='color: #fff; !important'><i class='fa fa-sign-out'></i></a>": 'Guest' !!}
                         </p></div>
                 </div>
                 <div class="col-sm-6 col-xs-6">

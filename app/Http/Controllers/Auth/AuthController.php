@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\DB;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -25,28 +26,53 @@ class AuthController extends Controller
 
     /**
      * Authenticate the user and start the logged in session
-     * 
+     *
      * @param Request $req
      * @return mixed
      */
     public function authenticate(Request $req)
     {
-        $email = $req->input('email');
-        $password = $req->input('password');
-        if (Auth::attempt(['email' => $email, 'password' => $password])) {
-            // Generate the session for the logged in user
-            Auth::login(Auth::user());
-            // Return the user to the intended link or the root
-            return redirect()->intended('/');
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=" . $req->input('token'));
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $output = curl_exec($ch);
+        $data = json_decode($output, true);
+        curl_close($ch);
+        if ($this->validateData($data)) {
+            if (Auth::attempt(['sub' => $data['sub'], 'password' => $data['aud']])) {
+                // Generate the session for the logged in user
+                Auth::login(Auth::user());
+                // Return the user to the intended link or the root
+                return "logged". Auth::user()->name.Auth::check();
+            } else {
+//                 Create new user and Authenticate
+                DB::table('users')->insert([
+                    'given_name' => $data['given_name'],
+                    'family_name' => $data['family_name'],
+                    'name' => $data['name'],
+                    'sub' => $data['sub'],
+                    'password' => bcrypt($data['aud']),
+                    'picture' => $data['picture'],
+                    'email' => $data['email'],
+                ]);
+                if (Auth::attempt(['sub' => $data['sub'], 'password' => $data['aud']])) {
+                    // Generate the session for the logged in user
+                    Auth::login(Auth::user());
+                    // Return the user to the intended link or the root
+//                    echo redirect()->intended('/')->getTargetUrl();
+                    return "Acc created";
+                } else {
+                    return "error";
+                }
+            }
         } else {
-            // Pass the error message to the front end
-            return redirect('/login')->with('error', 'Email address or password is/are invalid. Try again!');
+            return "error";
         }
     }
 
     /**
      * Logging out from the active session
-     * 
+     *
      * @return mixed
      */
     public function logout()
@@ -55,6 +81,24 @@ class AuthController extends Controller
         if (Auth::check()) {
             Auth::logout();
         }
-        return redirect('/');
+        return "success";
+    }
+
+    /**
+     * @param $data
+     * @return bool
+     */
+    private function validateData($data)
+    {
+        if ($data['aud'] != "732115526464-it7hknll4or0fmhore01ud96ufkd9u2d.apps.googleusercontent.com") {
+            return false;
+        }
+        if ($data['iat'] > $data['exp']) {
+            return false;
+        }
+        if ($data['email_verified'] != true) {
+            return false;
+        }
+        return true;
     }
 }

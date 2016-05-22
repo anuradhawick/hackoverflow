@@ -81,7 +81,7 @@
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                                     if (errorThrown == 'Unauthorized') {
-                                        window.location.replace("/forum/like?forumID={{ $post->id }}&like=1");
+                                        window.location.replace("/forum/like?forumID={!! $post->id !!}&like=1");
                                     }
                                 }
                             });

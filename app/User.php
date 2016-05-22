@@ -8,7 +8,8 @@ class User extends Authenticatable
 {
     protected $table = 'users';
     public $timestamps = false;
-    protected $hidden = ['password','remember_token'];
+    protected $hidden = ['password', 'remember_token'];
+
     /**
      * @return Forum_post
      */
@@ -32,5 +33,13 @@ class User extends Authenticatable
     public function forumFeedback()
     {
         return $this->hasMany('App\ForumFeedBack', 'user_id', 'id');
+    }
+
+    /**
+     * @return Subscription
+     */
+    public function subscriptions()
+    {
+        return $this->belongsToMany('App\Subscription', 'user_sub', 'user_id', 'sub_id');
     }
 }

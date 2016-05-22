@@ -52,7 +52,7 @@
     <script src="{{asset('js/html5shiv.js')}}"></script>
     <script src="{{asset('js/respond.min.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-    <link rel="shortcut icon" href="{{asset('images/ico/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('/images/ico/favicon.ico')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
           href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
@@ -60,15 +60,53 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
           href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <meta name="google-signin-client_id"
-          content="732115526464-it7hknll4or0fmhore01ud96ufkd9u2d.apps.googleusercontent.com">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <script src="https://apis.google.com/js/api:client.js"></script>
+    <script>
+        var googleUser = {};
+        var startApp = function () {
+            gapi.load('auth2', function () {
+                auth2 = gapi.auth2.init({
+                    client_id: '732115526464-it7hknll4or0fmhore01ud96ufkd9u2d.apps.googleusercontent.com',
+                    cookiepolicy: 'single_host_origin'
+                });
+                attachSignin(document.getElementById('gLogin'));
+            });
+        };
+
+        function attachSignin(element) {
+            auth2.attachClickHandler(element, {},
+                    function (googleUser) {
+                        var profile = googleUser.getBasicProfile();
+                        $(function () {
+                            $.post("/login", {
+                                token: googleUser.getAuthResponse().id_token,
+                                _token: '{!! csrf_token() !!}'
+                            }, function (data, status) {
+                                window.location.href = "{!! session()->pull('url.intended', url('/')) !!}";
+                            });
+                        });
+                    }, function (error) {
+                        // ignore
+                    });
+        }
+        function signOut() {
+            $.get("/logout", function (data) {
+                var auth2 = gapi.auth2.getAuthInstance();
+                auth2.signOut().then(function () {
+                    console.log('User signed out.');
+                });
+                window.location = "/";
+            });
+        }
+    </script>
     <script>
         $(document).ready(function () {
             $('[data-toggle="popover"]').popover({html: true});
+            startApp();
         });
-    </script>
 
+    </script>
 </head><!--/head-->
 
 <body class="@yield('homepage')">
@@ -79,7 +117,7 @@
             <div class="row">
                 <div class="col-sm-6 col-xs-6">
                     <div class="top-number"><p>
-                            Hi, {!! Auth::check()? Auth::user()->fname. " &nbsp;&nbsp;<a href='/profile' style='color: #fff; !important'><i class='fa fa-user'></i></a>&nbsp;&nbsp;&nbsp;" ." <a href='/logout' style='color: #fff; !important'><i class='fa fa-sign-out'></i></a>": 'Guest' !!}
+                            Hi, {!! Auth::check()? Auth::user()->given_name . " &nbsp;&nbsp;<a href='/profile' style='color: #fff; !important'><i class='fa fa-user'></i></a>&nbsp;&nbsp;&nbsp;" ." <a onclick='signOut()' href='#' style='color: #fff; !important'><i class='fa fa-sign-out'></i></a>": 'Guest' !!}
                         </p></div>
                 </div>
                 <div class="col-sm-6 col-xs-6">
@@ -146,7 +184,9 @@
                         </ul>
                     </li>
                     @if(!Auth::check())
-                        <li class="@yield('login')"><a href="/login">Login/ Register</a></li>
+                        <li class="@yield('login')"><a href="javascript:void(0)">
+                                <div id="gLogin">Login/ Register</div>
+                            </a></li>
                     @endif
                     <li class="@yield('aboutus')"><a href="/about-us">About Us</a></li>
                     <li class="@yield('contactus')"><a href="/contact-us">Contact Us</a></li>

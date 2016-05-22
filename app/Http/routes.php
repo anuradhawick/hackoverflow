@@ -55,6 +55,12 @@ Route::group(['middleware' => ['web']], function () {
             return view('profile');
         });
 
+        Route::get('/subscriptions', function () {
+            \App\Managers\SubscriptionManager::subscribe(1, 1, 1);
+        });
+
+        Route::post('/subscriptions', "ProfileController@subscribe");
+
     });
     /*
      * Routes related to normal views
@@ -115,7 +121,7 @@ Route::group(['middleware' => ['web']], function () {
             return redirect('/');
         }
     });
-    Route::post('/register', 'Auth\RegistrationController@registerUser');
+//    Route::post('/register', 'Auth\RegistrationController@registerUser');
 
     Route::post('/login', 'Auth\AuthController@authenticate');
 

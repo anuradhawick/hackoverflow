@@ -29,7 +29,7 @@
                     <tr>
                         <td class="pull-left">Author &nbsp;&nbsp;</td>
                         <td style="text-align: left">
-                            -&nbsp;&nbsp;{{ $user->fname. ' '.$user->mname.' '.$user->lname  }}</td>
+                            -&nbsp;&nbsp;{{ $user->name  }}</td>
                     </tr>
                     <tr>
                         <td class="pull-left">E-mail &nbsp;&nbsp;</td>

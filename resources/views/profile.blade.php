@@ -9,23 +9,6 @@
 @extends('layouts.master')
 @section('title','Profile')
 @section('body_content')
-    <?php
-    $user = Auth::user();
-    $hack = false;
-    $meet = false;
-    $other = false;
-    foreach (json_decode($user->subscriptions, true) as $sub) {
-        if ($sub['event_type'] == "hack") {
-            $hack = true;
-        }
-        if ($sub['event_type'] == "meet") {
-            $meet = true;
-        }
-        if ($sub['event_type'] == "other") {
-            $other = true;
-        }
-    }
-    ?>
     <script>
         $(document).ready(function () {
             $("#subscriptionUpdateForm").submit(function (form) {
@@ -39,6 +22,9 @@
                     _token: '{{ csrf_token() }}'
                 }, function (data, status) {
                     $("#alert").show();
+                    setTimeout(function () {
+                        $("#alert").slideUp(1000)
+                    }, 1000);
                 });
             });
         });
@@ -55,15 +41,13 @@
                     </div>
                 </div>
                 <div class="col-md-8">
+                    <h2>Update subscriptions</h2>
+                    <hr>
                     <div id="alert" class="alert alert-danger" hidden>
                         <strong>Updated successfully</strong>
                     </div>
                     <form id="subscriptionUpdateForm" class="form-horizontal" onsubmit="return false;">
                         <fieldset>
-                            <!-- Form Name -->
-                            <legend>Update details</legend>
-
-                            <!-- Multiple Checkboxes -->
                             <div class="form-group">
                                 <label class="col-md-4 control-label" for="subscription">Subscriptions</label>
                                 <div class="col-md-4">
@@ -101,7 +85,21 @@
                             </div>
                         </fieldset>
                     </form>
-
+                    <br>
+                    <h2>My posts</h2>
+                    <hr>
+                    <div class="col-sm-3">
+                        <a href="" class="btn btn-danger">Forum posts</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="" class="btn btn-danger">Hackathons</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="" class="btn btn-danger">Meetups</a>
+                    </div>
+                    <div class="col-sm-3">
+                        <a href="" class="btn btn-danger">Other events</a>
+                    </div>
                 </div>
             </div>
         </div>

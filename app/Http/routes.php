@@ -51,15 +51,14 @@ Route::group(['middleware' => ['web']], function () {
         /*
          * Routes related to user profile
          * */
-        Route::get('/profile', function () {
-            return view('profile');
-        });
-
-        Route::get('/subscriptions', function () {
-            \App\Managers\SubscriptionManager::subscribe(1, 1, 1);
-        });
+        Route::get('/profile', "ProfileController@viewPage");
 
         Route::post('/subscriptions', "ProfileController@subscribe");
+
+        /*
+         * Routes related to updating posts
+         * */
+        Route::get('/profile/update/forum/{id}', 'ForumController@editForum');
 
     });
     /*

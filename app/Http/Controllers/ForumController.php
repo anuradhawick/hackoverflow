@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use Illuminate\View\View;
 use Psy\Util\Json;
 
 class ForumController extends Controller
@@ -24,7 +25,7 @@ class ForumController extends Controller
     {
         $post_name = $req->input('name');
         $post_article = $req->input('post');
-        $user = User::all()->first();
+        $user = Auth::user();
         $forum_post = new Forum_post();
         $forum_post->title = $post_name;
         $forum_post->post = $post_article;
@@ -102,5 +103,22 @@ class ForumController extends Controller
             $forum->forumFeedback()->save($feedback);
         }
         return redirect('/forum/' . $id);
+    }
+
+
+    /**
+     * Render the editable forum page
+     *
+     * @param $id
+     * @return View
+     */
+    public function editForum($id)
+    {
+        $forum = Forum_post::find($id);
+        if ($forum->user == Auth::user()) {
+            return view('editor_layouts.updateforum', ["title" => $forum->title, "post" => $forum->post]);
+        } else {
+            echo "invalid";
+        }
     }
 }

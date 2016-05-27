@@ -14,19 +14,9 @@ class TestDataSeeder extends Seeder
     public function run()
     {
         // Adding the default user
-        DB::table('users')->insert([
-            'fname' => 'Anuradha',
-            'mname' => 'Sanjeewa',
-            'lname' => 'Wickramarachchi',
-            'tel' => '0712165724',
-            'admin' => 1,
-            'email' => 'anuradhawick@gmail.com',
-            'password' => bcrypt('asdwas')
-        ]);
-
         /*Get the added user*/
-        $user = \App\User::find(1);
-        for ($i = 1; $i < 11; $i++) {
+        $user = \App\User::find(2);
+        for ($i = 100; $i < 110; $i++) {
             // Adding a hackathon
             $event = new \App\Event();
             $event->name = 'Test hack ' . $i;

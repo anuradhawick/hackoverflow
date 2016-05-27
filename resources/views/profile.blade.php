@@ -28,11 +28,17 @@
                 });
             });
         });
+
+        function getPosts() {
+            $(function () {
+                alert('a');
+            });
+        }
     </script>
     <section class="container">
         <div class="center wow fadeInDown">
-            <div class="col-md-12">
-                <div class="col-md-4" style="visibility: visible; animation-name: fadeInDown;">
+            <div class="col-sm-12">
+                <div class="col-sm-4" style="visibility: visible; animation-name: fadeInDown;">
                     <div class="clients-comments text-center">
                         <img src="{{ $user->picture }}" class="img-circle" alt="">
                         <h3></h3>
@@ -40,7 +46,7 @@
                         <h4><span>{{ $user->email }}</span></h4>
                     </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-sm-8">
                     <h2>Update subscriptions</h2>
                     <hr>
                     <div id="alert" class="alert alert-danger" hidden>
@@ -86,19 +92,19 @@
                         </fieldset>
                     </form>
                     <br>
-                    <h2>My posts</h2>
+                    <h2>My activity</h2>
                     <hr>
                     <div class="col-sm-3">
-                        <a href="" class="btn btn-danger">Forum posts</a>
+                        <a href="/profile/forum" class="btn btn-danger btn-block">Forum posts</a>
                     </div>
                     <div class="col-sm-3">
-                        <a href="" class="btn btn-danger">Hackathons</a>
+                        <a href="/profile/hackathons" class="btn btn-danger btn-block">Hackathons</a>
                     </div>
                     <div class="col-sm-3">
-                        <a href="" class="btn btn-danger">Meetups</a>
+                        <a href="/profile/meetups" class="btn btn-danger btn-block">Meetups</a>
                     </div>
                     <div class="col-sm-3">
-                        <a href="" class="btn btn-danger">Other events</a>
+                        <a href="/profile/other" class="btn btn-danger btn-block">Other events</a>
                     </div>
                 </div>
             </div>

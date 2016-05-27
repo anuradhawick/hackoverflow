@@ -8,10 +8,16 @@ body {
 
 label.error {
     margin: 3px;
-    color: #e93c0e;
+    color: #c52d2f;
 }
 
 .navbar {
 
     border-radius: 0px !important;
+}
+
+
+.btn-danger{
+    border-color: #c52d2f;
+    background-color: #c52d2f;
 }

@@ -7,8 +7,7 @@
  */
 ?>
 @extends('layouts.master')
-@section('title','Post in forum')
-@section('forum_post','active')
+@section('title','Edit forum post')
 @section('body_content')
 
     <section class="container">
@@ -36,10 +35,10 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="btn"></label>
                             <div class="col-sm-1 col-sm-offset-5">
-                                <button type="submit" name="" class="btn btn-default btn-block" value="update">Update</button>
+                                <button type="submit" name="submit" class="btn btn-default btn-block" value="update">Update</button>
                             </div>
                             <div class="col-sm-1">
-                                <button type="submit" class="btn btn-default btn-block" value="delete">Delete</button>
+                                <button type="submit" name="submit" class="btn btn-default btn-block" value="delete">Delete</button>
                             </div>
                         </div>
                     </fieldset>

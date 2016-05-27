@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\URL;
 use Illuminate\View\View;
 use Psy\Util\Json;
 
@@ -80,7 +81,7 @@ class ForumController extends Controller
 
     /**
      * Like the forum post identified by Like flag and forum id
-     * 1 - Like, 0- Unlike
+     * 1 - Like, 0 - Unlike
      *
      * @return Json
      */
@@ -119,6 +120,38 @@ class ForumController extends Controller
             return view('editor_layouts.updateforum', ["title" => $forum->title, "post" => $forum->post]);
         } else {
             echo "invalid";
+        }
+    }
+
+
+    /**
+     * Update and save the forum
+     *
+     *
+     * @param $id
+     * @return View
+     */
+    public function update($id)
+    {
+        // validating the user
+        $forum = Forum_post::find($id);
+        if ($forum->user == Auth::user()) {
+            switch (request()->input('submit')) {
+                case 'update':
+                    $forum->title = request()->input('name');
+                    $forum->post = request()->input('post');
+                    $forum->save();
+                    return redirect('/forum/' . $id);
+                    break;
+                case 'delete':
+//                    $forum->delete();
+                    // TODO
+                    echo 'delete and redirect to my posts page';
+                    break;
+            }
+        } else {
+            // Un authorized user
+            // TODO
         }
     }
 }

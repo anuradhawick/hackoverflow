@@ -2,13 +2,12 @@
 /**
  * Created by IntelliJ IDEA.
  * User: anuradhawick
- * Date: 4/14/16
- * Time: 22:13
- */ ?>
-
+ * Date: 5/27/16
+ * Time: 15:22
+ */
+?>
 @extends('layouts.master')
-@section('title','Forum')
-@section('forum','active')
+@section('title','Post in forum')
 @section('body_content')
 
     <section class="container">
@@ -31,7 +30,7 @@
                                 <div class="">
                                     <div class="col-sm-12 blog-content well">
                                         <h2 class="text-left"><a
-                                                    href="{{ '/forum/' . $post->id }}">{{ $post->title }}</a>
+                                                    href="{{ '/profile/forum/update/' . $post->id }}">{{ $post->title }}</a>
                                         </h2>
                                         <h3 class="text-left">{{ substr($post->post, 0, 500).'...' }}</h3>
                                     </div>

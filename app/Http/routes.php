@@ -55,10 +55,16 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('/subscriptions', "ProfileController@subscribe");
 
+        Route::get('/profile/forum/', 'ProfileController@myForumPosts');
+
+        Route::get('/profile/{type}', 'ProfileController@myEvents');
+
         /*
          * Routes related to updating posts
          * */
-        Route::get('/profile/update/forum/{id}', 'ForumController@editForum');
+        Route::get('/profile/forum/update/{id}', 'ForumController@editForum');
+
+        Route::post('/profile/forum/update/{id}', 'ForumController@update');
 
     });
     /*

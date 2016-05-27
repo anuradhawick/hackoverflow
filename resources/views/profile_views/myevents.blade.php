@@ -1,20 +1,18 @@
 <?php
 /**
  * Created by IntelliJ IDEA.
- * User: Anuradha
- * Date: 3/22/2016
- * Time: 10:49 PM
- */ ?>
+ * User: anuradhawick
+ * Date: 5/27/16
+ * Time: 18:56
+ */
+?>
 @extends('layouts.master')
 @if($type==1)
-    @section('title','Upcoming Hackathons')
-@section('hackathon','active')
+    @section('title','My Hackathons')
 @elseif($type==2)
-    @section('title','Upcoming Meetups')
-@section('meet','active')
+    @section('title','My Meetups')
 @elseif($type==3)
-    @section('title','Other events')
-@section('other','active')
+    @section('title','My events')
 @endif
 @section('body_content')
     <section id="blog" class="container">

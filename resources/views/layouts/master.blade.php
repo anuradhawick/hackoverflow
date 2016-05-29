@@ -52,7 +52,7 @@
     <script src="{{asset('js/html5shiv.js')}}"></script>
     <script src="{{asset('js/respond.min.js')}}"></script>
     <script src="{{asset('js/jquery.validate.min.js')}}"></script>
-    <link rel="shortcut icon" href="{{asset('/images/ico/favicon.ico')}}">
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
           href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"

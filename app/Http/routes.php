@@ -68,6 +68,8 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::get('/profile/{type}/update/{id}', 'EventController@editEventView');
 
+        Route::post('/profile/{type}/update/{id}', 'EventController@editEvent');
+
     });
     /*
      * Routes related to normal views

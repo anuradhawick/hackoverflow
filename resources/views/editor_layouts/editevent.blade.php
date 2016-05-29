@@ -28,7 +28,7 @@
                             <div class="col-sm-8">
                                 <input id="name" name="name" type="text"
                                        placeholder="Name of the event"
-                                       class="form-control input-md" required value="{{ $event->name }}">
+                                       class="form-control input-md" required value="{{ $event->name or '' }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                                 <input id="organizer" name="organizer" type="text"
                                        placeholder="eg: Microsoft"
                                        class="form-control input-md" required
-                                       value="{{ $event->event_info->organizer }}">
+                                       value="{{ $event->event_info->organizer or ''}}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -45,14 +45,15 @@
                             <div class="col-sm-8">
                                 <input id="venue" name="venue" type="text"
                                        placeholder="eg: BMICH"
-                                       class="form-control input-md" required value="{{ $event->event_info->venue }}">
+                                       class="form-control input-md" required
+                                       value="{{ $event->event_info->venue or ''}}">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="name">Registration deadline</label>
                             <div class="col-sm-8">
                                 <input id="regDate" name="regDate" type="date"
-                                       value="{{ $event->event_info->reg_deadline }}"
+                                       value="{{ $event->event_info->reg_deadline or \Carbon\Carbon::now()->toDateString() }}"
                                        min="{{ \Carbon\Carbon::now()->toDateString() }}"
                                        class="form-control input-md" required>
                             </div>
@@ -61,7 +62,7 @@
                             <label class="col-sm-3 control-label" for="name">Event date</label>
                             <div class="col-sm-8">
                                 <input id="eventDate" name="eventDate" type="date"
-                                       value="{{ $event->event_info->event_date }}"
+                                       value="{{ $event->event_info->event_date or \Carbon\Carbon::now()->toDateString() }}"
                                        min="{{ \Carbon\Carbon::now()->toDateString() }}"
                                        class="form-control input-md" required>
                             </div>
@@ -72,7 +73,7 @@
                                 <textarea id="desc" name="desc" type="text"
                                           placeholder="Small description explaining the event"
                                           class="form-control input-md"
-                                          required>{{ $event->event_info->description }}</textarea>
+                                          required>{{ $event->event_info->description or '' }}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -80,7 +81,7 @@
                             <div class="col-sm-8">
                                 <input id="furl" name="furl" type="url"
                                        placeholder="URL for the flier image"
-                                       class="form-control input-md" value="{{ $event->commondata->flier_url }}">
+                                       class="form-control input-md" value="{{ $event->commondata->flier_url or '' }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -88,7 +89,7 @@
                             <div class="col-sm-8">
                                 <input id="wurl" name="wurl" type="url"
                                        placeholder="Web site of the organizer or the registration page"
-                                       class="form-control input-md" value="{{ $event->commondata->url }}">
+                                       class="form-control input-md" value="{{ $event->commondata->url or '' }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -96,7 +97,8 @@
                             <div class="col-sm-8">
                                 <input id="gform" name="gform" type="url"
                                        placeholder="Link for the GOOGLE form"
-                                       class="form-control input-md" value="{{ $event->commondata->google_form }}">
+                                       class="form-control input-md"
+                                       value="{{ $event->commondata->google_form or '' }}">
                             </div>
                         </div>
                         <div class="form-group">
@@ -196,7 +198,8 @@
                                 </button>
                             </div>
                             <div class="col-sm-1">
-                                <button type="submit" name="submit" class="btn btn-default btn-block" value="delete">
+                                <button type="submit" name="submit" class="btn btn-default btn-block cancel"
+                                        value="delete">
                                     Delete
                                 </button>
                             </div>

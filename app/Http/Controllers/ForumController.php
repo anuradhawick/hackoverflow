@@ -144,14 +144,14 @@ class ForumController extends Controller
                     return redirect('/forum/' . $id);
                     break;
                 case 'delete':
-//                    $forum->delete();
-                    // TODO
-                    echo 'delete and redirect to my posts page';
+                    $forum->forumFeedback()->delete();
+                    $forum->delete();
+                    return redirect('/profile/forum');
                     break;
             }
         } else {
             // Un authorized user
-            // TODO
+            abort(403);
         }
     }
 }

@@ -66,6 +66,8 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('/profile/forum/update/{id}', 'ForumController@update');
 
+        Route::get('/profile/{type}/update/{id}', 'EventController@editEventView');
+
     });
     /*
      * Routes related to normal views

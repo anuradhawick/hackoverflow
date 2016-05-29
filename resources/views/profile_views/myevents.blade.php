@@ -36,7 +36,7 @@
                                     <div class="">
                                         <div class="blog-content well">
                                             <h2 class="text-left"><a
-                                                        href="/events/{{ $e->type }}/{{ $e->id }}">{{ $e->name }}</a>
+                                                        href="/profile/{{ $e->type }}/update/{{ $e->id }}">{{ $e->name }}</a>
                                             </h2>
                                             <h3 class="text-left">
                                                 {{ substr($e->event_info->description ,0,500).'...' }}

@@ -257,4 +257,221 @@ class EventController extends Controller
         return view('events', ['events' => $others, 'type' => 3]);
     }
 
+    /**
+     * Editing the event to be saved in the database or be deleted
+     *
+     * @param $type
+     * @return mixed
+     */
+    public function updateEventSave($type)
+    {
+        switch ($type) {
+            case 'hackathon':
+                // Adding a hackathon
+                $user = Auth::user();
+//                $event = new \App\Event();
+//                $event->name = request()->input('name');
+//                $event->type = 'hackathons';
+//                $user->events()->save($event);
+//                // setting specific info
+//                $hack = new \App\Hackevent();
+//                $hack->participant_info = request()->input('partInfo');
+//                $hack->reward = request()->input('reward');
+//                $hack->duration = request()->input('duration');
+//                $hack->team_count = request()->input('teamcount');
+//                $hack->max_per_team_no = request()->input('maxTeam');
+//                $hack->min_per_team_no = request()->input('minTeam');
+//                $event->hackathon()->save($hack);
+//                // set common data
+//                $com = new \App\Commondata();
+//                $com->flier_url = request()->input('furl');
+//                $com->url = request()->input('wurl');
+//                $com->comment_id = \Faker\Provider\Uuid::uuid();
+//                // Saving tags
+//                $event->tags()->saveMany(TagManager::getTagsArray(request()->input('tags')));
+//                $com->google_form = request()->input('gform');
+//                $event->commondata()->save($com);
+//                // set event info
+//                $eventinfo = new \App\Eventinfo();
+//                $eventinfo->organizer = request()->input('organizer');
+//                $eventinfo->venue = request()->input('venue');
+//                $eventinfo->reg_deadline = request()->input('regDate');
+//                $eventinfo->event_date = request()->input('eventDate');
+//                $eventinfo->description = request()->input('desc');
+//                $event->event_info()->save($eventinfo);
+
+//                return redirect('/events/hackathons/' . $event->id);
+                break;
+            case 'meetup':
+                // Adding a meetup
+                $user = Auth::user();
+//                $event = new \App\Event();
+//                $event->name = request()->input('name');
+//                $event->type = 'meetups';
+//                $user->events()->save($event);
+//                // settting specific info
+//                $meet = new \App\Meetevent();
+//                $meet->participant_info = request()->input('partInfo');
+//                $meet->duration = request()->input('duration');
+//                $meet->head_count = request()->input('headcount');
+//                $event->meetup()->save($meet);
+//                // set common data
+//                $com = new \App\Commondata();
+//                $com->flier_url = request()->input('furl');
+//                $com->url = request()->input('wurl');
+//                $com->comment_id = \Faker\Provider\Uuid::uuid();
+//                $com->google_form = request()->input('gform');
+//                $event->commondata()->save($com);
+//                // Saving tags
+//                $event->tags()->saveMany(TagManager::getTagsArray(request()->input('tags')));
+//                // set event info
+//                $eventinfo = new \App\Eventinfo();
+//                $eventinfo->organizer = request()->input('organizer');
+//                $eventinfo->venue = request()->input('venue');
+//                $eventinfo->reg_deadline = request()->input('regDate');
+//                $eventinfo->event_date = request()->input('eventDate');
+//                $eventinfo->description = request()->input('desc');
+//                $event->event_info()->save($eventinfo);
+//
+//                return redirect('/events/meetups/' . $event->id);
+                break;
+            case 'other':
+                // Adding a Other event
+                $user = Auth::user();
+//                $event = new \App\Event();
+//                $event->name = request()->input('name');
+//                $event->type = 'other';
+//                $user->events()->save($event);
+//                // settting specific info
+//                $other = new \App\Otherevent();
+//                $other->participant_info = request()->input('partInfo');
+//                $other->duration = request()->input('duration');
+//                $other->head_count = request()->input('headcount');
+//                $event->otherevent()->save($other);
+//                // set common data
+//                $com = new \App\Commondata();
+//                $com->flier_url = request()->input('furl');
+//                $com->url = request()->input('wurl');
+//                $com->comment_id = \Faker\Provider\Uuid::uuid();
+//                // Saving tags
+//                $event->tags()->saveMany(TagManager::getTagsArray(request()->input('tags')));
+//                $com->google_form = request()->input('gform');
+//                $event->commondata()->save($com);
+//                // set event info
+//                $eventinfo = new \App\Eventinfo();
+//                $eventinfo->organizer = request()->input('organizer');
+//                $eventinfo->venue = request()->input('venue');
+//                $eventinfo->reg_deadline = request()->input('regDate');
+//                $eventinfo->event_date = request()->input('eventDate');
+//                $eventinfo->description = request()->input('desc');
+//                $event->event_info()->save($eventinfo);
+//
+//                return redirect('/events/other/' . $event->id);
+                break;
+            default:
+                return redirect('/');
+        }
+    }
+
+    /**
+     * Render the edit view of the event
+     *
+     * @param $type
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function editEventView($type, $id)
+    {
+        switch ($type) {
+            case 'hackathons':
+                $hack = Event::with('hackathon', 'commondata', 'event_info', 'tags')->find($id);
+                if ($hack->user == Auth::user())
+                    return view('editor_layouts.editevent', ['event' => $hack, 'type' => 1]);
+                abort(403);
+                break;
+            case 'meetups':
+                $meet = Event::with('meetup', 'commondata', 'event_info', 'tags')->find($id);
+                if ($meet->user == Auth::user())
+                    return view('editor_layouts.editevent', ['event' => $meet, 'type' => 2]);
+                abort(403);
+                break;
+            case 'other':
+                $other = Event::with('otherevent', 'commondata', 'event_info', 'tags')->find($id);
+                if ($other->user == Auth::user())
+                    return view('editor_layouts.editevent', ['event' => $other, 'type' => 3]);
+                abort(403);
+                break;
+            default:
+                abort(404);
+                break;
+        }
+    }
+
+    /**
+     *  Save the edited event
+     *
+     * @param $type
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function editEvent($type, $id)
+    {
+        switch ($type) {
+            case 'hackathons':
+                $hack = Event::with('hackathon', 'commondata', 'event_info', 'tags')->find($id);
+                if ($hack->user == Auth::user())
+                    return $this->editHack($id);
+                abort(403);
+                break;
+            case 'meetups':
+                $meet = Event::with('meetup', 'commondata', 'event_info', 'tags')->find($id);
+                if ($meet->user == Auth::user())
+                    return $this->editMeet($id);
+                abort(403);
+                break;
+            case 'other':
+                $other = Event::with('otherevent', 'commondata', 'event_info', 'tags')->find($id);
+                if ($other->user == Auth::user())
+                    return $this->editOtherEvent($id);
+                abort(403);
+                break;
+            default:
+                abort(404);
+                break;
+        }
+    }
+
+    /**
+     * This method edit and save the hackathon
+     *
+     * @param $id
+     */
+    private function editHack($id)
+    {
+        $event = Event::find($id);
+        $hackathon = $event->hackathon;
+        $eventinfo = $event->event_info;
+        $commondata = $event->commondata;
+        echo $commondata;
+    }
+
+    /**
+     * This method edit and save the meetup
+     *
+     * @param $id
+     */
+    private function editMeet($id)
+    {
+
+    }
+
+    /**
+     * This method edit and save the other event
+     *
+     * @param $id
+     */
+    private function editOtherEvent($id)
+    {
+
+    }
 }

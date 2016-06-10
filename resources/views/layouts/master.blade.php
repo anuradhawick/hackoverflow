@@ -83,7 +83,7 @@
                                 token: googleUser.getAuthResponse().id_token,
                                 _token: '{!! csrf_token() !!}'
                             }, function (data, status) {
-                                window.location.href = "{!! session()->pull('url.intended', secure_url('/')) !!}";
+                                window.location.href = "{!! session()->pull('url.intended', url('/')) !!}";
                             });
                         });
                     }, function (error) {

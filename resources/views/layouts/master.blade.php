@@ -43,7 +43,7 @@
     <link href="{{secure_asset('css/animate.min.css')}}" rel="stylesheet">
     <link href="{{secure_asset('css/main.css')}}" rel="stylesheet">
     <link href="{{secure_asset('css/responsive.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
+    <link rel="stylesheet" href="{{secure_asset('css/hackoverflow.css')}}">
     <script src="{{secure_asset('js/bootstrap.min.js')}}"></script>
     <script src="{{secure_asset('js/jquery.prettyPhoto.js')}}"></script>
     <script src="{{secure_asset('js/jquery.isotope.min.js')}}"></script>
@@ -83,7 +83,7 @@
                                 token: googleUser.getAuthResponse().id_token,
                                 _token: '{!! csrf_token() !!}'
                             }, function (data, status) {
-                                window.location.href = "{!! session()->pull('url.intended', url('/')) !!}";
+                                window.location.href = "{!! session()->pull('url.intended', secure_url('/')) !!}";
                             });
                         });
                     }, function (error) {

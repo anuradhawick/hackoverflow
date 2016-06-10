@@ -33,34 +33,34 @@
             width: 100%;
             height: 100%;
             z-index: 100;
-            background: url("{{ secure_asset('/images/loader.gif') }}") center no-repeat #fff;
+            background: url("{{ asset('/images/loader.gif') }}") center no-repeat #fff;
         }
     </style>
 
     <div class="se-pre-con"></div>
-    <link href="{{secure_asset('css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/font-awesome.min.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/prettyPhoto.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/animate.min.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/main.css')}}" rel="stylesheet">
-    <link href="{{secure_asset('css/responsive.css')}}" rel="stylesheet">
-    <link rel="stylesheet" href="{{secure_asset('css/hackoverflow.css')}}">
-    <script src="{{secure_asset('js/bootstrap.min.js')}}"></script>
-    <script src="{{secure_asset('js/jquery.prettyPhoto.js')}}"></script>
-    <script src="{{secure_asset('js/jquery.isotope.min.js')}}"></script>
-    <script src="{{secure_asset('js/main.js')}}"></script>
-    <script src="{{secure_asset('js/wow.min.js')}}"></script>
-    <script src="{{secure_asset('js/html5shiv.js')}}"></script>
-    <script src="{{secure_asset('js/respond.min.js')}}"></script>
-    <script src="{{secure_asset('js/jquery.validate.min.js')}}"></script>
-    <link rel="shortcut icon" href="{{secure_asset('favicon.ico')}}">
+    <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
+    <link href="{{asset('css/animate.min.css')}}" rel="stylesheet">
+    <link href="{{asset('css/main.css')}}" rel="stylesheet">
+    <link href="{{asset('css/responsive.css')}}" rel="stylesheet">
+    <link rel="stylesheet" href="{{asset('css/hackoverflow.css')}}">
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/jquery.prettyPhoto.js')}}"></script>
+    <script src="{{asset('js/jquery.isotope.min.js')}}"></script>
+    <script src="{{asset('js/main.js')}}"></script>
+    <script src="{{asset('js/wow.min.js')}}"></script>
+    <script src="{{asset('js/html5shiv.js')}}"></script>
+    <script src="{{asset('js/respond.min.js')}}"></script>
+    <script src="{{asset('js/jquery.validate.min.js')}}"></script>
+    <link rel="shortcut icon" href="{{asset('favicon.ico')}}">
     <link rel="apple-touch-icon-precomposed" sizes="144x144"
-          href="{{secure_asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
+          href="{{asset('images/ico/apple-touch-icon-144-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="114x114"
-          href="{{secure_asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
+          href="{{asset('images/ico/apple-touch-icon-114-precomposed.png')}}">
     <link rel="apple-touch-icon-precomposed" sizes="72x72"
-          href="{{secure_asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
-    <link rel="apple-touch-icon-precomposed" href="{{secure_asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
+          href="{{asset('images/ico/apple-touch-icon-72-precomposed.png')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://apis.google.com/js/api:client.js"></script>
     <script>
@@ -153,7 +153,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="{{secure_asset('images/logo.png')}}" alt="logo"></a>
+                <a class="navbar-brand" href="/"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">

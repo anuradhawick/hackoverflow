@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
-    <script src="{{secure_asset('js/jquery.js')}}"></script>
+    <script src="{{asset('js/jquery.js')}}"></script>
     <script>
         $(window).load(function () {
             // Animate loader off screen

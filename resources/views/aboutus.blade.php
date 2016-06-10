@@ -17,7 +17,7 @@
                 <div class="row">
                     <div class="col-md-4 col-md-offset-4 wow fadeInDown">
                         <div class="clients-comments text-center">
-                            <img src="{{ asset('images/anu.jpg') }}" class="img-circle" alt="">
+                            <img src="{{ secure_asset('images/anu.jpg') }}" class="img-circle" alt="">
                             <h3>
                                 <h4><span>Anuradha Sanjeewa Wickramarachchi</span></h4>
                                 Computer Science and Engineering (UoM ug) <br>

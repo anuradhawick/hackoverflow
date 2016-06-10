@@ -6,7 +6,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>@yield('title')</title>
-    <script src="{{asset('js/jquery.js')}}"></script>
+    <script src="{{secure_asset('js/jquery.js')}}"></script>
     <script>
         $(window).load(function () {
             // Animate loader off screen
@@ -32,7 +32,7 @@
             width: 100%;
             height: 100%;
             z-index: 100;
-            background: url("{{ asset('/images/loader.gif') }}") center no-repeat #fff;
+            background: url("{{ secure_asset('/images/loader.gif') }}") center no-repeat #fff;
         }
     </style>
 
@@ -152,7 +152,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/"><img src="{{asset('images/logo.png')}}" alt="logo"></a>
+                <a class="navbar-brand" href="/"><img src="{{secure_asset('images/logo.png')}}" alt="logo"></a>
             </div>
 
             <div class="collapse navbar-collapse navbar-right">

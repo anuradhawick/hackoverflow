@@ -1,3 +1,4 @@
+<?php header("access-control-allow-origin: *"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

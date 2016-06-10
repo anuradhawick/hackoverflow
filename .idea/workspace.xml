@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d66dfc1-235c-4018-8ce4-4df0af69bda3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/main.css" afterPath="$PROJECT_DIR$/public/css/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HackOverflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="main.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/css/main.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+            <state relative-caret-position="345">
+              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1047,7 +1047,7 @@
       <workItem from="1465539086262" duration="1305000" />
       <workItem from="1465555006487" duration="532000" />
       <workItem from="1465557442410" duration="3334000" />
-      <workItem from="1465561470660" duration="4479000" />
+      <workItem from="1465561470660" duration="5165000" />
     </task>
     <task id="LOCAL-00001" summary="Created database migrations">
       <created>1459778592835</created>
@@ -1067,7 +1067,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="263017000" />
+    <option name="totallyTimeSpent" value="263703000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1555,8 +1555,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/css/main.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="17" selection-start-line="0" selection-start-column="17" selection-end-line="0" selection-end-column="17" />
+        <state relative-caret-position="345">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>

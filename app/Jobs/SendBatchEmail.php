@@ -33,6 +33,9 @@ class SendBatchEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        if ($this->attempts() > 2) {
+            return;
+        }
         DB::table('users')->join('user_sub', 'user_sub.user_id', '=', 'users.id')->join('subscriptions', 'subscriptions.id', '=', 'user_sub.sub_id')->where('subscriptions.event_type', $this->event->type)->chunk(10, function ($users) {
             foreach ($users as $user) {
                 Mail::send('email_layouts.event', ['event' => $this->event], function ($message) use ($user) {
@@ -61,6 +64,6 @@ class SendBatchEmail extends Job implements ShouldQueue
      */
     public function failed()
     {
-        // TODO
+        // Do nothing
     }
 }

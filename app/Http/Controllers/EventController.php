@@ -299,7 +299,7 @@ class EventController extends Controller
                 abort(403);
                 break;
             default:
-                abort(404);
+                abort(403);
                 break;
         }
     }
@@ -318,22 +318,22 @@ class EventController extends Controller
                 $hack = Event::find($id);
                 if ($hack->user == Auth::user())
                     return $this->editHack($id);
-                abort(403);
+                abort(401);
                 break;
             case 'meetups':
                 $meet = Event::find($id);
                 if ($meet->user == Auth::user())
                     return $this->editMeet($id);
-                abort(403);
+                abort(401);
                 break;
             case 'other':
                 $other = Event::find($id);
                 if ($other->user == Auth::user())
                     return $this->editOtherEvent($id);
-                abort(403);
+                abort(401);
                 break;
             default:
-                abort(404);
+                abort(403);
                 break;
         }
     }

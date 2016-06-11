@@ -34,6 +34,9 @@ class SendThankYouMail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        if ($this->attempts() > 2) {
+            return;
+        }
         Mail::send('email_layouts.thank_you', ['user' => $this->user], function ($message) {
             $message->sender("anuradha.sanjeewa@live.com", $name = "HackOverflow Admin");
             $message->to($this->user->email, $this->user->name);

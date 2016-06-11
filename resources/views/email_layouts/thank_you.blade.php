@@ -11,7 +11,7 @@
 <div>
     <div>
         <br>
-        <img src="{{ $message->embed('images/logo.png')  }}" alt="logo" style="margin: auto; display: block">
+        <img src="{{ $message->embed(public_path()."/images/logo.png")  }}" alt="logo" style="margin: auto; display: block">
     </div>
     <hr>
     <br>

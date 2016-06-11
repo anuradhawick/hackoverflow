@@ -15,11 +15,11 @@ class CreateEventinfoTable extends Migration
         Schema::create('event_info', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('info_id')->unsigned();
-            $table->string('organizer');
-            $table->string('venue');
+            $table->string('organizer')->nullable();
+            $table->string('venue')->nullable();
             $table->date('reg_deadline');
             $table->date('event_date');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->foreign('info_id')->references('id')->on('events');
         });
     }

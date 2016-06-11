@@ -16,9 +16,9 @@ class CreateOthereventsTable extends Migration
         Schema::create('other_events', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('others_id')->unsigned();
-            $table->text('participant_info');
-            $table->text('duration');
-            $table->integer('head_count');
+            $table->text('participant_info')->nullable();
+            $table->text('duration')->nullable();
+            $table->integer('head_count')->nullable();
             $table->foreign('others_id')->references('id')->on('events');
         });
     }

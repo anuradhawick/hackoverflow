@@ -38,7 +38,7 @@
                                 <button type="submit" name="submit" class="btn btn-default btn-block" value="update">Update</button>
                             </div>
                             <div class="col-sm-1">
-                                <button type="submit" name="submit" class="btn btn-default btn-block" value="delete">Delete</button>
+                                <button type="submit" name="submit" class="btn btn-default btn-block cancel" value="delete">Delete</button>
                             </div>
                         </div>
                     </fieldset>

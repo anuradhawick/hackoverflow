@@ -150,4 +150,10 @@ Route::group(['middleware' => ['web']], function () {
         return view('contactus');
     });
 
+    Route::get('/mail', function () {
+    \App\Managers\MailManager::sendEmailToUser();
+
+//        return view('email_layouts.event', ['event' => \App\Event::find(1),'type'=>'hack','url'=>'']);
+    });
 });
+

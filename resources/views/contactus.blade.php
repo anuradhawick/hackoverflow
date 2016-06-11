@@ -20,7 +20,12 @@
                 <div class="row">
                     <div class="col-sm-5 text-center">
                         <div class="gmap">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d55444.35850301776!2d79.92527791946048!3d7.019772278601448!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2f9a3c36f2f03%3A0x67ee085af4f07579!2zN8KwMDInNDIuOCJOIDc5wrA1NycyNy41IkU!5e0!3m2!1sen!2slk!4v1462308902129" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+                            <iframe
+                                    width="450"
+                                    height="250"
+                                    frameborder="0" style="border:0"
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDQeQoyQxTqHmDRYX1RG_WZ1-CB5rNLfrw&q=7.045233,79.957629" allowfullscreen>
+                            </iframe>
                         </div>
                     </div>
 

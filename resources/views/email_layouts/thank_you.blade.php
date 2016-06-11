@@ -11,17 +11,27 @@
 <div>
     <div>
         <br>
-        <img src="{{ $message->embed(public_path()."/images/logo.png")  }}" alt="logo" style="margin: auto; display: block">
+        <img src="{{ $message->embed(public_path()."/images/logo.png")  }}" alt="logo"
+             style="margin: auto; display: block">
     </div>
     <hr>
-    <br>
     <div>
         <h3 style="text-align: center">Thank you for registering at <a href="http://hackoverflow93.herokuapp.com">HackOverflow</a>
         </h3>
         <hr>
         <img src="{{ $user->picture }}" alt="" style="margin: auto;display: block; border-radius: 50%">
-        <h3 style="text-align: center">Your name: {{ $user->name }}</h3>
-        <h3 style="text-align: center">Your email: {{ $user->email }}</h3>
+        <table align="center" width="50%">
+            <tr>
+                <td>Your name</td>
+                <td>-</td>
+                <td>{{ $user->name }}</td>
+            </tr>
+            <tr>
+                <td>Your email</td>
+                <td>-</td>
+                <td>{{ $user->email }}</td>
+            </tr>
+        </table>
     </div>
     <hr>
     <h5 style="text-align: center"><a

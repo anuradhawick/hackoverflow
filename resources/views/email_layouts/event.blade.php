@@ -11,26 +11,42 @@
 <div>
     <div>
         <br>
-        <img src="{{ asset('/images/logo.png')  }}" alt="logo" style="margin: auto; display: block">
+        <img src="{{ $message->embed(public_path()."/images/logo.png")  }}" alt="logo"
+        style="margin: auto; display: block">
     </div>
     <hr>
-    <br>
     <div>
         <h2 style="text-align: center">Event alert</h2>
         <img style="margin: auto; display: block;" src="{{ $event->commondata->flier_url }}" alt="Flier URL">
         <hr>
-        <h4 style="text-align: center">Event type: {{ $event->type }}</h4>
-        <hr>
-        <h4 style="text-align: center">Event registration deadline: {{ $event->event_info->reg_deadline }}</h4>
-        <hr>
-        <h4 style="text-align: center">Event date: {{ $event->event_info->event_date }}</h4>
-        <hr>
-        <h4 style="text-align: center">Event organizer: {{ $event->event_info->organizer }}</h4>
+        <table align="center" width="50%">
+            <tr>
+                <td>Event type</td>
+                <td>-</td>
+                <td>{{ $event->type }}</td>
+            </tr>
+            <tr>
+                <td>Event registration deadline</td>
+                <td>-</td>
+                <td>{{ $event->event_info->reg_deadline }}</td>
+            </tr>
+            <tr>
+                <td>Event date</td>
+                <td>-</td>
+                <td>{{ $event->event_info->event_date }}</td>
+            </tr>
+            <tr>
+                <td>Event organizer</td>
+                <td>-</td>
+                <td>{{ $event->event_info->organizer }}</td>
+            </tr>
+        </table>
         <hr>
         <p style="text-align: center"><strong>Get registered <a
-                        href="{{ url()->to('/events')}}/{{ $event->type }}/{{ $event->id }}">now</a>!</strong></p>
+                        href="{{ url()->to('/')}}/events/{{ $event->type }}/{{ $event->id }}">now</a>!</strong></p>
     </div>
     <hr>
     <h5 style="text-align: center">DVios &copy; {{ \Carbon\Carbon::today()->year }}</h5>
+    <hr>
 </div>
 </body>

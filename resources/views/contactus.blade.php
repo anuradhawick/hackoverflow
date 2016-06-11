@@ -10,6 +10,20 @@
 @section('title','Contact us')
 @section('contactus','active')
 @section('body_content')
+    <script !src="">
+        $(document).ready(function () {
+            $("#fm").validate({
+                submitHandler: function () {
+                    $.post('/contact-us', $('#fm').serialize(), function (data, success) {
+                        $("#alert").show();
+                        setTimeout(function () {
+                            $("#alert").slideUp(1000)
+                        }, 1000);
+                    });
+                }
+            });
+        });
+    </script>
     <section id="contact-info">
         <div class="center">
             <h2>Want to Reach Us?</h2>
@@ -24,7 +38,8 @@
                                     width="450"
                                     height="250"
                                     frameborder="0" style="border:0"
-                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDQeQoyQxTqHmDRYX1RG_WZ1-CB5rNLfrw&q=7.045233,79.957629" allowfullscreen>
+                                    src="https://www.google.com/maps/embed/v1/place?key=AIzaSyDQeQoyQxTqHmDRYX1RG_WZ1-CB5rNLfrw&q=7.045233,79.957629"
+                                    allowfullscreen>
                             </iframe>
                         </div>
                     </div>
@@ -54,10 +69,12 @@
                 <h2>Drop Your Message</h2>
                 <p class="lead">We will get back to you.</p>
             </div>
-            <div class="row contact-wrap">
-                <div class="status alert alert-success" style="display: none"></div>
-                <form id="main-contact-form" class="contact-form" name="contact-form" method="post"
-                      action="sendemail.php">
+            <div class="row">
+                <div id="alert" class="alert alert-danger" hidden>
+                    <strong>Submitted successfully</strong>
+                </div>
+                <form id="fm" name="contact-form" onsubmit="return false;">
+                    {{ csrf_field() }}
                     <div class="col-sm-5 col-sm-offset-1">
                         <div class="form-group">
                             <label>Name *</label>
@@ -69,11 +86,11 @@
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="number" class="form-control">
+                            <input type="number" name="phone" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Name</label>
-                            <input type="text" class="form-control">
+                            <input type="text" name="company" class="form-control">
                         </div>
                     </div>
                     <div class="col-sm-5">

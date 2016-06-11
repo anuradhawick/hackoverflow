@@ -42,13 +42,7 @@ return [
     |
     */
 
-//    MAIL_DRIVER=smtp
-//MAIL_HOST=smtp.live.com
-//MAIL_PORT=25
-//MAIL_USERNAME=anuradha.sanjeewa@live.com
-//MAIL_PASSWORD=774217285
-//MAIL_ENCRYPTION=tls
-//
+
     'port' => env('MAIL_PORT', 25),
 
     /*

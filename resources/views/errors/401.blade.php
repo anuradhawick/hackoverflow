@@ -13,7 +13,7 @@
 @section('body_content')
     <section id="error" class="container text-center">
         <h1>401, Unauthorized</h1>
-        <p>The request you have made is not authorized.</p>
+        <p>The request you have made is not authorized</p>
         <a class="btn btn-primary" href="/">GO BACK TO THE HOMEPAGE</a>
     </section>
 @endsection

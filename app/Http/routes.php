@@ -149,8 +149,10 @@ Route::group(['middleware' => ['web']], function () {
         return view('contactus');
     });
 
+    Route::post('/contact-us', 'ContactController@sendContactMessage');
+
     Route::get('/test', function () {
-        return view('email_layouts.event', ['event' => \App\Event::find(1)]);
+        return view('email_layouts.contact', ['event' => \App\Event::find(1)]);
 
     });
 

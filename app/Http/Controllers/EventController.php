@@ -61,29 +61,29 @@ class EventController extends Controller
                 $user->events()->save($event);
                 // setting specific info
                 $hack = new \App\Hackevent();
-                $hack->participant_info = "".request()->input('partInfo');
-                $hack->reward = "".request()->input('reward');
-                $hack->duration = "".request()->input('duration');
-                $hack->team_count = "".request()->input('teamcount');
-                $hack->max_per_team_no = "".request()->input('maxTeam');
-                $hack->min_per_team_no = "".request()->input('minTeam');
+                $hack->participant_info = request()->input('partInfo');
+                $hack->reward = request()->input('reward');
+                $hack->duration = request()->input('duration');
+                $hack->team_count = request()->input('teamcount');
+                $hack->max_per_team_no = request()->input('maxTeam');
+                $hack->min_per_team_no = request()->input('minTeam');
                 $event->hackathon()->save($hack);
                 // set common data
                 $com = new \App\Commondata();
-                $com->flier_url = "".request()->input('furl');
-                $com->url = "".request()->input('wurl');
+                $com->flier_url = request()->input('furl');
+                $com->url = request()->input('wurl');
                 $com->comment_id = \Faker\Provider\Uuid::uuid();
                 // Saving tags
                 $event->tags()->saveMany(TagManager::getTagsArray(request()->input('tags')));
-                $com->google_form = "".request()->input('gform');
+                $com->google_form = request()->input('gform');
                 $event->commondata()->save($com);
                 // set event info
                 $eventinfo = new \App\Eventinfo();
-                $eventinfo->organizer = "".request()->input('organizer');
-                $eventinfo->venue = "".request()->input('venue');
-                $eventinfo->reg_deadline = "".request()->input('regDate');
-                $eventinfo->event_date = "".request()->input('eventDate');
-                $eventinfo->description = "".request()->input('desc');
+                $eventinfo->organizer = request()->input('organizer');
+                $eventinfo->venue = request()->input('venue');
+                $eventinfo->reg_deadline = request()->input('regDate');
+                $eventinfo->event_date = request()->input('eventDate');
+                $eventinfo->description = request()->input('desc');
                 $event->event_info()->save($eventinfo);
                 $this->postToSubscribers($event);
                 return redirect('/events/hackathons/' . $event->id);
@@ -299,7 +299,7 @@ class EventController extends Controller
                 abort(403);
                 break;
             default:
-                abort(403);
+                abort(404);
                 break;
         }
     }

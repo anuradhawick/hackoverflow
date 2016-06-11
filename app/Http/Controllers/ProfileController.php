@@ -35,10 +35,10 @@ class ProfileController extends Controller
         $meet = false;
         $other = false;
         foreach ($subs as $sub) {
-            if ($sub->event_type == "hack") {
+            if ($sub->event_type == "hackathons") {
                 $hack = true;
             }
-            if ($sub->event_type == "meet") {
+            if ($sub->event_type == "meetups") {
                 $meet = true;
             }
             if ($sub->event_type == "other") {

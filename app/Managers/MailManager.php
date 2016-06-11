@@ -10,16 +10,17 @@ namespace App\Managers;
 
 
 use App\Event;
+use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 
 class MailManager
 {
-    public static function sendEmailToUser()
+    public static function sendEmailToUser(User $user)
     {
-        Mail::send('email_layouts.thank_you', ['user' => Auth::user()], function ($message) {
-            $message->sender("anuradha.sanjeewa@live.com", $name = "Test");
-            $message->to("anuradha.sanjeewa@ymail.com", $name = "Anu");
+        Mail::send('email_layouts.thank_you', ['user' => $user], function ($message) {
+            $message->sender("anuradha.sanjeewa@live.com", $name = "HackOverflow Admin");
+            $message->to($user->email, $name = "Anu");
         });
     }
 

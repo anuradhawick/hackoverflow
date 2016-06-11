@@ -117,7 +117,6 @@ Route::group(['middleware' => ['web']], function () {
 
 
     // Route for accessing test controller
-    Route::get('/test/', ['uses' => 'test@test']);
 
     /*
      * Routes related to authentication of the users
@@ -150,10 +149,13 @@ Route::group(['middleware' => ['web']], function () {
         return view('contactus');
     });
 
-    Route::get('/mail', function () {
-    \App\Managers\MailManager::sendEmailToUser();
+    Route::get('/test', function () {
+        return view('email_layouts.event', ['event' => \App\Event::find(1)]);
 
-//        return view('email_layouts.event', ['event' => \App\Event::find(1),'type'=>'hack','url'=>'']);
     });
+
+//    Route::get('/test/', ['uses' => 'test@test']);
+
+
 });
 

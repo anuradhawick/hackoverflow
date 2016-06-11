@@ -12,10 +12,10 @@ class Subscription_types extends Seeder
     public function run()
     {
         $hack = new \App\Subscription();
-        $hack->event_type='hack';
+        $hack->event_type='hackathons';
         $hack->save();
         $hack = new \App\Subscription();
-        $hack->event_type='meet';
+        $hack->event_type='meetups';
         $hack->save();
         $hack = new \App\Subscription();
         $hack->event_type='other';

@@ -28,8 +28,8 @@ class SubscriptionManager
     {
         if (Auth::check()) {
             $user = Auth::user();
-            $hack_sub = Subscription::where('event_type', 'hack')->first();
-            $meet_sub = Subscription::where('event_type', 'meet')->first();
+            $hack_sub = Subscription::where('event_type', 'hackathons')->first();
+            $meet_sub = Subscription::where('event_type', 'meetups')->first();
             $other_sub = Subscription::where('event_type', 'other')->first();
             $user->subscriptions()->detach();
             // updating hack

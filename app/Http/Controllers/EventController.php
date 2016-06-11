@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\Jobs\SendBatchEmail;
 use App\Managers\TagManager;
 use Illuminate\Http\Request;
 
@@ -84,7 +85,7 @@ class EventController extends Controller
                 $eventinfo->event_date = request()->input('eventDate');
                 $eventinfo->description = request()->input('desc');
                 $event->event_info()->save($eventinfo);
-
+                $this->postToSubscribers($event);
                 return redirect('/events/hackathons/' . $event->id);
                 break;
             case 'meetup':
@@ -117,7 +118,7 @@ class EventController extends Controller
                 $eventinfo->event_date = request()->input('eventDate');
                 $eventinfo->description = request()->input('desc');
                 $event->event_info()->save($eventinfo);
-
+                $this->postToSubscribers($event);
                 return redirect('/events/meetups/' . $event->id);
                 break;
             case 'other':
@@ -150,7 +151,7 @@ class EventController extends Controller
                 $eventinfo->event_date = request()->input('eventDate');
                 $eventinfo->description = request()->input('desc');
                 $event->event_info()->save($eventinfo);
-
+                $this->postToSubscribers($event);
                 return redirect('/events/other/' . $event->id);
                 break;
             default:
@@ -158,6 +159,17 @@ class EventController extends Controller
         }
     }
 
+
+    /**
+     * Send the Event to queue to be send asynchronously
+     *
+     * @param Event $event
+     */
+    private function postToSubscribers(Event $event)
+    {
+        $job = new SendBatchEmail($event);
+        dispatch($job);
+    }
 
     /**
      * rendering the publish form

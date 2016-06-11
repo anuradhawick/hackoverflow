@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Jobs\SendThankYouMail;
 use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\DB;
@@ -43,7 +44,7 @@ class AuthController extends Controller
                 // Generate the session for the logged in user
                 Auth::login(Auth::user());
                 // Return the user to the intended link or the root
-                return "logged". Auth::user()->name.Auth::check();
+                return "logged" . Auth::user()->name . Auth::check();
             } else {
 //                 Create new user and Authenticate
                 DB::table('users')->insert([
@@ -59,7 +60,8 @@ class AuthController extends Controller
                     // Generate the session for the logged in user
                     Auth::login(Auth::user());
                     // Return the user to the intended link or the root
-//                    echo redirect()->intended('/')->getTargetUrl();
+                    $job = (new SendThankYouMail(Auth::user()));
+                    dispatch($job);
                     return "Acc created";
                 } else {
                     return "error";

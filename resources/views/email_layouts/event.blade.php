@@ -12,7 +12,7 @@
     <div>
         <br>
         <img src="{{ $message->embed(public_path()."/images/logo.png")  }}" alt="logo"
-        style="margin: auto; display: block">
+             style="margin: auto; display: block">
     </div>
     <hr>
     <div>
@@ -43,7 +43,8 @@
         </table>
         <hr>
         <p style="text-align: center"><strong>Get registered <a
-                        href="{{ url()->to('/')}}/events/{{ $event->type }}/{{ $event->id }}">now</a>!</strong></p>
+                        href="  {{ $message->embed(public_path()."/events/". $event->type."/".$event->id) }}">now</a>!</strong>
+        </p>
     </div>
     <hr>
     <h5 style="text-align: center">DVios &copy; {{ \Carbon\Carbon::today()->year }}</h5>

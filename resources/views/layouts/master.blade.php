@@ -1,4 +1,3 @@
-<?php header("access-control-allow-origin: *"); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -159,8 +158,8 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Events <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li class="@yield('hackathon')"><a href="/events/hackathons">Hackathon</a></li>
-                            <li class="@yield('meet')"><a href="/events/meetups">Meet-Up</a></li>
+                            <li class="@yield('hackathon')"><a href="/events/hackathons">Hackathons</a></li>
+                            <li class="@yield('meet')"><a href="/events/meetups">Meet-Ups</a></li>
                             <li class="@yield('other')"><a href="/events/other">Other</a></li>
                         </ul>
                     </li>
@@ -176,9 +175,9 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Post Event <i
                                     class="fa fa-angle-down"></i></a>
                         <ul class="dropdown-menu">
-                            <li class="@yield('post_hack')"><a href="/post-event/hackathon">Hackathon</a></li>
-                            <li class="@yield('post_meet')"><a href="/post-event/meetup">Meet-Up</a></li>
-                            <li class="@yield('post_other')"><a href="/post-event/other">Other</a></li>
+                            <li class="@yield('post_hack')"><a href="/post-event/hackathon">New Hackathon</a></li>
+                            <li class="@yield('post_meet')"><a href="/post-event/meetup">New Meet-Up</a></li>
+                            <li class="@yield('post_other')"><a href="/post-event/other">New Other Event</a></li>
                         </ul>
                     </li>
                     @if(!Auth::check())

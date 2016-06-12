@@ -43,7 +43,7 @@
         </table>
         <hr>
         <p style="text-align: center"><strong>Get registered <a
-                        href="  {{ $message->embed(public_path()."/events/". $event->type."/".$event->id) }}">now</a>!</strong>
+                        href="{{ public_path()."/events/". $event->type."/".$event->id }}">now</a>!</strong>
         </p>
     </div>
     <hr>

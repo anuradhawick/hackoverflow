@@ -14,10 +14,16 @@ label.error {
 .navbar {
 
     border-radius: 0px !important;
+    z-index: 999 !important;
 }
 
+.btn-danger {
+    border-color: #c52d2f;
+    background-color: #c52d2f;
+    z-index: 999 !important;
+}
 
-.btn-danger{
+a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.active:focus {
     border-color: #c52d2f;
     background-color: #c52d2f;
 }

@@ -7,7 +7,7 @@
  */
 ?>
 @extends('layouts.master')
-@section('title','Page not found')
+@section('title','Forbidden')
 @section('body_content')
     <section id="error" class="container text-center">
         <h1>403, Forbidden</h1>

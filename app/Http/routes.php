@@ -70,6 +70,18 @@ Route::group(['middleware' => ['web']], function () {
 
         Route::post('/profile/{type}/update/{id}', 'EventController@editEvent');
 
+        /*
+         * Route group for admins functionality
+         * */
+        Route::group(['middleware' => 'admin'], function () {
+            Route::get('/admin/', 'AdminController@view_home');
+            Route::get('/admin/forum', 'AdminController@view_forum');
+            Route::get('/admin/hack', 'AdminController@view_hack');
+            Route::get('/admin/meet', 'AdminController@view_meet');
+            Route::get('/admin/other', 'AdminController@view_other');
+            Route::get('/admin/reports', 'AdminController@view_other');
+            Route::get('/admin/errors', 'AdminController@view_error');
+        });
     });
     /*
      * Routes related to normal views

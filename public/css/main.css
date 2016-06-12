@@ -183,6 +183,7 @@ body > section {
     background: #191919;
     border-bottom: 1px solid #222;
     line-height: 28px;
+    z-index: 999;
 }
 
 .top-number {

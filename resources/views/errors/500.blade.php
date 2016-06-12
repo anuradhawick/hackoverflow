@@ -8,7 +8,7 @@
 ?>
 
 @extends('layouts.master')
-@section('title','Page not found')
+@section('title','Server Error')
 @section('body_content')
     <section id="error" class="container text-center">
         <h1>500, Server Error</h1>

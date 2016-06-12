@@ -8,7 +8,7 @@
 ?>
 
 @extends('layouts.master')
-@section('title','Page not found')
+@section('title','Service Unavailable')
 @section('body_content')
     <section id="error" class="container text-center">
         <h1>503, Service Unavailable</h1>

@@ -4,8 +4,9 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+    <meta name="description" content="Hackoveflow, collect all the hackathon news and deliver it to the IT community.">
     <meta name="author" content="">
+    <meta name="_token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <script src="{{asset('js/jquery.js')}}"></script>
     <script>
@@ -36,8 +37,8 @@
             background: url("{{ asset('/images/loader.gif') }}") center no-repeat #fff;
         }
     </style>
-
     <div class="se-pre-con"></div>
+
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/prettyPhoto.css')}}" rel="stylesheet">
@@ -63,7 +64,12 @@
     <link rel="apple-touch-icon-precomposed" href="{{asset('images/ico/apple-touch-icon-57-precomposed.png')}}">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
     <script src="https://apis.google.com/js/api:client.js"></script>
+    <script src="{{ asset('js/hackoverflow.js') }}"></script>
     <script>
+        $(document).ready(function () {
+            $('[data-toggle="popover"]').popover({html: true});
+            startApp();
+        });
         var googleUser = {};
         var startApp = function () {
             gapi.load('auth2', function () {
@@ -101,19 +107,12 @@
             });
         }
     </script>
-    <script>
-        $(document).ready(function () {
-            $('[data-toggle="popover"]').popover({html: true});
-            startApp();
-        });
-
-    </script>
-</head><!--/head-->
+</head>
 
 <body class="@yield('homepage')">
 
 <header id="header">
-    <div class="top-bar">
+    <div class="navbar" role="banner">
         <div class="container">
             <div class="row">
                 <div class="col-sm-6 col-xs-6">
@@ -130,20 +129,18 @@
                                             class="fa fa-twitter"></i></a></li>
                             <li><a href="https://www.linkedin.com/in/anuradhawick" target="_blank"><i
                                             class="fa fa-linkedin"></i></a></li>
-                            {{--<li><a href="#"><i class="fa fa-dribbble"></i></a></li>--}}
-                            {{--<li><a href=""><i class="fa fa-skype"></i></a></li>--}}
                         </ul>
                         <div class="search">
                             <form role="form">
-                                <input type="text" class="search-form" autocomplete="off" placeholder="Search event">
+                                <input type="text" class="search-form" autocomplete="off" placeholder="Search hackoverflow">
                                 <i class="fa fa-search"></i>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
-        </div><!--/.container-->
-    </div><!--/.top-bar-->
+        </div>
+    </div>
     <nav class="navbar navbar-inverse" role="banner">
         <div class="container">
             <div class="navbar-header">
@@ -217,7 +214,7 @@
                         <h2>News for all</h2>
                         <h3>Get the information as and when they are published</h3>
                     </div>
-                </div><!--/.col-md-4-->
+                </div>
 
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
@@ -225,7 +222,7 @@
                         <h2>Express yourself</h2>
                         <h3>Start your discussion on Disqus and tell how you feel about events</h3>
                     </div>
-                </div><!--/.col-md-4-->
+                </div>
 
                 <div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">
                     <div class="feature-wrap">
@@ -233,11 +230,11 @@
                         <h2>Subscribe to our mailing list</h2>
                         <h3>Get emails notifications when events are available</h3>
                     </div>
-                </div><!--/.col-md-4-->
-            </div><!--/.services-->
-        </div><!--/.row-->
-    </div><!--/.container-->
-</section><!--/#feature-->
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <footer id="footer" class="midnight-blue">
     <div class="container">
         <div class="row">

@@ -9,7 +9,7 @@
 ?>
 
 @extends('layouts.master')
-@section('title','Page not found')
+@section('title','Unauthorized')
 @section('body_content')
     <section id="error" class="container text-center">
         <h1>401, Unauthorized</h1>

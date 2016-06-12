@@ -54,6 +54,6 @@
                     <h4><a href="javascript:void(0)"> &nbsp;&nbsp;&nbsp; Proceed with pride.&nbsp;&nbsp;&nbsp;</a></h4>
                 </div>
             </div>
-        </div><!--/.container-->
-    </section><!--/about-us-->
+        </div>
+    </section>
 @endsection

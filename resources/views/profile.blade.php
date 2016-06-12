@@ -29,11 +29,6 @@
             });
         });
 
-        function getPosts() {
-            $(function () {
-                alert('a');
-            });
-        }
     </script>
     <section class="container">
         <div class="center wow fadeInDown">
@@ -94,18 +89,37 @@
                     <br>
                     <h2>My activity</h2>
                     <hr>
-                    <div class="col-sm-3">
-                        <a href="/profile/forum" class="btn btn-danger btn-block">Forum posts</a>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="/profile/hackathons" class="btn btn-danger btn-block">Hackathons</a>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="/profile/meetups" class="btn btn-danger btn-block">Meetups</a>
-                    </div>
-                    <div class="col-sm-3">
-                        <a href="/profile/other" class="btn btn-danger btn-block">Other events</a>
-                    </div>
+                    @if($user->admin==1)
+                        <div class="col-sm-2 col-sm-offset-1">
+                            <a href="/profile/forum" class="btn btn-danger btn-block">Forum posts</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/profile/hackathons" class="btn btn-danger btn-block">Hackathons</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/profile/meetups" class="btn btn-danger btn-block">Meetups</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/profile/other" class="btn btn-danger btn-block">Other events</a>
+                        </div>
+                        <div class="col-sm-2">
+                            <a href="/admin" class="btn btn-danger btn-block">Admin page</a>
+                        </div>
+                    @else
+                        <div class="col-sm-3">
+                            <a href="/profile/forum" class="btn btn-danger btn-block">Forum posts</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/profile/hackathons" class="btn btn-danger btn-block">Hackathons</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/profile/meetups" class="btn btn-danger btn-block">Meetups</a>
+                        </div>
+                        <div class="col-sm-3">
+                            <a href="/profile/other" class="btn btn-danger btn-block">Other events</a>
+                        </div>
+                    @endif
+
                 </div>
             </div>
         </div>

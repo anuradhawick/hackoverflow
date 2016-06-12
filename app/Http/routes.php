@@ -74,15 +74,31 @@ Route::group(['middleware' => ['web']], function () {
          * Route group for admins functionality
          * */
         Route::group(['middleware' => 'admin'], function () {
+
             Route::get('/admin/', 'AdminController@view_home');
+
             Route::get('/admin/forum', 'AdminController@view_forum');
+
             Route::get('/admin/hack', 'AdminController@view_hack');
+
             Route::get('/admin/meet', 'AdminController@view_meet');
+
             Route::get('/admin/other', 'AdminController@view_other');
+
             Route::get('/admin/reports', 'AdminController@view_other');
+
             Route::get('/admin/errors', 'AdminController@view_error');
+
+            Route::post('/admin/delete_post', 'AdminController@deleteForum');
+
+            Route::post('/admin/delete_hack', 'AdminController@deleteHack');
+
+            Route::post('/admin/delete_meet', 'AdminController@deleteMeet');
+
+            Route::post('/admin/delete_other', 'AdminController@deleteOther');
         });
     });
+
     /*
      * Routes related to normal views
      * */
@@ -167,9 +183,6 @@ Route::group(['middleware' => ['web']], function () {
         return view('email_layouts.contact', ['event' => \App\Event::find(1)]);
 
     });
-
-//    Route::get('/test/', ['uses' => 'test@test']);
-
 
 });
 

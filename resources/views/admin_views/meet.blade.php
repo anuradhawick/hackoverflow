@@ -9,8 +9,28 @@
 @section('admin.meet','active')
 @extends('admin_views.home')
 @section('content')
+    <script !src="">
+        $(document).ready(function () {
+            $(".deleteForumPost").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    async: false,
+                    url: '/admin/delete_meet',
+                    data: {
+                        id: $(this).parent().parent().find("td:nth-child(1)").text(), _token: '{{csrf_token()}}'
+                    },
+                    success: function (result, status, xhr) {
+                        window.location.href = window.location.href;
+                    },
+                    error: function (xhr, status, error) {
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
     <div class="well col-sm-9">
-        <h3>Forum posts</h3>
+        <h3>Meetup posts</h3>
         <hr>
         @if($meets->currentpage() > 1)
             <a href="{{ $meets->previousPageUrl() }}" class="btn btn-danger btn-block">Previous </a>
@@ -29,7 +49,7 @@
                 <tr>
                     <td>{{ $meet->id }}</td>
                     <td><a target="_blank" href="/events/{{ $meet->type }}/{{ $meet->id }}">{{ $meet->name }}</a></td>
-                    <td><a href="" class="">Delete</a></td>
+                    <td><a href="javascript:void(0)" class="deleteForumPost">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>

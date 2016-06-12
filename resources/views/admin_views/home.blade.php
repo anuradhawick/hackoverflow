@@ -18,8 +18,8 @@
                 <a href="/admin/hack/" class="list-group-item @yield('admin.hack')">Hackathons</a>
                 <a href="/admin/meet/" class="list-group-item @yield('admin.meet')">Meetups</a>
                 <a href="/admin/other/" class="list-group-item @yield('admin.other')">Other</a>
-                <a href="/admin/errors/" class="list-group-item @yield('admin.error')">Error log</a>
-                <a href="/admin/reports/" class="list-group-item @yield('admin.report')">Reporting</a>
+                {{--<a href="/admin/errors/" class="list-group-item @yield('admin.error')">Error log</a>--}}
+                {{--<a href="/admin/reports/" class="list-group-item @yield('admin.report')">Reporting</a>--}}
             </div>
         </div>
         @section('content')

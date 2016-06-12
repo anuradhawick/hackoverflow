@@ -9,6 +9,26 @@
 @section('admin.forum','active')
 @extends('admin_views.home')
 @section('content')
+    <script !src="">
+        $(document).ready(function () {
+            $(".deleteForumPost").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    async: false,
+                    url: '/admin/delete_post',
+                    data: {
+                        id: $(this).parent().parent().find("td:nth-child(1)").text(), _token: '{{csrf_token()}}'
+                    },
+                    success: function (result, status, xhr) {
+                        window.location.href = window.location.href;
+                    },
+                    error: function (xhr, status, error) {
+                        return;
+                    }
+                });
+            });
+        });
+    </script>
     <div class="well col-sm-9">
         <h3>Forum posts</h3>
         <hr>
@@ -29,7 +49,7 @@
                 <tr>
                     <td>{{ $post->id }}</td>
                     <td><a target="_blank" href="{{ '/forum/' . $post->id }}">{{ $post->title }}</a></td>
-                    <td><a href="" class="">Delete</a></td>
+                    <td><a href="javascript:void(0)" class="deleteForumPost">Delete</a></td>
                 </tr>
             @endforeach
             </tbody>

@@ -166,9 +166,9 @@
                     </div>
                 </div>
                 <br>
-                <link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />
-                <label for="input-7-xs" class="control-label">Extra Small Rating</label>
-                <input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>
+                {{--<link href="/css/star-rating.css" media="all" rel="stylesheet" type="text/css" />--}}
+                {{--<label for="input-7-xs" class="control-label">Extra Small Rating</label>--}}
+                {{--<input id="input-7-xs" class="rating rating-loading" value="1" data-min="0" data-max="5" data-step="0.5" data-size="xs"><hr/>--}}
                 <hr>
                 <div class="row">
                     <div class="col-xs-12 col-sm-12">

@@ -179,10 +179,11 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/contact-us', 'ContactController@sendContactMessage');
 
-    Route::get('/test', function () {
-        return view('email_layouts.contact', ['event' => \App\Event::find(1)]);
-
-    });
+    /*
+     * Route related to the search query
+     * */
+    Route::get('/search', 'SearchController@search');
+    Route::get('/test', 'ContactController@sendContactMessage');
 
 });
 

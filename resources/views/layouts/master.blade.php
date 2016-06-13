@@ -68,6 +68,21 @@
         $(document).ready(function () {
             $('[data-toggle="popover"]').popover({html: true});
             startApp();
+
+
+            $(".search_box").submit(function () {
+                $.ajax({
+                    type: 'GET',
+                    url: '/search',
+                    data: $(this).serialize(),
+                    success: function (data) {
+                        $('#modal_holder').empty();
+                        $('#modal_holder').html(data);
+                        $('#myModal').modal('show');
+                    }
+                });
+            });
+
         });
         var googleUser = {};
         var startApp = function () {
@@ -109,7 +124,7 @@
 </head>
 
 <body class="@yield('homepage')">
-
+<div id="modal_holder"></div>
 <header id="header">
     <div class="navbar" role="banner">
         <div class="container">
@@ -130,8 +145,9 @@
                                             class="fa fa-linkedin"></i></a></li>
                         </ul>
                         <div class="search">
-                            <form role="form">
-                                <input type="text" class="search-form" autocomplete="off" placeholder="Search hackoverflow">
+                            <form class="search_box" role="form" onsubmit="return false;">
+                                <input type="text" class="search-form" name="key" autocomplete="off"
+                                       placeholder="Search hackoverflow">
                                 <i class="fa fa-search"></i>
                             </form>
                         </div>

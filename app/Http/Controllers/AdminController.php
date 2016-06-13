@@ -12,6 +12,7 @@ use App\User;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
 use Psy\Util\Json;
 
@@ -87,8 +88,13 @@ class AdminController extends Controller
     {
         $id = request()->input('id');
         $forum = Forum_post::find($id);
-        $forum->forumFeedback()->delete();
-        $forum->delete();
+        try {
+            DB::transaction(function () use ($forum) {
+                $forum->forumFeedback()->delete();
+                $forum->delete();
+            });
+        } catch (\Exception $e) {
+        }
         return json_encode(true);
     }
 
@@ -100,15 +106,21 @@ class AdminController extends Controller
     public function deleteHack()
     {
         $id = request()->input('id');
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
         $hack = $event->hackathon;
         $eventinfo = $event->event_info;
         $com = $event->commondata;
-        $com->delete();
-        $hack->delete();
-        $eventinfo->delete();
-        $event->tags()->detach();
-        $event->delete();
+        try {
+            DB::transaction(function () use ($com, $hack, $event, $eventinfo) {
+                $com->delete();
+                $hack->delete();
+                $eventinfo->delete();
+                $event->tags()->detach();
+                $event->delete();
+            });
+        } catch (\Exception $e) {
+            abort(500);
+        }
 
         return json_encode(true);
     }
@@ -121,15 +133,21 @@ class AdminController extends Controller
     public function deleteMeet()
     {
         $id = request()->input('id');
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
         $meet = $event->meetup;
         $eventinfo = $event->event_info;
         $com = $event->commondata;
-        $com->delete();
-        $meet->delete();
-        $eventinfo->delete();
-        $event->tags()->detach();
-        $event->delete();
+        try {
+            DB::transaction(function () use ($com, $meet, $event, $eventinfo) {
+                $com->delete();
+                $meet->delete();
+                $eventinfo->delete();
+                $event->tags()->detach();
+                $event->delete();
+            });
+        } catch (\Exception $e) {
+            abort(500);
+        }
 
         return json_encode(true);
     }
@@ -142,15 +160,21 @@ class AdminController extends Controller
     public function deleteOther()
     {
         $id = request()->input('id');
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
         $other = $event->otherevent;
         $eventinfo = $event->event_info;
         $com = $event->commondata;
-        $com->delete();
-        $other->delete();
-        $eventinfo->delete();
-        $event->tags()->detach();
-        $event->delete();
+        try {
+            DB::transaction(function () use ($com, $eventinfo, $event, $other) {
+                $com->delete();
+                $other->delete();
+                $eventinfo->delete();
+                $event->tags()->detach();
+                $event->delete();
+            });
+        } catch (\Exception $e) {
+            abort(500);
+        }
 
         return json_encode(true);
     }

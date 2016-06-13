@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Http\Requests;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use Illuminate\View\View;
 use Psy\Util\Json;
@@ -31,7 +32,11 @@ class ForumController extends Controller
         $forum_post->title = $post_name;
         $forum_post->post = $post_article;
         $forum_post->uuid = Uuid::uuid();
-        $user->forum_posts()->save($forum_post);
+        try {
+            $user->forum_posts()->save($forum_post);
+        } catch (\Exception $e) {
+            abort(500);
+        }
         return redirect('/forum/' . $forum_post->id);
     }
 
@@ -43,7 +48,7 @@ class ForumController extends Controller
      */
     public function view($id)
     {
-        $post = Forum_post::find($id);
+        $post = Forum_post::findOrFail($id);
         $user = $post->user;
         return view('forumArticle', ['post' => $post, 'user' => $user]);
     }
@@ -90,20 +95,32 @@ class ForumController extends Controller
         $id = request()->input('forumID');
         $like = request()->input('like');
         $user = Auth::user();
-        $forum = Forum_post::find($id);
+        $forum = Forum_post::findOrFail($id);
         if ($feedback = ForumFeedBack::where('forum_id', $id)->where('user_id', $user->id)->first()) {
             $feedback->action = $like;
-            $feedback->save();
-            $user->forumFeedback()->save($feedback);
-            $forum->forumFeedback()->save($feedback);
+            try {
+                DB::transaction(function () use ($feedback, $user, $forum) {
+                    $feedback->save();
+                    $user->forumFeedback()->save($feedback);
+                    $forum->forumFeedback()->save($feedback);
+                });
+            } catch (\Exception $e) {
+                abort(500);
+            }
         } else {
             $feedback = new ForumFeedBack();
             $feedback->action = $like;
-            $feedback->save();
-            $user->forumFeedback()->save($feedback);
-            $forum->forumFeedback()->save($feedback);
+            try {
+                DB::transaction(function () use ($feedback, $user, $forum) {
+                    $feedback->save();
+                    $user->forumFeedback()->save($feedback);
+                    $forum->forumFeedback()->save($feedback);
+                });
+            } catch (\Exception $e) {
+                abort(500);
+            }
         }
-        return redirect('/forum/' . $id);
+        return "true";
     }
 
 
@@ -115,7 +132,7 @@ class ForumController extends Controller
      */
     public function editForum($id)
     {
-        $forum = Forum_post::find($id);
+        $forum = Forum_post::findOrFail($id);
         if ($forum->user == Auth::user()) {
             return view('editor_layouts.updateforum', ["title" => $forum->title, "post" => $forum->post]);
         } else {
@@ -134,18 +151,28 @@ class ForumController extends Controller
     public function update($id)
     {
         // validating the user
-        $forum = Forum_post::find($id);
+        $forum = Forum_post::findOrFail($id);
         if ($forum->user == Auth::user()) {
             switch (request()->input('submit')) {
                 case 'update':
-                    $forum->title = request()->input('name');
-                    $forum->post = request()->input('post');
-                    $forum->save();
+                    try {
+                        $forum->title = request()->input('name');
+                        $forum->post = request()->input('post');
+                        $forum->save();
+                    } catch (\Exception $e) {
+                        abort(500);
+                    }
                     return redirect('/forum/' . $id);
                     break;
                 case 'delete':
-                    $forum->forumFeedback()->delete();
-                    $forum->delete();
+                    try {
+                        DB::transaction(function () use ($forum) {
+                            $forum->forumFeedback()->delete();
+                            $forum->delete();
+                        });
+                    } catch (\Exception $e) {
+                        abort(500);
+                    }
                     return redirect('/profile/forum');
                     break;
             }

@@ -21,7 +21,7 @@ class ContactController extends Controller
 
         $job = new SendContactMail($object);
         $this->dispatch($job);
-
+        
         return json_encode($object);
     }
 }

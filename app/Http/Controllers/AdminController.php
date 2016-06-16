@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use Illuminate\Support\Facades\View;
 use Psy\Util\Json;
 
 class AdminController extends Controller
@@ -78,6 +79,17 @@ class AdminController extends Controller
     {
         $others = Event::with('otherevent', 'event_info', 'tags')->where('type', 'other')->orderBy('created_at', 'desc')->paginate(20);
         return view('admin_views.other', ['others' => $others]);
+    }
+
+    /**
+     * Add or remove admin View
+     *
+     * @return View
+     */
+    public function administration()
+    {
+        $admins = User::where('admin', 1)->get();
+        return view('admin_views.administration', ['admins' => $admins]);
     }
 
     /**
@@ -178,6 +190,44 @@ class AdminController extends Controller
 
         return json_encode(true);
     }
+
+
+    /**
+     * Add or remove admin determined by the email address
+     * @return Json
+     */
+    public function addRemoveAdmin()
+    {
+        switch (request()->input('action')) {
+            case 'add':
+                $user = User::where('email', request()->input('email'))->firstOrFail();
+                $user->admin = 1;
+                $user->save();
+                return json_encode(true);
+            case 'remove':
+                if (User::where('admin', 1)->count() < 2) {
+                    abort(403); // Not allowing to remove the only admin available
+                }
+                $user = User::where('email', request()->input('email'))->firstOrFail();
+                $user->admin = 0;
+                $user->save();
+                return json_encode(true);
+            default:
+                abort(404);
+        }
+    }
+
+
+    /**
+     * Return the matching email addresses
+     *
+     * @return Json
+     */
+    public function seeUsers()
+    {
+        return User::where('email', 'like', request('email') . '%')->take(5)->get();
+    }
+
 //    public function view_error()
 //    {
 //        Log::info("sdasdasda");

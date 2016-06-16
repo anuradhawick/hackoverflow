@@ -10,10 +10,6 @@
 @section('modal_header','Search results for "'. $key.'"')
 @section('content')
     <script>
-        var pgCountEvents = {{ $events->count() }};
-        var currPageEvents = {{ $events->currentPage() }};
-        var pgCountForum = {{ $forums->count() }};
-        var currPageForum = {{ $forums->currentPage() }};
         $.ajax({
             url: '/search/events',
             data: {key: "{{ $key }}"},

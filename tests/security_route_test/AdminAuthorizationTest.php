@@ -44,5 +44,12 @@ class AdminAuthorizationTest extends TestCase
         $this->actingAs($user)->call('GET', '/admin/other');
         $this->assertResponseStatus(401);
     }
-    
+
+    public function testAdminAdministrationPage()
+    {
+        $user = new \App\User();
+        $this->actingAs($user)->call('GET', '/admin/administration');
+        $this->assertResponseStatus(401);
+    }
+
 }

@@ -24,7 +24,7 @@
                             <div class="col-sm-8">
                                 <input id="name" name="name" type="text"
                                        placeholder="eg: JAVA competitions"
-                                       class="form-control input-md" required maxlength="30">
+                                       class="form-control input-md" required maxlength="30"  autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group">

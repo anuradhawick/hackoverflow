@@ -89,6 +89,10 @@ Route::group(['middleware' => ['web']], function () {
 
             Route::get('/admin/errors', 'AdminController@view_error');
 
+            Route::get('/admin/administration', 'AdminController@administration');
+
+            Route::post('/admin/administration', 'AdminController@addRemoveAdmin');
+
             Route::post('/admin/delete_post', 'AdminController@deleteForum');
 
             Route::post('/admin/delete_hack', 'AdminController@deleteHack');
@@ -96,6 +100,9 @@ Route::group(['middleware' => ['web']], function () {
             Route::post('/admin/delete_meet', 'AdminController@deleteMeet');
 
             Route::post('/admin/delete_other', 'AdminController@deleteOther');
+            
+            Route::get('/admin/see_users', 'AdminController@seeUsers');
+
         });
     });
 
@@ -142,7 +149,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/forum/{id}', 'ForumController@view');
 
     Route::get('/forum/', 'ForumController@viewPosts');
-    
+
     /*
      * Routes related to authentication of the users
      * */

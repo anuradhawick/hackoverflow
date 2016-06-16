@@ -27,6 +27,7 @@
                 }
             });
             $(".remove").click(function (event) {
+//                var obj = $(this).parent().parent();
                 $.ajax({
                     url: '/admin/administration',
                     type: 'POST',
@@ -40,6 +41,7 @@
                         $("#alert_removal").show();
                         setTimeout(function () {
                             $("#alert_removal").slideUp(1000);
+//                            obj.find("td:parent").remove()
                             window.location.href = window.location.href;
                         }, 1000);
                     },

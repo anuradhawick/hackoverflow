@@ -19,6 +19,13 @@
 @section('body_content')
     <br>
     <br>
+    <script !src="">
+        $(document).on('click','.tag',function(){
+            $("#search_box").val($(this).text());
+            $("#search_box").submit();
+        });
+    </script>
+
     <div class="center wow fadeInDown">
         <div class="blog container">
             <div class="blog-item">
@@ -155,7 +162,8 @@
                         <div class="post-tags">
                             <strong>Tags:</strong>
                             @foreach($event->tags as $tag )
-                                <a href="javascript:void(0)"> &nbsp; {{ $tag->tag }} &nbsp; &nbsp;</a>
+                                &nbsp; <a href="javascript:void(0)" class="tag" data-toggle="tooltip" title="Click to view similar events">{{ $tag->tag }}</a>
+                                &nbsp; &nbsp;
                             @endforeach
                         </div>
                     </div>
@@ -191,8 +199,6 @@
                                 (d.head || d.body).appendChild(s);
                             })();
                         </script>
-
-
                     </div>
 
                 </div>

@@ -86,7 +86,7 @@
                         </div>
                         <div class="form-group">
                             <label>Phone</label>
-                            <input type="number" name="phone" class="form-control">
+                            <input type="tel" name="phone" class="form-control">
                         </div>
                         <div class="form-group">
                             <label>Company Name</label>

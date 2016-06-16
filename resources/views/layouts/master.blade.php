@@ -146,7 +146,7 @@
                         </ul>
                         <div class="search">
                             <form class="search_box" role="form" onsubmit="return false;">
-                                <input type="text" class="search-form" name="key" autocomplete="off"
+                                <input id="search_box" type="text" class="search-form" name="key" autocomplete="off"
                                        placeholder="Search hackoverflow">
                                 <i class="fa fa-search"></i>
                             </form>
@@ -254,7 +254,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="http://shapebootstrap.net/"
+                &copy; 2016 <a target="_blank" href="javascript:void(0)"
                                title="Free Twitter Bootstrap WordPress Themes and HTML templates">DVios</a>.
                 All Rights Reserved.
             </div>
@@ -262,7 +262,7 @@
                 <ul class="pull-right">
                     <li><a href="/">Home</a></li>
                     <li><a href="/about-us">About Us</a></li>
-                    <li><a href="#">Faq</a></li>
+                    {{--<li><a href="#">Faq</a></li>--}}
                     <li><a href="/contact-us">Contact Us</a></li>
                 </ul>
             </div>

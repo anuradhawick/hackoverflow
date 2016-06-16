@@ -27,3 +27,10 @@ a.list-group-item.active, a.list-group-item.active:hover, a.list-group-item.acti
     border-color: #c52d2f;
     background-color: #c52d2f;
 }
+
+.nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+    border-color: #c52d2f;
+    background-color: #c52d2f;
+}
+
+

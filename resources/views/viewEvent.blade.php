@@ -16,14 +16,17 @@
     @section('title','Other event')
 @section('other','active')
 @endif
-@section('body_content')
-    {{--<meta property="og:url"--}}
-          {{--content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html"/>--}}
+@section('og-tags')
     <meta property="og:type" content="article"/>
     <meta property="og:title" content="{{ $event->name }}"/>
     <meta property="og:description" content="{{ $event->event_info->description }}"/>
     <meta property="og:image"
           content="{{ $event->commondata->flier_url }}"/>
+@endsection
+@section('body_content')
+    {{--<meta property="og:url"--}}
+    {{--content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html"/>--}}
+
     <br>
     <br>
     <script !src="">

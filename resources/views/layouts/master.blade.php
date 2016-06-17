@@ -6,6 +6,8 @@
     <meta name="description" content="Hackoveflow, collect all the hackathon news and deliver it to the IT community.">
     <meta name="author" content="">
     <meta name="_token" content="{{ csrf_token() }}">
+    @section('og-tags')
+    @show
     <title>@yield('title')</title>
     <script src="{{asset('js/jquery.js')}}"></script>
     <script>

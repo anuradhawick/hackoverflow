@@ -9,7 +9,6 @@
   <component name="ChangeListManager">
     <list default="true" id="6d66dfc1-235c-4018-8ce4-4df0af69bda3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/viewEvent.blade.php" afterPath="$PROJECT_DIR$/resources/views/viewEvent.blade.php" />
     </list>
     <ignored path="HackOverflow.iws" />
@@ -130,8 +129,8 @@
       <file leaf-file-name="viewEvent.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/viewEvent.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+            <state relative-caret-position="225">
+              <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -1321,7 +1320,7 @@
       <workItem from="1465972928774" duration="527000" />
       <workItem from="1466081470396" duration="20937000" />
       <workItem from="1466130994851" duration="8014000" />
-      <workItem from="1466189567642" duration="343000" />
+      <workItem from="1466189567642" duration="711000" />
     </task>
     <task id="LOCAL-00001" summary="Created database migrations">
       <created>1459778592835</created>
@@ -1341,7 +1340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="369882000" />
+    <option name="totallyTimeSpent" value="370250000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1783,8 +1782,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/viewEvent.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="24" column="11" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
+        <state relative-caret-position="225">
+          <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
         </state>
       </provider>

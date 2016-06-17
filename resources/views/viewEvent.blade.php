@@ -17,10 +17,17 @@
 @section('other','active')
 @endif
 @section('body_content')
+    {{--<meta property="og:url"--}}
+          {{--content="http://www.nytimes.com/2015/02/19/arts/international/when-great-minds-dont-think-alike.html"/>--}}
+    <meta property="og:type" content="article"/>
+    <meta property="og:title" content="{{ $event->name }}"/>
+    <meta property="og:description" content="{{ $event->event_info->description }}"/>
+    <meta property="og:image"
+          content="{{ $event->commondata->flier_url }}"/>
     <br>
     <br>
     <script !src="">
-        $(document).on('click','.tag',function(){
+        $(document).on('click', '.tag', function () {
             $("#search_box").val($(this).text());
             $("#search_box").submit();
             $("#search_box").val("");
@@ -32,6 +39,11 @@
             <div class="blog-item">
 
                 <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <img class="img-responsive img-blog"
+                             src="{{ $event->commondata->flier_url }}"
+                             alt="Flier" style="margin: 0 auto;"/>
+                    </div>
                     <div class="col-sx-12 col-sm-6">
                         <table class="table table-responsive table-striped table-hover col-sm-12">
                             <tr>
@@ -163,15 +175,11 @@
                         <div class="post-tags">
                             <strong>Tags:</strong>
                             @foreach($event->tags as $tag )
-                                &nbsp; <a href="javascript:void(0)" class="tag" data-toggle="tooltip" title="Click to view similar events">{{ $tag->tag }}</a>
+                                &nbsp; <a href="javascript:void(0)" class="tag" data-toggle="tooltip"
+                                          title="Click to view similar events">{{ $tag->tag }}</a>
                                 &nbsp; &nbsp;
                             @endforeach
                         </div>
-                    </div>
-                    <div class="col-xs-12 col-sm-6">
-                        <img class="img-responsive img-blog"
-                             src="{{ $event->commondata->flier_url }}"
-                             alt="Flier" style="margin: 0 auto;"/>
                     </div>
                 </div>
                 <br>

@@ -9,7 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="6d66dfc1-235c-4018-8ce4-4df0af69bda3" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/viewEvent.blade.php" afterPath="$PROJECT_DIR$/resources/views/viewEvent.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
     </list>
     <ignored path="HackOverflow.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -94,13 +94,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="master.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="21" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="21" />
+            <state relative-caret-position="90">
+              <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
               <folding>
-                <marker date="1466189871000" expanded="true" signature="5421:5691" ph="..." />
+                <marker date="1466191235000" expanded="true" signature="5460:5730" ph="..." />
               </folding>
             </state>
           </provider>
@@ -126,7 +126,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewEvent.blade.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewEvent.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/viewEvent.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="225">
@@ -218,8 +218,8 @@
         <option value="$PROJECT_DIR$/app/Managers/TagManager.php" />
         <option value="$PROJECT_DIR$/resources/views/admin_views/administration.blade.php" />
         <option value="$PROJECT_DIR$/config/app.php" />
-        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/viewEvent.blade.php" />
+        <option value="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
       </list>
     </option>
   </component>
@@ -1320,7 +1320,7 @@
       <workItem from="1465972928774" duration="527000" />
       <workItem from="1466081470396" duration="20937000" />
       <workItem from="1466130994851" duration="8014000" />
-      <workItem from="1466189567642" duration="711000" />
+      <workItem from="1466189567642" duration="1377000" />
     </task>
     <task id="LOCAL-00001" summary="Created database migrations">
       <created>1459778592835</created>
@@ -1340,7 +1340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370250000" />
+    <option name="totallyTimeSpent" value="370916000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1770,21 +1770,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="21" selection-start-line="8" selection-start-column="14" selection-end-line="8" selection-end-column="21" />
-          <folding>
-            <marker date="1466189871000" expanded="true" signature="5421:5691" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/viewEvent.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="225">
           <caret line="20" column="38" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="38" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+          <folding>
+            <marker date="1466191235000" expanded="true" signature="5460:5730" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>

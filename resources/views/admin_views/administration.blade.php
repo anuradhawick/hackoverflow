@@ -27,7 +27,6 @@
                 }
             });
             $(".remove").click(function (event) {
-//                var obj = $(this).parent().parent();
                 $.ajax({
                     url: '/admin/administration',
                     type: 'POST',

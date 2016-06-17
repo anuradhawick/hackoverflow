@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Hackoveflow, collect all the hackathon news and deliver it to the IT community.">
-    <meta name="author" content="Anuradha Wickramarachchi &commat; DVios">
+    <meta name="author" content="Anuradha Wickramarachchi@DVios">
     <meta name="_token" content="{{ csrf_token() }}">
     @section('og-tags')
     @show

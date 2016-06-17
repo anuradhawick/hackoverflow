@@ -98,9 +98,9 @@
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+              <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
               <folding>
-                <marker date="1466191235000" expanded="true" signature="5460:5730" ph="..." />
+                <marker date="1466191439000" expanded="true" signature="5451:5721" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1320,7 +1320,7 @@
       <workItem from="1465972928774" duration="527000" />
       <workItem from="1466081470396" duration="20937000" />
       <workItem from="1466130994851" duration="8014000" />
-      <workItem from="1466189567642" duration="1377000" />
+      <workItem from="1466189567642" duration="1517000" />
     </task>
     <task id="LOCAL-00001" summary="Created database migrations">
       <created>1459778592835</created>
@@ -1340,7 +1340,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="370916000" />
+    <option name="totallyTimeSpent" value="371056000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1781,9 +1781,9 @@
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="66" selection-start-line="6" selection-start-column="66" selection-end-line="6" selection-end-column="66" />
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
           <folding>
-            <marker date="1466191235000" expanded="true" signature="5460:5730" ph="..." />
+            <marker date="1466191439000" expanded="true" signature="5451:5721" ph="..." />
           </folding>
         </state>
       </provider>

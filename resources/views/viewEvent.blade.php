@@ -23,6 +23,7 @@
         $(document).on('click','.tag',function(){
             $("#search_box").val($(this).text());
             $("#search_box").submit();
+            $("#search_box").val("");
         });
     </script>
 

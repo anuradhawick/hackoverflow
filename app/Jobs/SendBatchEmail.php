@@ -19,6 +19,7 @@ class SendBatchEmail extends Job implements ShouldQueue
 
     /**
      * Create a new job instance.
+     *
      * @param Event $event
      */
     public function __construct(Event $event)
@@ -33,9 +34,12 @@ class SendBatchEmail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        // If the job fails for more than two types drop the task
         if ($this->attempts() > 2) {
             return;
         }
+        // Get the subscriptions and dispatch the mail to them
+        // Three tables are joined and chunk in batches of 10 to save memory
         DB::table('users')->join('user_sub', 'user_sub.user_id', '=', 'users.id')->join('subscriptions', 'subscriptions.id', '=', 'user_sub.sub_id')->where('subscriptions.event_type', $this->event->type)->chunk(10, function ($users) {
             foreach ($users as $user) {
                 Mail::send('email_layouts.event', ['event' => $this->event], function ($message) use ($user) {

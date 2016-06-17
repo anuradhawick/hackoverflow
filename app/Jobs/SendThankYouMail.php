@@ -34,9 +34,11 @@ class SendThankYouMail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        // Drop the task if it fails more than 2 times
         if ($this->attempts() > 2) {
             return;
         }
+        // Send the thank you message to the newly registered user
         Mail::send('email_layouts.thank_you', ['user' => $this->user], function ($message) {
             $message->sender("anuradha.sanjeewa@live.com", $name = "HackOverflow Admin");
             $message->to($this->user->email, $this->user->name);
@@ -51,6 +53,6 @@ class SendThankYouMail extends Job implements ShouldQueue
      */
     public function failed()
     {
-        // TODO
+        // Do nothing
     }
 }

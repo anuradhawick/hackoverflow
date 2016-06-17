@@ -191,16 +191,5 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/search/forum', 'SearchController@searchForum');
 
-
-//    Route::get('/test', function () {
-//        $var = DB::table('events')
-//            ->join('tag_event', 'tag_event.event_id', '=', 'events.id')
-//            ->join('tags', 'tags.id', '=', 'tag_event.tag_id')
-//            ->join('event_info', 'events.id', '=', 'event_info.info_id')
-//            ->where('tags.tag', 'like', '%' . 'idea' . '%')
-//            ->paginate(10);
-//        return $var->next_page_url;
-//    });
-
 });
 

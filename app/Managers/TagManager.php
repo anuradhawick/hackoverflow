@@ -23,7 +23,7 @@ class TagManager
      */
     public static function getTagsArray($tagsString)
     {
-        $tags = explode(',', $tagsString);
+        $tags = explode(',', $tagsString); // Split from commas
         $out = array();
         foreach ($tags as $tag) {
             $tag = trim(strtolower($tag));

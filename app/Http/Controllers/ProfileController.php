@@ -9,10 +9,13 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\View;
 
 class ProfileController extends Controller
 {
     /**
+     * Subscribe to the desired event type
+     *
      * @return void
      */
     public function subscribe()
@@ -25,6 +28,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * View the profile page
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function viewPage()
@@ -34,6 +39,7 @@ class ProfileController extends Controller
         $hack = false;
         $meet = false;
         $other = false;
+        // Getting the current subscription details
         foreach ($subs as $sub) {
             if ($sub->event_type == "hackathons") {
                 $hack = true;
@@ -49,6 +55,11 @@ class ProfileController extends Controller
     }
 
 
+    /**
+     * Users forum posts
+     *
+     * @return View
+     */
     public function myForumPosts()
     {
         $user = Auth::user();
@@ -58,7 +69,9 @@ class ProfileController extends Controller
 
 
     /**
-     * @return mixed
+     * View users hackathon posts
+     *
+     * @return View
      */
     public function viewHacks()
     {
@@ -68,7 +81,9 @@ class ProfileController extends Controller
     }
 
     /**
-     * @return mixed
+     * View users meetup events
+     *
+     * @return View
      */
     public function viewMeets()
     {
@@ -78,7 +93,9 @@ class ProfileController extends Controller
     }
 
     /**
-     * @return mixed
+     * View users other events
+     *
+     * @return View
      */
     public function viewOtherEvents()
     {

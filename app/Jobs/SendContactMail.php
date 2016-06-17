@@ -30,9 +30,11 @@ class SendContactMail extends Job implements ShouldQueue
      */
     public function handle()
     {
+        // If the job fails for more than times drop the task
         if ($this->attempts() > 2) {
             return;
         }
+        // Send the mail to the administrator as per contact request
         Mail::send('email_layouts.contact', ['object' => $this->object], function ($message) {
             $message->sender("anuradha.sanjeewa@live.com", $name = "HackOverflow Admin");
             $message->to("anuradhawick@gmail.com", "Anuradha Wickramarachchi");

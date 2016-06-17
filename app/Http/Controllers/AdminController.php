@@ -227,24 +227,5 @@ class AdminController extends Controller
     {
         return User::where('email', 'like', request('email') . '%')->take(5)->get();
     }
-
-//    public function view_error()
-//    {
-//        Log::info("sdasdasda");
-//
-//        return view('admin_views.errors');
-//    }
-//
-//    public function view_report()
-//    {
-//        $object = new \stdClass();
-//        $object->user_count = User::count();
-//        $object->forum_count = Forum_post::count();
-//        $object->hack_count = Hackevent::count();
-//        $object->meetup_count = Meetevent::count();
-//        $object->other_count = Otherevent::count();
-//        $object->like_count = ForumFeedBack::count();
-//
-//        return view('admin_views.home', ['object' => $object]);
-//    }
+    
 }

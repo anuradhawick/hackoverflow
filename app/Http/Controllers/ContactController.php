@@ -19,6 +19,7 @@ class ContactController extends Controller
         $object->email = request()->input('email');
         $object->phone = request()->input('phone');
 
+        // Dispatch the email to be send in the queue
         $job = new SendContactMail($object);
         $this->dispatch($job);
         

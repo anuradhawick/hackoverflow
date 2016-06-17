@@ -26,6 +26,7 @@ class Authenticate
             }
         }
 
+        // If the middle ware passes proceed the request
         return $next($request);
     }
 }

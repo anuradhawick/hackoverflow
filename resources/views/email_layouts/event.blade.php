@@ -17,7 +17,7 @@
     <hr>
     <div>
         <h2 style="text-align: center">Event alert</h2>
-        <img style="margin: auto; display: block;" src="{{ $event->commondata->flier_url }}" alt="Flier URL">
+        <img style="margin: auto; display: block;" src="{{ $event->commondata->flier_url }}" alt="Flier URL" width="400px" height="400px">
         <hr>
         <table align="center" width="50%">
             <tr>

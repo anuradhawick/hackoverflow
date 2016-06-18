@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HackNews, collect all the hackathon news and deliver it to the IT community.">
-    <meta name="author" content="TeamDVios">
+    <meta name="author" content="DVios" href="https://web.facebook.com/TeamDVios/">
     <meta name="_token" content="{{ csrf_token() }}">
     @section('og-tags')
     @show
@@ -256,7 +256,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="javascript:void(0)"
+                &copy; 2016 <a target="_blank" href="https://web.facebook.com/TeamDVios/"
                                title="Free Twitter Bootstrap WordPress Themes and HTML templates">DVios</a>.
                 All Rights Reserved.
             </div>

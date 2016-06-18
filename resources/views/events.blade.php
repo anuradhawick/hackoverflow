@@ -34,7 +34,7 @@
                             </div>
                         @else
                             @foreach($events as $e)
-                                <div class="blog-item col-sm-6">
+                                <div class="blog-item col-sm-12">
                                     <div class="">
                                         <div class="blog-content well">
                                             <h2 class="text-left"><a

@@ -411,4 +411,7 @@
       </key>
     </database-model>
   </data-source>
+  <data-source name="PostgreSQL - jdbc:postgres://ieezhiksnqpjgp:EBewZk6x8LaQeQUFxT2PWsCYj7@ec2-54-225-83-198.compute-1.amazonaws.com:5432/d6nj3r07p8cbus" uuid="7a617be0-801b-4954-bc5b-c13fcf52cd90">
+    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+  </data-source>
 </component>

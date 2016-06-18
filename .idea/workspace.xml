@@ -8,8 +8,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6d66dfc1-235c-4018-8ce4-4df0af69bda3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TestQueries/file1.sql" afterPath="$PROJECT_DIR$/TestQueries/file1.sql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/email_layouts/event.blade.php" afterPath="$PROJECT_DIR$/resources/views/email_layouts/event.blade.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/master.blade.php" />
     </list>
     <ignored path="HackOverflow.iws" />
@@ -49,9 +48,9 @@
         <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="90">
-              <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+              <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
               <folding>
-                <marker date="1466263438000" expanded="true" signature="5466:5736" ph="..." />
+                <marker date="1466263719000" expanded="true" signature="5473:5743" ph="..." />
               </folding>
             </state>
           </provider>
@@ -1018,7 +1017,7 @@
       <workItem from="1466130994851" duration="8014000" />
       <workItem from="1466189567642" duration="2170000" />
       <workItem from="1466228505707" duration="1824000" />
-      <workItem from="1466259667208" duration="1987000" />
+      <workItem from="1466259667208" duration="2160000" />
     </task>
     <task id="LOCAL-00001" summary="Created database migrations">
       <created>1459778592835</created>
@@ -1038,7 +1037,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="375520000" />
+    <option name="totallyTimeSpent" value="375693000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1478,9 +1477,9 @@
     <entry file="file://$PROJECT_DIR$/resources/views/layouts/master.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
-          <caret line="6" column="82" selection-start-line="6" selection-start-column="82" selection-end-line="6" selection-end-column="82" />
+          <caret line="6" column="84" selection-start-line="6" selection-start-column="84" selection-end-line="6" selection-end-column="84" />
           <folding>
-            <marker date="1466263438000" expanded="true" signature="5466:5736" ph="..." />
+            <marker date="1466263719000" expanded="true" signature="5473:5743" ph="..." />
           </folding>
         </state>
       </provider>

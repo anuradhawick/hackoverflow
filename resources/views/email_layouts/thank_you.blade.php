@@ -16,7 +16,7 @@
     </div>
     <hr>
     <div>
-        <h3 style="text-align: center">Thank you for registering at <a href="http://hackoverflow93.herokuapp.com">HackOverflow</a>
+        <h3 style="text-align: center">Thank you for registering at <a href="http://hackoverflow93.herokuapp.com">HackNews</a>
         </h3>
         <hr>
         <img src="{{ $user->picture }}" alt="" style="margin: auto;display: block; border-radius: 50%">

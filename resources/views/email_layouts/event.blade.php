@@ -43,7 +43,7 @@
         </table>
         <hr>
         <p style="text-align: center"><strong>Get registered <a
-                        href="{{ "http://hackoverflow93.herokuapp.com/events/". $event->type."/".$event->id }}">now</a>!</strong>
+                        href="{{ "http://www.hacknews.info/events/". $event->type."/".$event->id }}">now</a>!</strong>
         </p>
     </div>
     <hr>

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HackNews, collect all the hackathon news and deliver it to the IT community.">
-    <meta name="author" content="<a href='https://web.facebook.com/TeamDVios/'>DVios</a>">
+    <meta name="author" content="DVios"  url="https://web.facebook.com/TeamDVios">
     <meta name="_token" content="{{ csrf_token() }}">
     @section('og-tags')
     @show

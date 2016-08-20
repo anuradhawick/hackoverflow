@@ -37,6 +37,19 @@
             $("#search_box").val("");
         });
     </script>
+    <style>
+        #cke_1_top, #cke_1_bottom {
+            display: none;
+        }
+    </style>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('desc');
+            CKEDITOR.config.customConfig = '/ckeditor/view_config.js';
+            CKEDITOR.config.readOnly = true;
+        });
+    </script>
 
     <div class="center wow fadeInDown">
         <div class="blog container">
@@ -44,9 +57,21 @@
 
                 <div class="row">
                     <div class="col-xs-12 col-sm-6">
-                        <img class="img-responsive img-blog"
-                             src="{{ $event->commondata->flier_url }}"
-                             alt="Flier" style="margin: 0 auto;"/>
+                        @if(!empty($event->commondata->flier_url))
+                            <img class="img-responsive img-blog"
+                                 src="{{ $event->commondata->flier_url }}"
+                                 alt="Flier" style="margin: 0 auto;"/>
+                            <br>
+                        @endif
+                        @if(!empty($event->event_info->description))
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-12">
+                                <textarea id="desc">
+                                    {!! $event->event_info->description !!}
+                                </textarea>
+                                </div>
+                            </div>
+                        @endif
                     </div>
                     <div class="col-sx-12 col-sm-6">
                         <table class="table table-responsive table-striped table-hover col-sm-12">
@@ -75,11 +100,6 @@
                                 <td class="col-sm-4" style="text-align: left">Event date</td>
                                 <td class="col-sm-8"
                                     style="text-align: left">{{ $event->event_info->event_date }}</td>
-                            </tr>
-                            <tr>
-                                <td class="col-sm-4" style="text-align: left">Description</td>
-                                <td class="col-sm-8"
-                                    style="text-align: left">{{ $event->event_info->description }}</td>
                             </tr>
                             @if($type == 1)
                                 <tr>
@@ -213,7 +233,6 @@
                             })();
                         </script>
                     </div>
-
                 </div>
             </div>
         </div>

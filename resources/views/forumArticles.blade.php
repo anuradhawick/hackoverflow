@@ -33,10 +33,10 @@
                                         <h2 class="text-left"><a
                                                     href="{{ '/forum/' . $post->id }}">{{ $post->title }}</a>
                                         </h2>
-                                        <h3 class="text-left">{{ substr($post->post, 0, 500).'...' }}</h3>
+                                        <h3 class="text-left">{{ strip_tags(substr($post->post, 0, 500).'...') }}</h3>
                                     </div>
                                 </div>
-                            </div><!--/.blog-item-->
+                            </div>
                         @endforeach
                     @endif
                 </div>

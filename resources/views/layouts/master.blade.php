@@ -270,21 +270,21 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <!-- hitwebcounter Code START -->
-            <a href="http://www.hitwebcounter.com" target="_blank">
-                <img src="http://hitwebcounter.com/counter/counter.php?page=6423390&style=0007&nbdigits=9&type=page&initCount=0"
-                     title="web page hit counters codes Free" Alt="web page hit counters codes Free" border="0">
-            </a> <br/>
-            <!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com" title="Measure Website Visitors"
-                                         target="_blank" style="font-family: Arial, Helvetica, sans-serif;
-                                        font-size: 11px; color: #758087; text-decoration: none ;"><strong>Measure
-                    Website Visitors </strong>
-            </a>
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<!-- hitwebcounter Code START -->--}}
+            {{--<a href="http://www.hitwebcounter.com" target="_blank">--}}
+                {{--<img src="http://hitwebcounter.com/counter/counter.php?page=6423390&style=0007&nbdigits=9&type=page&initCount=0"--}}
+                     {{--title="web page hit counters codes Free" Alt="web page hit counters codes Free" border="0">--}}
+            {{--</a> <br/>--}}
+            {{--<!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com" title="Measure Website Visitors"--}}
+                                         {{--target="_blank" style="font-family: Arial, Helvetica, sans-serif;--}}
+                                        {{--font-size: 11px; color: #758087; text-decoration: none ;"><strong>Measure--}}
+                    {{--Website Visitors </strong>--}}
+            {{--</a>--}}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 </footer>
 
 

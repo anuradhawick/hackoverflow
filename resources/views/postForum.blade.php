@@ -10,7 +10,12 @@
 @section('title','Post in forum')
 @section('forum_post','active')
 @section('body_content')
-
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script !src="">
+        $(document).ready(function () {
+            CKEDITOR.replace('post');
+        });
+    </script>
     <section class="container">
         <div class="center wow fadeInDown">
             <div class="col-md-12">
@@ -24,13 +29,14 @@
                             <div class="col-sm-8">
                                 <input id="name" name="name" type="text"
                                        placeholder="eg: JAVA competitions"
-                                       class="form-control input-md" required maxlength="30"  autocomplete="off">
+                                       class="form-control input-md" required maxlength="30" autocomplete="off">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="post">Post</label>
                             <div class="col-sm-8">
-                                <textarea class="form-control" id="post" name="post" rows="15" maxlength="1500"></textarea>
+                                <textarea class="form-control" id="post" name="post" rows="15"
+                                          maxlength="1500"></textarea>
                             </div>
                         </div>
                         <div class="form-group">

@@ -10,14 +10,26 @@
 @section('title', $post->title)
 @section('forum','active')
 @section('body_content')
-
+    <style>
+        #cke_1_top, #cke_1_bottom {
+            display: none;
+        }
+    </style>
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script>
+        $(document).ready(function () {
+            CKEDITOR.replace('post');
+            CKEDITOR.config.customConfig = '/ckeditor/view_config.js';
+            CKEDITOR.config.readOnly = true;
+        });
+    </script>
     <section class="container">
         <div class="center wow fadeInDown">
             <div class="col-md-12">
                 <h2 style="text-align: left">{{ $post->title }}</h2>
                 <hr>
-                <div>
-                    <h3 style="color: #000000; text-align: justify">{{ $post->post }}</h3>
+                <div id="post">
+                    {!! $post->post !!}
                 </div>
                 <hr>
                 <table class="table-responsive">
@@ -38,11 +50,11 @@
                     </tbody>
                 </table>
                 <br>
-                <div class="pull-left">
-                    <button type="button" id="likeButton" class="btn btn-danger left">Like post</button>
-                    <span>&nbsp; <span id="likeCount"></span> people liked this post</span>
-                </div>
-                <br>
+                {{--<div class="pull-left">--}}
+                    {{--<button type="button" id="likeButton" class="btn btn-danger left">Like post</button>--}}
+                    {{--<span>&nbsp; <span id="likeCount"></span> people liked this post</span>--}}
+                {{--</div>--}}
+                {{--<br>--}}
             </div>
             <hr>
             <div class="col-xs-12 col-sm-12">

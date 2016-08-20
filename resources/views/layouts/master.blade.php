@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="HackNews, collect all the hackathon news and deliver it to the IT community.">
-    <meta name="author" content="TeamDVios">
+    <meta name="author" content="DVios"  url="https://web.facebook.com/TeamDVios">
     <meta name="_token" content="{{ csrf_token() }}">
     @section('og-tags')
     @show
@@ -256,7 +256,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                &copy; 2016 <a target="_blank" href="javascript:void(0)"
+                &copy; 2016 <a target="_blank" href="https://web.facebook.com/TeamDVios/"
                                title="Free Twitter Bootstrap WordPress Themes and HTML templates">DVios</a>.
                 All Rights Reserved.
             </div>
@@ -270,21 +270,21 @@
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row">
-            <!-- hitwebcounter Code START -->
-            <a href="http://www.hitwebcounter.com" target="_blank">
-                <img src="http://hitwebcounter.com/counter/counter.php?page=6423390&style=0007&nbdigits=9&type=page&initCount=0"
-                     title="web page hit counters codes Free" Alt="web page hit counters codes Free" border="0">
-            </a> <br/>
-            <!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com" title="Measure Website Visitors"
-                                         target="_blank" style="font-family: Arial, Helvetica, sans-serif;
-                                        font-size: 11px; color: #758087; text-decoration: none ;"><strong>Measure
-                    Website Visitors </strong>
-            </a>
+    {{--<div class="container">--}}
+        {{--<div class="row">--}}
+            {{--<!-- hitwebcounter Code START -->--}}
+            {{--<a href="http://www.hitwebcounter.com" target="_blank">--}}
+                {{--<img src="http://hitwebcounter.com/counter/counter.php?page=6423390&style=0007&nbdigits=9&type=page&initCount=0"--}}
+                     {{--title="web page hit counters codes Free" Alt="web page hit counters codes Free" border="0">--}}
+            {{--</a> <br/>--}}
+            {{--<!-- hitwebcounter.com --><a href="http://www.hitwebcounter.com" title="Measure Website Visitors"--}}
+                                         {{--target="_blank" style="font-family: Arial, Helvetica, sans-serif;--}}
+                                        {{--font-size: 11px; color: #758087; text-decoration: none ;"><strong>Measure--}}
+                    {{--Website Visitors </strong>--}}
+            {{--</a>--}}
 
-        </div>
-    </div>
+        {{--</div>--}}
+    {{--</div>--}}
 </footer>
 
 

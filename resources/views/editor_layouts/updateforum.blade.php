@@ -9,7 +9,12 @@
 @extends('layouts.master')
 @section('title','Edit forum post')
 @section('body_content')
-
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script !src="">
+        $(document).ready(function () {
+            CKEDITOR.replace('post');
+        });
+    </script>
     <section class="container">
         <div class="center wow fadeInDown">
             <div class="col-md-12">

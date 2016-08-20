@@ -7,3 +7,7 @@ FROM users
 
 SELECT *
 FROM users;
+
+SELECT name,email 
+FROM users 
+  ORDER BY id DESC;

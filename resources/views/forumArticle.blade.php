@@ -50,11 +50,6 @@
                     </tbody>
                 </table>
                 <br>
-                {{--<div class="pull-left">--}}
-                    {{--<button type="button" id="likeButton" class="btn btn-danger left">Like post</button>--}}
-                    {{--<span>&nbsp; <span id="likeCount"></span> people liked this post</span>--}}
-                {{--</div>--}}
-                {{--<br>--}}
             </div>
             <hr>
             <div class="col-xs-12 col-sm-12">
@@ -65,7 +60,6 @@
                      *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables
                      */
                     var disqus_config = function () {
-//                        this.page.url = "hackoverflow/forum/";  // Replace PAGE_URL with your page's canonical URL variable
                         this.page.identifier = "{{ $post->uuid }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
                     };
                     (function () {  // DON'T EDIT BELOW THIS LINE
@@ -89,7 +83,6 @@
                                 data: {like: (likeBtn.text() == 'Like post') ? 1 : 0, forumID: '{{ $post->id }}'},
                                 timeout: 50000,
                                 success: function (data) {
-//                                    /forum/like?forumID=1&like=
                                 },
                                 error: function (XMLHttpRequest, textStatus, errorThrown) {
                                     if (errorThrown == 'Unauthorized') {

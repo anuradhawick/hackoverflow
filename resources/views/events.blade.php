@@ -41,7 +41,7 @@
                                                         href="/events/{{ $e->type }}/{{ $e->id }}">{{ $e->name }}</a>
                                             </h2>
                                             <h3 class="text-left">
-                                                {{ substr($e->event_info->description ,0,500).'...' }}
+                                                {{ strip_tags(substr($e->event_info->description ,0,300)).'...' }}
                                                 <br>
                                                 On: {{ $e->event_info->event_date }}
                                             </h3>

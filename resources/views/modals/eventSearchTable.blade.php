@@ -21,7 +21,7 @@
             </td>
             <td><a target="_blank" href="/events/{{ $event->type }}/{{ $event->id }}">{{ $event->name }}</a>
             </td>
-            <td><a href="javascript:void(0)"></a>{{ str_limit($event->description,30) }}</td>
+            <td><a href="javascript:void(0)"></a>{{ strip_tags(str_limit($event->description,30)) }}</td>
         </tr>
     @endforeach
     </tbody>

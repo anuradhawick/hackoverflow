@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/hackoverflow.iml" filepath="$PROJECT_DIR$/hackoverflow.iml" />
+      <module fileurl="file://$PROJECT_DIR$/HackOverflow.iml" filepath="$PROJECT_DIR$/HackOverflow.iml" />
     </modules>
   </component>
 </project>

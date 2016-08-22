@@ -40,10 +40,14 @@
                         <div class="form-group">
                             <label class="col-sm-4 control-label" for="btn"></label>
                             <div class="col-sm-1 col-sm-offset-5">
-                                <button type="submit" name="submit" class="btn btn-default btn-block" value="update">Update</button>
+                                <button type="submit" name="submit" class="btn btn-default btn-block" value="update">
+                                    Update
+                                </button>
                             </div>
                             <div class="col-sm-1">
-                                <button type="submit" name="submit" class="btn btn-default btn-block cancel" value="delete">Delete</button>
+                                <button type="submit" name="submit" class="btn btn-default btn-block cancel"
+                                        value="delete">Delete
+                                </button>
                             </div>
                         </div>
                     </fieldset>
@@ -55,7 +59,16 @@
     </section>
     <script>
         $(document).ready(function () {
-            $("#forum_form").validate();
+            $("#forum_form").validate({
+                ignore: [],
+                rules: {
+                    post: {
+                        required: function () {
+                            CKEDITOR.instances.post.updateElement();
+                        }
+                    }
+                }
+            });
         });
     </script>
 @endsection

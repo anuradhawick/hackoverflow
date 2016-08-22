@@ -54,7 +54,16 @@
     </section>
     <script>
         $(document).ready(function () {
-            $("#forum_form").validate();
+            $("#forum_form").validate({
+                ignore: [],
+                rules: {
+                    post: {
+                        required: function () {
+                            CKEDITOR.instances.post.updateElement();
+                        }
+                    }
+                }
+            });
         });
     </script>
 @endsection

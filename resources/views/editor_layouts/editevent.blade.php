@@ -15,6 +15,57 @@
     @section('title','Edit other event')
 @endif
 @section('body_content')
+    <script src="/ckeditor/ckeditor.js"></script>
+    <script !src="">
+        $(document).ready(function () {
+            CKEDITOR.replace('desc');
+
+            CKEDITOR.instances.desc.on('change', function () {
+                CKEDITOR.instances.desc.updateElement();
+            });
+
+            jQuery.validator.addMethod("greaterThan",
+                    function (value, element, params) {
+
+                        if (!/Invalid|NaN/.test(new Date(value))) {
+                            return new Date(value) > new Date($(params).val());
+                        }
+
+                        return isNaN(value) && isNaN($(params).val())
+                                || (Number(value) > Number($(params).val()));
+                    }, 'Must be greater than registration deadline.');
+
+            jQuery.validator.addMethod("largerThan",
+                    function (value, element, params) {
+                        console.log(12311)
+                        if (!/Invalid|NaN/.test(new Date(value))) {
+                            return value >= $(params).val();
+                        }
+
+                        return isNaN(value) && isNaN($(params).val())
+                                || value >= $(params).val();
+                    }, 'Must be greater than or equal to minimum number.');
+
+
+            $("#event_form").validate({
+                ignore: [],
+                rules: {
+                    eventDate: {
+                        greaterThan: $('#event_form').find("#regDate")
+                    },
+                    maxTeam: {
+                        largerThan: $('#event_form').find("#minTeam")
+                    },
+                    desc: {
+                        required: function () {
+                            CKEDITOR.instances.desc.updateElement();
+                        }
+                    }
+
+                }
+            });
+        });
+    </script>
     <section class="container">
         <div class="center wow fadeInDown">
             <div class="col-md-12">
@@ -70,10 +121,8 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label" for="name">Description</label>
                             <div class="col-sm-8">
-                                <textarea id="desc" name="desc" type="text"
-                                          placeholder="Small description explaining the event"
-                                          class="form-control input-md"
-                                          required>{{ $event->event_info->description or '' }}</textarea>
+                                <textarea id="desc" name="desc"
+                                          class="form-control input-md" maxlength="1500">{!! $event->event_info->description or '' !!}</textarea>
                             </div>
                         </div>
                         <div class="form-group">
@@ -207,44 +256,8 @@
                     </fieldset>
                 </form>
                 <hr>
-            </div><!--/.row-->
+            </div>
 
         </div>
-    </section><!--/#blog-->
-    <script>
-        $(document).ready(function () {
-            jQuery.validator.addMethod("greaterThan",
-                    function (value, element, params) {
-
-                        if (!/Invalid|NaN/.test(new Date(value))) {
-                            return new Date(value) > new Date($(params).val());
-                        }
-
-                        return isNaN(value) && isNaN($(params).val())
-                                || (Number(value) > Number($(params).val()));
-                    }, 'Must be greater than registration deadline.');
-
-            jQuery.validator.addMethod("largerThan",
-                    function (value, element, params) {
-
-                        if (!/Invalid|NaN/.test(new Date(value))) {
-                            return value >= $(params).val();
-                        }
-
-                        return isNaN(value) && isNaN($(params).val())
-                                || value >= $(params).val();
-                    }, 'Must be greater than or equal to minimum number.');
-
-            $("#event_form").validate({
-                rules: {
-                    eventDate: {
-                        greaterThan: $('#event_form').find("#regDate")
-                    },
-                    maxTeam: {
-                        largerThan: $('#event_form').find("#minTeam")
-                    }
-                }
-            });
-        });
-    </script>
+    </section>
 @endsection
